@@ -26,7 +26,7 @@ TuristIA es una plataforma inteligente que asiste a los usuarios en la planifica
 1. Clona el repositorio:
 
     ```bash
-    git clone https://github.com/tu-usuario/TuristIA.git
+    git clone https://github.com/DayanCabrera2003/TuristAI
     cd TuristIA
     ```
 

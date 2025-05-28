@@ -1,1 +1,2 @@
-# ...empty file...
+streamlit
+google-generativeai
