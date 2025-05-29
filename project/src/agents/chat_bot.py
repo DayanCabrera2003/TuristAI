@@ -1,9 +1,12 @@
 import streamlit as st
 import google.generativeai as genai
+from utils_for_chat import ChatUtils
 
 
 # API Key para la API de Google Gemini
 GEMINI_API_KEY = "AIzaSyDSWR4UwuJmxjvHrmw8t-V9PzUB5aV3QTU"
+
+chat_utils = ChatUtils()
 
 st.set_page_config(page_title="TuristAI", page_icon="🌴", layout="centered")
 st.title("🌴 TuristAI: Tu Asistente Turístico")
@@ -53,14 +56,20 @@ for msg in st.session_state.messages:
 st.markdown('</div>', unsafe_allow_html=True)
 
 user_input = st.text_input("Escribe tu mensaje:", value="", key="input", placeholder="Escribe aquí y presiona Enter...")
+#Utilizar la funcion para mejorar el prompt
 
 def generate(messages):  
-    prompt = ""
-    for m in messages:
+    historial = ""
+    for m in messages[:-1]:
         if m["role"] == "user":
-            prompt += f"Usuario: {m['content']}\n"
+            historial += f"Usuario: {m['content']}\n"
         else:
-            prompt += f"Asistente: {m['content']}\n"
+            historial += f"Asistente: {m['content']}\n"
+    
+    user_query = messages[-1]["content"]
+    prompt_enriquecido = chat_utils.prompt_gen(user_query, chat_utils.store_vectors, top_k=5)
+    
+    prompt = historial + prompt_enriquecido
     prompt += "Asistente:" 
     genai.configure(api_key=GEMINI_API_KEY)
     model = genai.GenerativeModel('gemini-1.5-flash')
