@@ -65,3 +65,54 @@ def compute_embeddings_for_text(text, chunk_size=20, overlap_size=5):
         if vector is not None:
             embeddings.append((vector, chunk))
     return embeddings
+
+
+
+def update_knowledge_base(texts, chunk_size=20, overlap_size=5):
+    """
+    Actualiza la base de conocimiento con los embeddings de los textos dados.
+    
+    Args:
+        texts (list): Lista de textos para procesar.
+        
+    Return: 
+        list: Lista de embeddings generados.
+    """
+    store_vectors = []
+    for text in texts:
+        store_vectors.extend(compute_embeddings_for_text(text, chunk_size=chunk_size, overlap_size=overlap_size))
+        
+    return store_vectors
+
+
+
+def retrieve(query,store_vectors, top_k=3):
+    """
+    Retrieve the top_k texts closest to the query based on Euclidean distance.
+
+    Parameters:
+        query (str): User's query.
+        store_vectors (list of tuples (embedding, text)): Where each embedding is a vector and text is the original text.
+        top_k (int): Amount of texts to retrieve.
+
+    Returns:
+        List of str: Texts closest to the query.
+    """
+
+ # Obtener el embedding de la consulta
+    query_vector = get_embedding(query)
+    if query_vector is None:
+        return []
+    query_vector = np.array(query_vector)
+
+    # Calcular la distancia euclideana entre el embedding de la consulta y cada embedding almacenado
+    distances = []
+    for emb, text in store_vectors:
+        emb_np = np.array(emb)
+        dist = np.linalg.norm(query_vector - emb_np)
+        distances.append(dist)
+
+    # Obtener los índices de los top_k fragmentos más cercanos
+    indices = np.argsort(distances)[:top_k]
+    # Devolver los textos correspondientes
+    return [store_vectors[i][1] for i in indices]
