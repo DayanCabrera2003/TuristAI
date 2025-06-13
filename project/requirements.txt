@@ -1,3 +1,8 @@
-networkx
+streamlit
+google-generativeai
+sentence-transformers 
+geopy
 folium
-geopy 
+numpy
+networkx
+
