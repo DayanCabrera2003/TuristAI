@@ -5,4 +5,9 @@ geopy
 folium
 numpy
 networkx
-
+beautifulsoup4
+lxml
+requests
+selenium
+fake-useragent
+duckduckgo-search
