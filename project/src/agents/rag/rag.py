@@ -1,31 +1,22 @@
 import numpy as np
+import pickle
+import os
 from sentence_transformers import SentenceTransformer
 import google.generativeai as genai
 
 local_model = SentenceTransformer('all-MiniLM-L6-v2')
 class ChatUtils:
-    def __init__(self):
+    def __init__(self,embeddings_path="./project/src/agents/data/embeddings.pkl"):
         # Inicializa el modelo de embeddings y el modelo de Gemini
-    
-        self.knowledge_base = [ """
-        The following document contains a list of some students from Group 312 of the Computer Science program 
-        at the University of Havana, Cuba. This list is not exhaustive and may not include all students from the group.
-
-        Students:
-        - Francisco Préstamo
-        - Adrián Hernández
-        - Lia Stephanie López
-        - Claudia Hernández
-        - Joel Aparicio
-        - Kevin Márquez
-        - Kendry Javier del Pino
-        - Javier A. González
-        - José E. Morales
-        - Salma Fonsea
-        - José Miguel Leyva
         
-        """]
-        self.store_vectors=self.update_knowledge_base(self.knowledge_base, chunk_size=20, overlap_size=5)
+        with open(embeddings_path, "rb") as f:
+            self.store_vectors = pickle.load(f)
+        
+        genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+        self.gemini_model = genai.GenerativeModel('gemini-1.5-flash')
+    
+        # self.knowledge_base = []
+        # self.store_vectors=self.update_knowledge_base(self.knowledge_base, chunk_size=20, overlap_size=5)
     
     def get_embedding(self, text):
         """
@@ -52,8 +43,10 @@ class ChatUtils:
         Return: 
             list<str>: Lista de chunks asociada a los subtextos.
         """
-        words = text.split()
         chunks = []
+        if text is None or len(text) == 0:
+            return chunks
+        words = text.split()
         start = 0
         while start < len(words):
             end = start + window_size
@@ -128,7 +121,7 @@ class ChatUtils:
         # Devolver los textos correspondientes
         return [store_vectors[i][1] for i in indices]
 
-    def prompt_gen(self, query, store_vectors, top_k=6):
+    def prompt_gen(self, query, store_vectors, top_k=10):
         """
         Function that implements a Retrieval-Augmented Generation (RAG) system.
 
@@ -142,10 +135,22 @@ class ChatUtils:
         retrieved_chunks = self.retrieve(query, store_vectors, top_k=top_k)
 
         # 2. Construir el prompt integrando los fragmentos recuperados y la consulta
-        context = "\n".join(retrieved_chunks)
+        context = ".".join(retrieved_chunks)
         prompt = (
+            "A continuación tienes información relevante que puede ayudarte a responder la pregunta del usuario. "
+            "Si la respuesta está en la información proporcionada, úsala. "
+            "Si no encuentras la respuesta completa ahí, responde usando tu propio conocimiento general, "
+            "pero intenta siempre ser útil y específico.\n\n"
             f"Información relevante:\n{context}\n\n"
-            f"Pregunta: {query}\n"
+            f"Pregunta del usuario: {query}\n"
             f"Respuesta:"
         )
         return prompt
+    
+    def ask(self, query, top_k=10):
+        """
+        Llama al modelo de lenguaje con la query y devuelve la respuesta.
+        """
+        prompt = self.prompt_gen(query,self.store_vectors, top_k=top_k)
+        response = self.gemini_model.generate_content(prompt)
+        return response.text

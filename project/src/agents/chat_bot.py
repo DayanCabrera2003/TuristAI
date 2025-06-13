@@ -1,12 +1,12 @@
 import streamlit as st
 import google.generativeai as genai
-from utils_for_chat import ChatUtils
+from rag import rag
 
 
 # API Key para la API de Google Gemini
 GEMINI_API_KEY = "AIzaSyDSWR4UwuJmxjvHrmw8t-V9PzUB5aV3QTU"
 
-chat_utils = ChatUtils()
+chat_utils = rag.ChatUtils()
 
 st.set_page_config(page_title="TuristAI", page_icon="🌴", layout="centered")
 st.title("🌴 TuristAI: Tu Asistente Turístico")
@@ -67,10 +67,10 @@ def generate(messages):
             historial += f"Asistente: {m['content']}\n"
     
     user_query = messages[-1]["content"]
-    prompt_enriquecido = chat_utils.prompt_gen(user_query, chat_utils.store_vectors, top_k=5)
+    prompt_enriquecido = chat_utils.prompt_gen(user_query, chat_utils.store_vectors, top_k=50)
     
-    prompt = historial + prompt_enriquecido
-    prompt += "Asistente:" 
+    prompt = historial + "\n" + prompt_enriquecido
+  
     genai.configure(api_key=GEMINI_API_KEY)
     model = genai.GenerativeModel('gemini-1.5-flash')
     response = model.generate_content(prompt)
