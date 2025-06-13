@@ -3,6 +3,7 @@ import google.generativeai as genai
 from rag import rag
 
 
+
 # API Key para la API de Google Gemini
 GEMINI_API_KEY = "AIzaSyDSWR4UwuJmxjvHrmw8t-V9PzUB5aV3QTU"
 
@@ -71,6 +72,7 @@ def generate(messages):
     
     prompt = historial + "\n" + prompt_enriquecido
   
+
     genai.configure(api_key=GEMINI_API_KEY)
     model = genai.GenerativeModel('gemini-1.5-flash')
     response = model.generate_content(prompt)
