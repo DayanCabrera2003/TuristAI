@@ -1,0 +1,73 @@
+import os
+import json
+import pickle
+from pathlib import Path
+from sentence_transformers import SentenceTransformer
+from rag import ChatUtils
+
+DATA_DIR = "./project/src/agents/data"
+EMBEDDINGS_FILE = "./project/src/agents/data/embeddings.pkl"
+
+
+def extract_texts_from_json(json_path):
+    text=""
+    with open(json_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+        # partes=[]
+        # título
+        if "titulo" in data:
+            text = data["titulo"]
+            # partes.append(data["titulo"])
+        # fragmentos de cada sección
+        if "secciones" in data:
+            for seccion in data["secciones"]:
+                if "fragmentos" in seccion:
+                    lista_fragmentos = seccion["fragmentos"]
+                    text += ".".join(lista_fragmentos)
+                    # text.extend(seccion["fragmentos"])
+        
+    return text
+
+
+def load_all_texts(data_dir):
+    
+    all_texts = []
+    carpeta_base = Path(data_dir)
+    
+    if not carpeta_base.exists():
+        raise FileNotFoundError(f"La carpeta {carpeta_base} no existe, no se pueden cargar los datos.")
+    
+    for archivo_json in carpeta_base.rglob('*.json'):
+        try:
+            text = extract_texts_from_json(archivo_json)
+            all_texts.append(text)
+        except json.JSONDecodeError:
+            print(f"❌ Error: Archivo no es JSON válido - {archivo_json}")
+        except Exception as e:
+            print(f"⚠️ Error inesperado en {archivo_json}: {str(e)}")
+    
+    return all_texts
+
+
+def main():
+    print("Extrayendo textos de los JSON...")
+    texts = load_all_texts(DATA_DIR)
+    print(f"Total de fragmentos/textos: {len(texts)}")
+
+    print("Inicializando ChatUtils...")
+    chat_utils = ChatUtils()
+
+    print("Calculando embeddings con chunking...")
+    # Usa el método de tu clase para hacer chunking y embeddings
+    embeddings = chat_utils.update_knowledge_base(
+        texts, chunk_size=50, overlap_size=5)
+
+    print(f"Guardando embeddings en {EMBEDDINGS_FILE} ...")
+
+    with open(EMBEDDINGS_FILE, "wb") as f:
+        pickle.dump(embeddings, f)
+
+    print("¡Listo! Embeddings precalculados y guardados.")
+
+if __name__ == "__main__":
+    main()
