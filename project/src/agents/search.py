@@ -1,3 +1,0 @@
-"""
-Recupera información relevante.
-"""
