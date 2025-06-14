@@ -17,44 +17,42 @@ from .utils.config import START_URLS as CONFIG_START_URLS, MAX_DEPTH, SAVE_PATH,
 
 import argparse
 
-# Cambia aquí para usar DuckDuckGo en vez de Google
 try:
     from duckduckgo_search import DDGS
 except ImportError:
     DDGS = None
 
-# ========== CONFIGURACIÓN DE LOGGING ==========
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s"
 )
 
-# ========== GESTIÓN DE ESTADO COMPARTIDO ==========
 class CrawlerState:
     def __init__(self, seeds, per_seed_limit):
         self.visited = set()
         self.lock = threading.Lock()
         self.stop_event = threading.Event()
-        self.seed_counts = defaultdict(int)  # archivos descargados por semilla
+        self.seed_counts = defaultdict(int)
         self.seed_limits = {seed: per_seed_limit for seed in seeds}
-        self.seed_map = {}  # url -> semilla original
+        self.seed_map = {}
         self.seeds = seeds
 
     def already_visited(self, url):
+        # Verifica si la URL ya fue visitada
         with self.lock:
             return url in self.visited
 
     def add_visited(self, url):
+        # Marca la URL como visitada
         with self.lock:
             self.visited.add(url)
 
     def assign_seed(self, url):
-        # Asigna la semilla original a cada url (por prefijo más largo)
+        # Asigna la semilla correspondiente a una URL
         for seed in sorted(self.seeds, key=len, reverse=True):
             if url.startswith(seed):
                 self.seed_map[url] = seed
                 return seed
-        # fallback: por dominio
         domain = urlparse(url).netloc
         for seed in self.seeds:
             if domain in seed:
@@ -64,6 +62,7 @@ class CrawlerState:
         return self.seeds[0]
 
     def can_download(self, url):
+        # Verifica si se puede descargar más páginas para la semilla de la URL
         seed = self.seed_map.get(url)
         if seed is None:
             return False
@@ -71,17 +70,19 @@ class CrawlerState:
             return self.seed_counts[seed] < self.seed_limits[seed]
 
     def increment_seed(self, url):
+        # Incrementa el contador de páginas descargadas para la semilla de la URL
         seed = self.seed_map.get(url)
         if seed:
             with self.lock:
                 self.seed_counts[seed] += 1
 
     def all_seeds_completed(self):
+        # Verifica si todas las semillas han alcanzado su límite de descarga
         with self.lock:
             return all(self.seed_counts[seed] >= self.seed_limits[seed] for seed in self.seeds)
 
     def redistribute_limits(self):
-        # Si alguna semilla no llegó a su límite, reparte el sobrante entre las demás
+        # Redistribuye los límites de descarga entre semillas si hay sobrantes
         with self.lock:
             total_expected = sum(self.seed_limits.values())
             total_downloaded = sum(self.seed_counts.values())
@@ -93,8 +94,8 @@ class CrawlerState:
                     for seed in incomplete:
                         self.seed_limits[seed] += extra
 
-# ========== CONFIGURACIÓN DE DRIVERS ==========
 def create_driver():
+    # Crea una instancia de Selenium WebDriver con opciones configuradas
     options = Options()
     if HEADLESS:
         options.add_argument("--headless=new")
@@ -106,15 +107,17 @@ def create_driver():
     options.add_argument(f"user-agent={ua}")
     return webdriver.Chrome(options=options)
 
-# ========== VALIDACIÓN Y NORMALIZACIÓN DE URLS ==========
 def normalize_url(base_url, link):
+    # Normaliza y une URLs relativas
     return urljoin(base_url, link)
 
 def is_valid_url(url):
+    # Verifica si la URL es válida y tiene esquema http/https
     parsed = urlparse(url)
     return parsed.scheme in {"http", "https"} and bool(parsed.netloc)
 
 def filter_links(links, base_url, allowed_domains):
+    # Filtra los enlaces para quedarse solo con los permitidos por dominio
     filtered = set()
     for link in links:
         norm = normalize_url(base_url, link)
@@ -125,15 +128,15 @@ def filter_links(links, base_url, allowed_domains):
     return filtered
 
 def get_allowed_domains(urls):
+    # Obtiene los dominios permitidos a partir de las semillas
     return {urlparse(url).netloc for url in urls}
 
-# ========== NÚCLEO DE CRAWLEO ==========
 def interact_with_dynamic_content(driver):
+    # Interactúa con la página para cargar contenido dinámico (scroll y botones)
     import selenium.common.exceptions
     import time
     from selenium.webdriver.common.by import By
 
-    # Scroll hasta el fondo varias veces para lazy-load
     last_height = driver.execute_script("return document.body.scrollHeight")
     for _ in range(5):
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
@@ -143,9 +146,8 @@ def interact_with_dynamic_content(driver):
             break
         last_height = new_height
 
-    # Haz clic en botones de "ver más", "cargar más", etc.
     button_texts = ["ver más", "cargar más", "load more", "mostrar más", "más resultados", "show more"]
-    for _ in range(5):  # Intenta varias veces por si aparecen más botones
+    for _ in range(5):
         clicked = False
         for text in button_texts:
             try:
@@ -161,23 +163,20 @@ def interact_with_dynamic_content(driver):
                 continue
         if not clicked:
             break
-
-    # Espera un poco más por si hay contenido dinámico
     time.sleep(1.5)
 
 def process_page(url, depth, state, allowed_domains, seed, driver=None):
+    # Procesa una página: descarga, extrae info y enlaces, guarda resultados
     if state.stop_event.is_set():
         return None, []
 
     try:
-        # Sitios dinámicos (Selenium)
         if ("alamesacuba" in url or "la-habana" in url) and driver:
             driver.get(url)
             time.sleep(2)
             interact_with_dynamic_content(driver)
             html = driver.page_source
             logging.info(f"[D] [{state.seed_counts[seed]+1}/{state.seed_limits[seed]}] {url}")
-        # Sitios estáticos (Requests)
         else:
             session = requests.Session()
             headers = {'User-Agent': UserAgent().random}
@@ -186,9 +185,7 @@ def process_page(url, depth, state, allowed_domains, seed, driver=None):
             html = response.text
             logging.info(f"[S] [{state.seed_counts[seed]+1}/{state.seed_limits[seed]}] {url}")
 
-        # Procesamiento común
         info = extract_info(html, url)
-        # --- MODIFICACIÓN PARA GUARDAR EN CRAWLEO DINAMICO ---
         if hasattr(state, "dynamic_mode") and state.dynamic_mode:
             folder_name = "crawleo_dinamico"
         else:
@@ -198,7 +195,6 @@ def process_page(url, depth, state, allowed_domains, seed, driver=None):
         filename = os.path.join(save_dir, url_to_filename(url).replace('.html', '.json'))
         save_json(info, filename)
 
-        # Extraer y filtrar enlaces SOLO del HTML extraído
         raw_links = extract_links(html, url)
         new_links = filter_links(raw_links, url, allowed_domains)
         return info, new_links
@@ -211,22 +207,21 @@ def process_page(url, depth, state, allowed_domains, seed, driver=None):
             session.close()
 
 def parallel_crawler(start_urls=None, dynamic_mode=False, max_depth=None):
+    # Ejecuta el crawler en paralelo usando múltiples hilos
     seeds = start_urls if start_urls is not None else CONFIG_START_URLS
     per_seed_limit = 2000
     state = CrawlerState(seeds, per_seed_limit)
-    state.dynamic_mode = dynamic_mode  # <--- NUEVO
+    state.dynamic_mode = dynamic_mode
     task_queue = queue.Queue()
     allowed_domains = get_allowed_domains(seeds)
-    # Permitir sobreescribir la profundidad máxima
     depth_limit = max_depth if max_depth is not None else MAX_DEPTH
 
-    # Inicializar cola con URLs semilla
     for seed in seeds:
         task_queue.put((seed, 0, seed))
         state.seed_map[seed] = seed
 
     def worker():
-        thread_id = threading.get_ident()
+        # Función de cada hilo trabajador
         driver = None
         try:
             while not state.stop_event.is_set():
@@ -245,7 +240,6 @@ def parallel_crawler(start_urls=None, dynamic_mode=False, max_depth=None):
 
                 state.add_visited(url)
 
-                # Solo crea el driver si es necesario
                 if ("alamesacuba" in url or "la-habana" in url) and driver is None:
                     driver = create_driver()
 
@@ -253,7 +247,6 @@ def parallel_crawler(start_urls=None, dynamic_mode=False, max_depth=None):
 
                 state.increment_seed(url)
 
-                # Solo sigue enlaces si la profundidad lo permite
                 if new_links and depth < depth_limit:
                     for link in new_links:
                         if not state.already_visited(link):
@@ -285,41 +278,51 @@ def parallel_crawler(start_urls=None, dynamic_mode=False, max_depth=None):
         for t in threads:
             t.join(timeout=2)
 
-    # Redistribuir si alguna semilla no llegó a su límite
     state.redistribute_limits()
-
     return state
 
-# ========== EJECUCIÓN ==========
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Crawler de turismo")
-    parser.add_argument("--query", type=str, help="Consulta para buscar en la web")
-    args = parser.parse_args()
-
-    if args.query:
+def run_crawler(query=None, start_urls=None, max_depth=None, dynamic_mode=False):
+    """
+    Ejecuta el crawler de forma programática.
+    - query: consulta de búsqueda (usa DuckDuckGo si se provee)
+    - start_urls: lista de URLs semilla (ignorado si query está presente)
+    - max_depth: profundidad máxima de crawleo
+    - dynamic_mode: si True, guarda en carpeta 'crawleo_dinamico'
+    """
+    if query:
         if DDGS is None:
             logging.error("El paquete duckduckgo-search no está instalado. Instálalo con: pip install duckduckgo-search")
-            sys.exit(1)
-        logging.info(f"Realizando búsqueda web para: {args.query}")
+            return None
+        logging.info(f"Realizando búsqueda web para: {query}")
         dynamic_start_urls = []
         with DDGS() as ddgs:
-            for r in ddgs.text(args.query, region='wt-wt', safesearch='Moderate', max_results=10):
+            for r in ddgs.text(query, region='wt-wt', safesearch='Moderate', max_results=10):
                 dynamic_start_urls.append(r['href'])
         if not dynamic_start_urls:
             logging.error("No se encontraron resultados para la consulta.")
-            sys.exit(1)
-        # Solo profundidad 0 para búsquedas rápidas
+            return None
         start_time = time.time()
-        state = parallel_crawler(start_urls=dynamic_start_urls, dynamic_mode=True, max_depth=0)
+        state = parallel_crawler(start_urls=dynamic_start_urls, dynamic_mode=True, max_depth=0 if max_depth is None else max_depth)
         elapsed = time.time() - start_time
         for seed in dynamic_start_urls:
             logging.info(f"Semilla: {seed} - Archivos descargados: {state.seed_counts[seed]}/{state.seed_limits[seed]}")
         logging.info(f"Crawleo completado en {elapsed:.2f} segundos")
+        return state
     else:
         start_time = time.time()
         logging.info("Iniciando crawler por semillas...")
-        state = parallel_crawler()
+        state = parallel_crawler(start_urls=start_urls, dynamic_mode=dynamic_mode, max_depth=max_depth)
         elapsed = time.time() - start_time
-        for seed in CONFIG_START_URLS:
+        seeds = start_urls if start_urls is not None else CONFIG_START_URLS
+        for seed in seeds:
             logging.info(f"Semilla: {seed} - Archivos descargados: {state.seed_counts[seed]}/{state.seed_limits[seed]}")
         logging.info(f"Crawleo completado en {elapsed:.2f} segundos")
+        return state
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Crawler de turismo")
+    parser.add_argument("--query", type=str, help="Consulta para buscar en la web")
+    parser.add_argument("--max_depth", type=int, help="Profundidad máxima de crawleo")
+    args = parser.parse_args()
+
+    run_crawler(query=args.query, max_depth=args.max_depth)
