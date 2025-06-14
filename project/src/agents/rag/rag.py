@@ -76,7 +76,7 @@ class ChatUtils:
                 embeddings.append((vector, chunk))
         return embeddings
 
-    def update_knowledge_base(self, texts, chunk_size=50, overlap_size=5):
+    def update_knowledge_base(self, texts, chunk_size=50, overlap_size=10):
         """
         Actualiza la base de conocimiento con los embeddings de los textos dados.
 
@@ -137,7 +137,7 @@ class ChatUtils:
         # 2. Construir el prompt integrando los fragmentos recuperados y la consulta
         context = ".".join(retrieved_chunks)
         prompt = (
-            "A continuación tienes información relevante que puede ayudarte a responder la pregunta del usuario. "
+            "A continuación tienes información relevante que puede ayudarte a responder la pregunta del usuario."
             "Si la respuesta está en la información proporcionada, úsala. "
             "Si no encuentras la respuesta completa ahí, responde usando tu propio conocimiento general, "
             "pero intenta siempre ser útil y específico.\n\n"
