@@ -23,7 +23,7 @@ def extract_texts_from_json(json_path):
                     lista_fragmentos = seccion["fragmentos"]
                     text += ".".join(lista_fragmentos)
         
-    return text
+    return ChatUtils.normalize_text(text)
 
 
 def load_all_texts(data_dir):

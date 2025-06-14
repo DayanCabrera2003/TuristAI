@@ -5,4 +5,6 @@ geopy
 folium
 numpy
 networkx
+spacy
+nltk
 
