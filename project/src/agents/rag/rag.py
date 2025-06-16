@@ -3,20 +3,24 @@ import pickle
 import os
 from sentence_transformers import SentenceTransformer
 import google.generativeai as genai
+import unicodedata
+import re
+import spacy
+from nltk.corpus import wordnet as wn
 
 local_model = SentenceTransformer('all-MiniLM-L6-v2')
+nlp = spacy.load("es_core_news_sm")
 class ChatUtils:
     def __init__(self,embeddings_path="./project/src/agents/data/embeddings.pkl"):
-        # Inicializa el modelo de embeddings y el modelo de Gemini
         
+        # Inicializa el modelo de embeddings y el modelo de Gemini
         with open(embeddings_path, "rb") as f:
             self.store_vectors = pickle.load(f)
         
         genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
         self.gemini_model = genai.GenerativeModel('gemini-1.5-flash')
     
-        # self.knowledge_base = []
-        # self.store_vectors=self.update_knowledge_base(self.knowledge_base, chunk_size=20, overlap_size=5)
+
     
     def get_embedding(self, text):
         """
@@ -30,6 +34,90 @@ class ChatUtils:
         """
         vector = local_model.encode(text)
         return vector.tolist()
+    
+    @staticmethod
+    def normalize_text(text):
+        """
+        Normaliza un texto convirtiéndolo a minúsculas, eliminando tildes, signos de puntuación y espacios extra.
+        Esta función es útil para estandarizar tanto las queries del usuario como los textos de la base de conocimiento
+        antes de calcular embeddings o realizar búsquedas.
+
+        Args:
+            text (str): Texto de entrada a normalizar.
+
+        Returns:
+            str: Texto normalizado.
+        """
+        # Convierte a minúsculas
+        text = text.lower()
+        # Elimina tildes y acentos
+        text = unicodedata.normalize('NFD', text)
+        text = ''.join([c for c in text if unicodedata.category(c) != 'Mn'])
+        # Elimina signos de puntuación
+        text = re.sub(r'[^\w\s]', '', text)
+        # Elimina espacios extra
+        text = re.sub(r'\s+', ' ', text).strip()
+        return text
+    
+    @staticmethod
+    def extract_keywords(text):
+            """
+            Extrae las palabras clave (sustantivos, verbos y adjetivos) de un texto en español usando spaCy.
+
+            Args:
+                text (str): Texto de entrada.
+
+            Returns:
+                list: Lista de lemas de palabras clave extraídas del texto.
+            """
+            doc = nlp(text)
+            keywords = [token.lemma_ for token in doc if token.pos_ in ("NOUN", "VERB", "ADJ")]
+            return keywords
+    
+    @staticmethod
+    def get_synonyms(word, lang='spa', max_synonyms=2):
+        
+        """
+        Obtiene una lista de sinónimos para una palabra dada usando WordNet.
+
+        Args:
+            word (str): Palabra para la cual buscar sinónimos.
+            lang (str, optional): Idioma de WordNet. Por defecto 'spa' (español).
+            max_synonyms (int, optional): Máximo número de sinónimos a devolver. Por defecto 2.
+
+        Returns:
+            list: Lista de sinónimos encontrados (máximo max_synonyms).
+        """
+        synonyms = set()
+        for syn in wn.synsets(word, lang=lang):
+            for lemma in syn.lemma_names(lang):
+                if lemma != word:
+                    synonyms.add(lemma.replace('_', ' '))
+                if len(synonyms) >= max_synonyms:
+                    break
+            if len(synonyms) >= max_synonyms:
+                break
+        return list(synonyms)
+
+    @staticmethod
+    def expand_query_with_synonyms(query, max_synonyms=2):
+        """
+        Expande una consulta agregando palabras clave y hasta un número máximo de sinónimos por palabra clave.
+
+        Args:
+            query (str): Consulta original del usuario.
+            max_synonyms (int, optional): Máximo número de sinónimos por palabra clave. Por defecto 2.
+
+        Returns:
+            str: Consulta expandida con palabras clave y sinónimos.
+        """
+        keywords = ChatUtils.extract_keywords(query)
+        expanded = set(keywords)
+        for kw in keywords:
+            expanded.update(ChatUtils.get_synonyms(kw, max_synonyms=max_synonyms))
+        # Devuelve la query original más las palabras clave y sus sinónimos
+        return query + " " + " ".join(expanded)
+
 
     def split_text_into_chunks(self, text, window_size=20, overlap_size=5):
         """
@@ -76,7 +164,7 @@ class ChatUtils:
                 embeddings.append((vector, chunk))
         return embeddings
 
-    def update_knowledge_base(self, texts, chunk_size=50, overlap_size=5):
+    def update_knowledge_base(self, texts, chunk_size=50, overlap_size=10):
         """
         Actualiza la base de conocimiento con los embeddings de los textos dados.
 
@@ -114,14 +202,16 @@ class ChatUtils:
         for emb, text in store_vectors:
             emb_np = np.array(emb)
             dist = np.linalg.norm(query_vector - emb_np)
-            distances.append(dist)
+            distances.append((dist,text))
 
         # Obtener los índices de los top_k fragmentos más cercanos
-        indices = np.argsort(distances)[:top_k]
+        # indices = np.argsort(distances)[:top_k]
+        distances.sort(key=lambda x: x[0])
         # Devolver los textos correspondientes
-        return [store_vectors[i][1] for i in indices]
+        # return [store_vectors[i][1] for i in indices]
+        return distances[:top_k]
 
-    def prompt_gen(self, query, store_vectors, top_k=10):
+    def prompt_gen(self, query, store_vectors, top_k=10, distance_threshold=0.7):
         """
         Function that implements a Retrieval-Augmented Generation (RAG) system.
 
@@ -132,12 +222,19 @@ class ChatUtils:
             str: prompt that integrates the retrieved information and the query.
         """
         # 1. Recuperar los fragmentos más relevantes usando el recuperador
-        retrieved_chunks = self.retrieve(query, store_vectors, top_k=top_k)
+        query_norm = ChatUtils.normalize_text(query)
+        retrieved = self.retrieve(query_norm, store_vectors, top_k=top_k)
+        
+        if all(dist > distance_threshold for dist, _ in retrieved):
+            # Ejecuta tu crawler dinámico aquí
+            print("⚠️ Contexto insuficiente, ejecutando crawler dinámico...")
+            # crawler_dinamico(query)  # Llama a tu función de crawler aquí
+            return "No se encontró suficiente información, buscando más contexto..."
 
         # 2. Construir el prompt integrando los fragmentos recuperados y la consulta
-        context = ".".join(retrieved_chunks)
+        context = ".".join([text for _, text in retrieved])
         prompt = (
-            "A continuación tienes información relevante que puede ayudarte a responder la pregunta del usuario. "
+            "A continuación tienes información relevante que puede ayudarte a responder la pregunta del usuario."
             "Si la respuesta está en la información proporcionada, úsala. "
             "Si no encuentras la respuesta completa ahí, responde usando tu propio conocimiento general, "
             "pero intenta siempre ser útil y específico.\n\n"
@@ -154,3 +251,13 @@ class ChatUtils:
         prompt = self.prompt_gen(query,self.store_vectors, top_k=top_k)
         response = self.gemini_model.generate_content(prompt)
         return response.text
+
+
+
+# query = "Quiero visitar playas en Cuba"
+
+# # Expande la consulta
+# expanded_query = ChatUtils.expand_query_with_synonyms(query, max_synonyms=2)
+
+# print("Consulta original:", query)
+# print("Consulta expandida:", expanded_query)

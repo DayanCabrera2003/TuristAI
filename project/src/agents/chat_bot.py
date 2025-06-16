@@ -56,7 +56,7 @@ for msg in st.session_state.messages:
         st.markdown(f'<div class="bot-msg"><b>TuristAI:</b> {msg["content"]}</div>', unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
-user_input = st.text_input("Escribe tu mensaje:", value="", key="input", placeholder="Escribe aquí y presiona Enter...")
+user_input = st.text_input("Escribe tu mensaje:")
 #Utilizar la funcion para mejorar el prompt
 
 def generate(messages):  
@@ -68,13 +68,13 @@ def generate(messages):
             historial += f"Asistente: {m['content']}\n"
     
     user_query = messages[-1]["content"]
-    prompt_enriquecido = chat_utils.prompt_gen(user_query, chat_utils.store_vectors, top_k=50)
+    prompt_enriquecido = chat_utils.prompt_gen(user_query, chat_utils.store_vectors, top_k=30)
     
     prompt = historial + "\n" + prompt_enriquecido
   
 
     genai.configure(api_key=GEMINI_API_KEY)
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    model = genai.GenerativeModel('gemini-2.0-flash')
     response = model.generate_content(prompt)
         
     return response.text

@@ -13,20 +13,17 @@ def extract_texts_from_json(json_path):
     text=""
     with open(json_path, "r", encoding="utf-8") as f:
         data = json.load(f)
-        # partes=[]
-        # título
         if "titulo" in data:
             text = data["titulo"]
-            # partes.append(data["titulo"])
+           
         # fragmentos de cada sección
         if "secciones" in data:
             for seccion in data["secciones"]:
                 if "fragmentos" in seccion:
                     lista_fragmentos = seccion["fragmentos"]
                     text += ".".join(lista_fragmentos)
-                    # text.extend(seccion["fragmentos"])
         
-    return text
+    return ChatUtils.normalize_text(text)
 
 
 def load_all_texts(data_dir):
@@ -60,7 +57,7 @@ def main():
     print("Calculando embeddings con chunking...")
     # Usa el método de tu clase para hacer chunking y embeddings
     embeddings = chat_utils.update_knowledge_base(
-        texts, chunk_size=50, overlap_size=5)
+        texts, chunk_size=100, overlap_size=10)
 
     print(f"Guardando embeddings en {EMBEDDINGS_FILE} ...")
 
