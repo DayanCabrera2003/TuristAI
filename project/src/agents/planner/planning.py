@@ -7,63 +7,77 @@ se optimiza el itinerario para minimizar el presupuesto o maximizar la cantidad 
 según los objetivos definidos por el usuario.
 
 """
-
-schema = {
-    "type": "object",
-    "properties": {
-        "actividades": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "nombre": {"type": "string", "description": "Nombre de la actividad turística."},
-                    "descripcion": {"type": "string", "description": "Descripción breve de la actividad."},
-                    "costo": {"type": "number", "description": "Costo estimado de la actividad en moneda local."},
-                    "ciudad": {
-                        "type": "string",
-                        "enum": [
-                            "Isla de la Juventud", "Pinar del Rio", "Artemisa", "La Habana", "Mayabeque",
-                            "Matanzas", "Cienfuegos", "Villa Clara", "Sancti Spiritus", "Ciego de Avila",
-                            "Camaguey", "Las Tunas", "Granma", "Holguin", "Santiago de Cuba", "Guantanamo"
-                        ],
-                        "description": "Ciudad donde se realiza la actividad."
-                    },
-                    "horario": {
+class Planer:
+    def __init__(self, tipolugares, lugares, dias_vacaciones, presupuesto_disponible):
+        self.lugares = lugares
+        self.dias_vacaciones = dias_vacaciones
+        self.presupuesto_disponible = presupuesto_disponible
+        self.tipolugares = tipolugares
+        schema = {
+            "type": "object",
+            "properties": {
+                "lugares": {
+                    "type": "array",
+                    "items": {
                         "type": "object",
                         "properties": {
-                            "dia": {"type": "integer", "minimum": 1, "maximum": 31, "description": "Día del mes en que se realizará la actividad."},
-                            "mes": {"type": "integer", "minimum": 1, "maximum": 12, "description": "Mes del año en que se realizará la actividad."},
-                            "hora": {"type": "string", "pattern": "^([01]?[0-9]|2[0-3]):[0-5][0-9]$", "description": "Hora en formato HH:MM (24h) en que se realizará la actividad."}
+                            "nombre": {"type": "string", "description": "Nombre del lugar turístico."},
+                            "descripcion": {"type": "string", "description": "Descripción breve del lugar."},
+                            "costo": {"type": "number", "description": "Costo estimado del lugar en dólares."},
+                            "ciudad": {
+                                "type": "string",
+                                "enum": [
+                                    "Isla de la Juventud", "Pinar del Rio", "Artemisa", "La Habana", "Mayabeque",
+                                    "Matanzas", "Cienfuegos", "Villa Clara", "Sancti Spiritus", "Ciego de Avila",
+                                    "Camaguey", "Las Tunas", "Granma", "Holguin", "Santiago de Cuba", "Guantanamo"
+                                ],
+                                "description": "Ciudad de Cuba donde está el lugar."
+                            },
+                            "horario": {
+                                "type": "object",
+                                "properties": {
+                                    "dia": {"type": "integer", "minimum": 1, "maximum": 31, "description": "Día del mes en que se realizará la actividad."},
+                                    "mes": {"type": "integer", "minimum": 1, "maximum": 12, "description": "Mes del año en que se realizará la actividad."},
+                                    "hora": {"type": "string", "pattern": "^([01]?[0-9]|2[0-3]):[0-5][0-9]$", "description": "Hora en formato HH:MM (24h) en que se realizará la actividad."}
+                                },
+                                "required": ["dia", "mes", "hora"]
+                            },
+                            "tipo_lugar": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "enum": [
+                                        "Museos", "Galerías de arte", "Obras de teatro", "Espectáculos", "Carnavales",
+                                        "Centros históricos y patrimoniales", "Gastronomía local", "Heladerías", "Dulcerías",
+                                        "Varadero", "Cayos", "Guardalavaca", "Playa Pesquero", "Playa Ancón",
+                                        "Senderismo", "Excursiones", "Observación de flora", "Observación de fauna",
+                                        "Parques Nacionales", "Reservas", "Fortalezas", "Castillos", "Casas-museo", "Museos de historia",
+                                        "Spa", "Resorts", "Conciertos", "Festivales de música", "Clubs nocturnos", "Bares", 
+                                        "Iglesias", "Catedrales", "Festividades religiosas", "Otras"
+                                    ]
+                                },
+                                "description": "Lista lugares, de tipos de lugares y de actividades que se realizan en ese lugar turístico."
+                            }
                         },
-                        "required": ["dia", "mes", "hora"]
+                        "required": [
+                            "nombre", "descripcion", "costo", "ciudad", "horario", "ciudad", "tipo_lugares"
+                        ]
                     },
-                    "lugares_a_visitar": {
-                        "type": "array",
-                        "items": {"type": "string"},
-                        "description": "Lista de lugares que se visitarán durante la actividad."
-                    },
-                    "tipo_actividad": {
-                        "type": "array",
-                        "items": {
-                            "type": "string",
-                            "enum": [
-                                "Museos", "Galerías de arte", "Monumentos históricos", "Obras de teatro", "Danza", "Centros históricos y patrimoniales",
-                                
-
-                            ]
-                        },
-                        "description": "Lista de tipos de actividad turística."
-                    }
-                },
-                "required": [
-                    "nombre", "descripcion", "costo", "ciudad", "horario", "lugares_a_visitar", "tipo_actividad"
-                ]
+                    "description": "Lista de actividades turísticas propuestas."
+                }
             },
-            "description": "Lista de actividades turísticas propuestas."
+            "required": ["actividades"]
         }
-    },
-    "required": ["actividades"]
-}
+    def generate_itinerary(self):
+        prompt = f"""
+        Devuelveme lugares de alguno de este tipo: {self.tipolugares}. y que estén en alguna de las siguientes ciudades: {self.lugares} de Cuba.
+        Utiliza el siguiente esquema JSON para estructurar la información de los lugares turísticos:
+
+        {self.schema}
+
+        Asegúrate de incluir detalles como el nombre, descripción, costo, ciudad, lugares a visitar y tipo de actividad.
+        """
+
 
 
 
