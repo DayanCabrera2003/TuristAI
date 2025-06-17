@@ -172,6 +172,5 @@ if st.session_state.pagina == "Itinerario":
     st.write("Aquí se mostraría el itinerario propuesto basado en sus selecciones.")
     st.write(itinerario)
     st.session_state.pagina = "Finalizado"
-   
 
 
