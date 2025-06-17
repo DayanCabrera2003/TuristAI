@@ -11,9 +11,11 @@ from bs4 import BeautifulSoup
 
 from utils.utils import save_json
 
-URL = "https://www.cubatravel.cu/sobre-cuba/geografia-de-cuba"
-PESTANAS = ["Hoteles", "Casas", "Tours", "Campismo"]
-SAVE_DIR = "./data/raw/booking/"
+URL = "https://www.cubatravel.cu/"
+PESTANAS = [
+     "Hoteles", "Casas", "Tours", "Traslados", "Eventos", "Campismo", "Salud", "Seguros"
+]
+DATA_FORMULARIO_DIR = os.path.join(os.path.dirname(__file__), "data_formulario")
 HTML_DEBUG_DIR = "./data/debug_html/"
 
 logging.basicConfig(
@@ -43,7 +45,6 @@ def create_driver():
     options.add_argument("--disable-infobars")
     options.add_argument("--disable-extensions")
     options.add_argument("--disable-gpu")
-    # Puedes añadir más opciones si lo necesitas
     return webdriver.Chrome(options=options)
 
 def save_debug_html(html, pestaña, destino):
@@ -57,9 +58,8 @@ def save_debug_html(html, pestaña, destino):
     logging.info(f"HTML de depuración guardado en: {filename}")
 
 def extract_result_cards(soup):
-    # Intenta varios selectores para máxima robustez
     selectors = [
-        ".row.pb15",  # Selector más común en CubaTravel
+        ".row.pb15",
         ".card-hotel, .card-house, .card-tour, .card-campismo",
         ".hotel-card", ".house-card", ".tour-card", ".campismo-card"
     ]
@@ -70,19 +70,20 @@ def extract_result_cards(soup):
     return []
 
 def extract_card_data(card):
-    # Intenta extraer los campos más relevantes de cada tarjeta
     def safe_text(selector):
         elem = card.select_one(selector)
         return elem.text.strip() if elem else ""
-    nombre = safe_text(".htl-card-body h3.media-heading a") or \
-             safe_text(".card-title") or \
-             safe_text(".nombre") or \
-             safe_text("h5") or \
-             safe_text("h3")
+    def safe_link(selector):
+        elem = card.select_one(selector)
+        return elem['href'] if elem and elem.has_attr('href') else ""
+    nombre_elem = card.select_one(".htl-card-body h3.media-heading a") or \
+                  card.select_one(".card-title a") or \
+                  card.select_one("a")
+    nombre = nombre_elem.text.strip() if nombre_elem else \
+             safe_text(".card-title") or safe_text(".nombre") or safe_text("h5") or safe_text("h3")
+    enlace = nombre_elem['href'] if nombre_elem and nombre_elem.has_attr('href') else ""
     descripcion = safe_text(".description .truncateDescription span") or \
-                  safe_text(".card-text") or \
-                  safe_text(".descripcion") or \
-                  safe_text("p")
+                  safe_text(".card-text") or safe_text(".descripcion") or safe_text("p")
     direccion = safe_text(".address") or safe_text(".direccion")
     tarifa = safe_text(".tarifa") or safe_text(".rate")
     precio = safe_text(".price") or safe_text(".media-price p")
@@ -93,18 +94,105 @@ def extract_card_data(card):
         "direccion": direccion,
         "tarifa": tarifa,
         "precio": precio,
-        "estrellas": estrellas
+        "estrellas": estrellas,
+        "enlace": enlace
     }
 
+def save_json_with_destino(data, filepath, destino):
+    os.makedirs(os.path.dirname(filepath), exist_ok=True)
+    with open(filepath, "w", encoding="utf-8") as f:
+        f.write(f"Destino: {destino}\n")
+        import json
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+def click_tab(driver, wait, pestaña):
+    span_xpath = f"//li[contains(@class, 'buttons-tabs-booking')]/a/span[normalize-space(.)='{pestaña}']"
+    span_elem = wait.until(EC.presence_of_element_located((By.XPATH, span_xpath)))
+    tab_btn = span_elem.find_element(By.XPATH, "..")
+    scroll_and_click(driver, tab_btn)
+    time.sleep(2)
+
+def limpiar_selector_destino(driver):
+    try:
+        clear_btn = driver.find_element(By.CSS_SELECTOR, ".multiselect__clear")
+        clear_btn.click()
+        time.sleep(0.5)
+        print("[DEBUG] Selección previa de destino limpiada.")
+    except Exception:
+        pass
+
+def wait_for_multiselect(driver, timeout=120, poll_frequency=1):
+    """Espera a que el formulario .multiselect esté presente, avisando cada 30s."""
+    waited = 0
+    while waited < timeout:
+        try:
+            elem = driver.find_element(By.CSS_SELECTOR, ".multiselect")
+            if elem.is_displayed():
+                return elem
+        except Exception:
+            pass
+        if waited > 0 and waited % 30 == 0:
+            print(f"[DEBUG] Esperando a que aparezca el formulario de destinos... ({waited}s)")
+        time.sleep(poll_frequency)
+        waited += poll_frequency
+    raise TimeoutError("No apareció el formulario de destinos (.multiselect) en el tiempo esperado.")
+
+def abrir_selector_destinos(driver, wait, pestaña):
+    """Abre el menú de destinos, limpiando selección previa si es necesario."""
+    try:
+        wait.until(lambda d: d.find_element(By.CSS_SELECTOR, "div.tab-pane.active .multiselect").is_displayed())
+        print("[DEBUG] .multiselect ahora visible tras cambio de pestaña.")
+        multiselect = driver.find_element(By.CSS_SELECTOR, "div.tab-pane.active .multiselect")
+        # Si hay selección previa, límpiala
+        try:
+            single = multiselect.find_element(By.CSS_SELECTOR, ".multiselect__single")
+            print("[DEBUG] Hay selección previa, limpiando...")
+            clear_btn = multiselect.find_element(By.CSS_SELECTOR, ".multiselect__clear")
+            driver.execute_script("arguments[0].click();", clear_btn)
+            time.sleep(0.3)
+        except Exception:
+            pass
+        # Haz clic en el contenedor para abrir el menú
+        try:
+            multiselect.click()
+        except Exception:
+            driver.execute_script("arguments[0].click();", multiselect)
+        time.sleep(0.2)
+        # También intenta hacer clic en el input si existe y está visible
+        try:
+            input_elem = multiselect.find_element(By.CSS_SELECTOR, ".multiselect__input")
+            if input_elem.is_displayed():
+                try:
+                    input_elem.click()
+                except Exception:
+                    driver.execute_script("arguments[0].click();", input_elem)
+        except Exception:
+            pass
+        # Espera a que el menú de opciones esté visible (display != none)
+        wait.until(
+            lambda d: d.find_element(By.CSS_SELECTOR, "div.tab-pane.active .multiselect__content-wrapper").value_of_css_property("display") != "none"
+        )
+        print("[DEBUG] Selector de destinos abierto correctamente.")
+        time.sleep(0.5)
+        return True
+    except Exception as e:
+        print(f"[DEBUG] Error al abrir el selector en {pestaña}: {e}")
+        debug_html = driver.page_source
+        debug_path = os.path.join(HTML_DEBUG_DIR, f"ERROR_{pestaña}_selector.html")
+        with open(debug_path, "w", encoding="utf-8") as f:
+            f.write(debug_html)
+        print(f"[DEBUG] HTML guardado en {debug_path} para inspección manual.")
+        logging.error(f"No se pudo abrir el selector en {pestaña}: {e}")
+        return False
+
 def scrape():
-    os.makedirs(SAVE_DIR, exist_ok=True)
+    os.makedirs(DATA_FORMULARIO_DIR, exist_ok=True)
     driver = create_driver()
-    wait = WebDriverWait(driver, 20)
+    wait = WebDriverWait(driver, 40)
     logging.info("Abriendo página principal...")
     driver.get(URL)
     time.sleep(3)
 
-    # Cierra el banner de cookies si aparece
     try:
         cookie_btn = WebDriverWait(driver, 5).until(
             EC.element_to_be_clickable((By.CSS_SELECTOR, ".cc-window .cc-btn, .cc-window button"))
@@ -117,85 +205,134 @@ def scrape():
 
     for pestaña in PESTANAS:
         logging.info(f"Procesando pestaña: {pestaña}")
+        print(f"[DEBUG] --- Procesando pestaña: {pestaña} ---")
+        driver.get(URL)
+        time.sleep(2)
         try:
-            tab_btn = wait.until(EC.element_to_be_clickable(
-                (By.XPATH, f"//span[contains(text(), '{pestaña}')]/ancestor::a")))
-            scroll_and_click(driver, tab_btn)
-            time.sleep(2)
+            wait_for_multiselect(driver)
+            print("[DEBUG] Formulario de destinos presente.")
+            print("[DEBUG] Intentando hacer clic en la pestaña...")
+            click_tab(driver, wait, pestaña)
+            print("[DEBUG] Pestaña clickeada correctamente.")
+            time.sleep(1)
         except Exception as e:
+            print(f"[DEBUG] Error al hacer clic en la pestaña {pestaña}: {e}")
             logging.error(f"No se pudo hacer clic en la pestaña {pestaña}: {e}")
             continue
 
-        # Abre el selector de destinos
-        try:
-            flecha = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".multiselect__select")))
-            scroll_and_click(driver, flecha)
-            wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, ".multiselect__option")))
-            time.sleep(1)
-        except Exception as e:
-            logging.error(f"No se pudo abrir el selector en {pestaña}: {e}")
+        # Espera a que la pestaña esté activa y el multiselect sea visible y abre el selector de destinos
+        if not abrir_selector_destinos(driver, wait, pestaña):
             continue
 
-        # Obtén todas las opciones de destino
-        opciones = driver.find_elements(By.CSS_SELECTOR, ".multiselect__option:not(.multiselect__option--group):not(.multiselect__option--disabled)")
+        limpiar_selector_destino(driver)
+
+        print("[DEBUG] Buscando opciones de destino...")
+        opciones = driver.find_elements(By.CSS_SELECTOR, "div.tab-pane.active .multiselect__option:not(.multiselect__option--group):not(.multiselect__option--disabled)")
+        print(f"[DEBUG] Se encontraron {len(opciones)} opciones de destino.")
         destinos = [op.text.strip() for op in opciones if op.text.strip()]
+        print(f"[DEBUG] Destinos: {destinos}")
         logging.info(f"Destinos encontrados en {pestaña}: {destinos}")
+
+        subfolder = pestaña.lower()
+        subfolder_path = os.path.join(DATA_FORMULARIO_DIR, subfolder)
+        os.makedirs(subfolder_path, exist_ok=True)
 
         for destino in destinos:
             logging.info(f"Procesando destino: {destino}")
 
-            # Vuelve a la página principal antes de cada destino
             driver.get(URL)
             time.sleep(2)
-            # Reabrir la pestaña correspondiente
             try:
-                tab_btn = wait.until(EC.element_to_be_clickable(
-                    (By.XPATH, f"//span[contains(text(), '{pestaña}')]/ancestor::a")))
-                scroll_and_click(driver, tab_btn)
+                print(f"[DEBUG] Reabriendo pestaña {pestaña} para destino {destino}...")
+                wait_for_multiselect(driver)
+                click_tab(driver, wait, pestaña)
+                print(f"[DEBUG] Pestaña {pestaña} reabierta correctamente.")
                 time.sleep(1)
             except Exception as e:
+                print(f"[DEBUG] Error al volver a la pestaña {pestaña}: {e}")
                 logging.error(f"No se pudo volver a la pestaña {pestaña}: {e}")
                 continue
 
-            try:
-                # Selecciona el destino
-                flecha = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".multiselect__select")))
-                scroll_and_click(driver, flecha)
-                wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, ".multiselect__option")))
-                xpath = f"//span[contains(@class, 'multiselect__option') and span[normalize-space(text())='{destino}']]"
-                try:
-                    opcion_span = wait.until(EC.element_to_be_clickable((By.XPATH, xpath)))
-                    scroll_and_click(driver, opcion_span)
-                    time.sleep(0.5)
-                except Exception as e:
-                    logging.warning(f"No se encontró/clickeó la opción '{destino}': {e}")
-                    continue
-            except Exception as e:
-                logging.error(f"No se pudo seleccionar destino {destino} en {pestaña}: {e}")
+            # Abre el selector de destinos de forma robusta
+            if not abrir_selector_destinos(driver, wait, pestaña):
                 continue
 
-            # Haz clic en el botón Buscar
+            limpiar_selector_destino(driver)
+            time.sleep(0.3)
+            if not abrir_selector_destinos(driver, wait, pestaña):
+                continue
+
+            # Selecciona el destino (bloque robusto)
             try:
-                buscar_btn = wait.until(EC.element_to_be_clickable(
-                    (By.XPATH, "//button[contains(@class, 'btn-primary') and contains(., 'Buscar')]")))
-                scroll_and_click(driver, buscar_btn)
+                print(f"[DEBUG] Buscando opción de destino '{destino}'...")
+                opciones = driver.find_elements(By.CSS_SELECTOR, "div.tab-pane.active .multiselect__option")
+                opcion_span = None
+                for op in opciones:
+                    hijo = None
+                    try:
+                        hijo = op.find_element(By.XPATH, "./span")
+                    except Exception:
+                        pass
+                    texto = hijo.text.strip() if hijo else op.text.strip()
+                    if texto.lower() == destino.strip().lower():
+                        opcion_span = op
+                        break
+                if opcion_span:
+                    driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", opcion_span)
+                    time.sleep(0.2)
+                    driver.execute_script("arguments[0].click();", opcion_span)
+                    print(f"[DEBUG] Opción '{destino}' seleccionada correctamente.")
+                    time.sleep(0.5)
+                else:
+                    raise Exception(f"No se encontró la opción '{destino}' en el menú desplegable.")
+            except Exception as e:
+                print(f"[DEBUG] No se encontró/clickeó la opción '{destino}': {e}")
+                logging.warning(f"No se encontró/clickeó la opción '{destino}': {e}")
+                continue
+
+            try:
+                print("[DEBUG] Buscando botón Buscar...")
+                # Busca el botón Buscar en el contenedor principal, si no existe busca en la pestaña activa
+                try:
+                    form_container = driver.find_element(By.CSS_SELECTOR, "div.tab-pane.active .form-inline.container-booking-responsive")
+                    buscar_btn = form_container.find_element(By.CSS_SELECTOR, "button.btn.btn-block.btn-primary")
+                except Exception:
+                    print("[DEBUG] No se encontró el contenedor esperado, buscando botón Buscar directamente en la pestaña activa...")
+                    tab_active = driver.find_element(By.CSS_SELECTOR, "div.tab-pane.active")
+                    buscar_btn = tab_active.find_element(By.CSS_SELECTOR, "button.btn.btn-block.btn-primary")
+                print(f"[DEBUG] HTML del botón Buscar: {buscar_btn.get_attribute('outerHTML')}")
+                wait.until(lambda d: buscar_btn.is_displayed() and buscar_btn.is_enabled())
+                try:
+                    buscar_btn.click()
+                except Exception:
+                    driver.execute_script("arguments[0].click();", buscar_btn)
+                print("[DEBUG] Botón Buscar pulsado, esperando resultados...")
                 logging.info("Botón Buscar pulsado, esperando resultados...")
             except Exception as e:
+                print(f"[DEBUG] No se pudo hacer clic en Buscar en {pestaña} - {destino}: {e}")
+                debug_html = driver.page_source
+                debug_path = os.path.join(HTML_DEBUG_DIR, f"ERROR_{pestaña}_{destino}_buscar.html")
+                with open(debug_path, "w", encoding="utf-8") as f:
+                    f.write(debug_html)
+                print(f"[DEBUG] HTML guardado en {debug_path} para inspección manual.")
                 logging.error(f"No se pudo hacer clic en Buscar en {pestaña} - {destino}: {e}")
                 continue
 
-            # Espera a que la URL cambie y luego a que cargue la zona de resultados
             try:
                 wait.until(lambda d: "/Hotel/Search" in d.current_url)
+                print("[DEBUG] Redirección detectada, esperando resultados...")
                 logging.info("Redirección detectada, esperando resultados...")
                 wait.until(
                     EC.presence_of_element_located((By.CSS_SELECTOR, ".row.pb15, .card-hotel, .card-house, .card-tour, .card-campismo"))
                 )
+                WebDriverWait(driver, 30).until(
+                    lambda d: len(d.find_elements(By.CSS_SELECTOR, ".card-hotel, .card-house, .card-tour, .card-campismo")) > 0
+                )
                 time.sleep(2)
             except Exception as e:
+                print(f"[DEBUG] No se detectaron resultados visibles para {pestaña} - {destino}: {e}")
                 logging.warning(f"No se detectaron resultados visibles para {pestaña} - {destino}: {e}")
 
-            # NUEVO: Mostrar la URL después de buscar
             current_url = driver.current_url
             logging.info(f"URL después de buscar: {current_url}")
             print(f"[DEBUG] URL después de buscar: {current_url}")
@@ -205,7 +342,6 @@ def scrape():
             soup = BeautifulSoup(html, "html.parser")
             resultados = []
 
-            # DEBUG: imprime cuántos elementos encuentra cada selector
             selectors = [
                 ".row.pb15",
                 ".card-hotel, .card-house, .card-tour, .card-campismo",
@@ -223,12 +359,35 @@ def scrape():
             for i, card in enumerate(cards):
                 data = extract_card_data(card)
                 print(f"[DEBUG] Card {i}: {data}")
-                if data["nombre"]:  # Solo guarda si hay nombre
+                if data["nombre"]:
                     resultados.append(data)
 
-            # Guarda en JSON
-            filename = os.path.join(SAVE_DIR, f"{pestaña}_{destino}.json".replace(" ", "_"))
-            save_json(resultados, filename)
+            # --- NUEVO BLOQUE: Enriquecer descripción desde el enlace ---
+            for data in resultados:
+                enlace = data.get("enlace")
+                if enlace:
+                    # Si el enlace es relativo, hazlo absoluto
+                    if enlace.startswith("/"):
+                        enlace = URL.rstrip("/") + enlace
+                    try:
+                        driver.get(enlace)
+                        time.sleep(2)
+                        detalle_html = driver.page_source
+                        detalle_soup = BeautifulSoup(detalle_html, "html.parser")
+                        # Ajusta el selector según la estructura real de la página de detalle
+                        desc_elem = detalle_soup.select_one(".description, .detalle, .descripcion, .content, p")
+                        descripcion = desc_elem.text.strip() if desc_elem else ""
+                        data["descripcion"] = descripcion
+                    except Exception as e:
+                        print(f"[DEBUG] No se pudo extraer descripción de {enlace}: {e}")
+                # Si no hay enlace, deja la descripción como está
+            # Elimina el campo 'enlace' antes de guardar si no lo quieres en el JSON final
+            for data in resultados:
+                data.pop("enlace", None)
+            # --- FIN BLOQUE NUEVO ---
+
+            filename = os.path.join(subfolder_path, f"{destino}.json".replace(" ", "_"))
+            save_json_with_destino(resultados, filename, destino)
             logging.info(f"Guardado: {filename} ({len(resultados)} resultados)")
 
     driver.quit()
