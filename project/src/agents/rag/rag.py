@@ -3,6 +3,7 @@ from pathlib import Path
 import json
 import pickle
 import os
+import shutil
 from sentence_transformers import SentenceTransformer
 import google.generativeai as genai
 import unicodedata
@@ -14,6 +15,7 @@ local_model = SentenceTransformer('all-MiniLM-L6-v2')
 nlp = spacy.load("es_core_news_sm")
 
 EMBEDDINGS_DYNAMIC_FILE = "./project/src/agents/data_dynamic/embeddings.pkl"
+EMBEDDINGS_FORMULARIO_FILE = "./project/src/agents/data_formulario/embeddings.pkl"
 EMBEDDINGS_FILE = "./project/src/agents/data/embeddings.pkl"
 DATA_DYNAMIC_DIR = "./project/src/agents/data_dynamic"
 class ChatUtils:
@@ -22,6 +24,9 @@ class ChatUtils:
         # Inicializa el modelo de embeddings y el modelo de Gemini
         with open(EMBEDDINGS_FILE, "rb") as f:
             self.store_vectors = pickle.load(f)
+        
+        with open(EMBEDDINGS_FORMULARIO_FILE, "rb") as f:
+            self.store_vectors_formulario = pickle.load(f)
         
         genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
         self.gemini_model = genai.GenerativeModel('gemini-2.0-flash')
@@ -82,6 +87,48 @@ class ChatUtils:
                         text += ".".join(lista_fragmentos)
             
         return ChatUtils.normalize_text(text)
+    
+    @staticmethod
+    def extract_texts_from_json_formulario(json_path):
+        """
+        Extrae textos relevantes de un archivo JSON con formato de hoteles para usar en embeddings o RAG.
+
+        Args:
+            json_path (str): Ruta al archivo JSON.
+
+        Returns:
+            list: Lista de textos combinados de cada entrada del JSON.
+        """
+        with open(json_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        textos = []
+        for item in data:
+            # Combina los campos más relevantes en un solo string
+            texto = (
+                f"Provincia: {item.get('Provincia', '')}."
+                f"Nombre: {item.get('nombre', '')}. "
+                f"Descripción: {item.get('descripcion', '')}. "
+                f"Dirección: {item.get('direccion', '')}. "
+                f"Tarifa: {item.get('tarifa', '')}. "
+                f"Precio: {item.get('precio', '')}. "
+                f"Estrellas: {item.get('estrellas', '')}. "
+            )
+            textos.append(texto)
+        result = " ".join(textos)
+        return ChatUtils.normalize_text(result)
+    
+    @staticmethod
+    def clear_data_directory(data_dir):
+        """
+        Limpia el directorio de datos eliminando todos los archivos y subdirectorios.
+
+        Args:
+            data_dir (str): Ruta al directorio de datos a limpiar.
+        """
+        carpeta_base = Path(data_dir)
+        if carpeta_base.exists():
+            shutil.rmtree(carpeta_base)
+        carpeta_base.mkdir(parents=True, exist_ok=True)
 
     @staticmethod
     def load_all_texts(data_dir):
@@ -161,6 +208,25 @@ class ChatUtils:
             expanded.update(ChatUtils.get_synonyms(kw, max_synonyms=max_synonyms))
         # Devuelve la query original más las palabras clave y sus sinónimos
         return query + " " + " ".join(expanded)
+    
+    # @staticmethod
+    # def is_continuation_of_previous_query(query, patterns_query, threshold=0.35):
+    #     """
+    #     Comprueba si una consulta es una continuación de la anterior basándose en patrones y similitud.
+
+    #     Args:
+    #         query (str): Consulta actual del usuario.
+    #         patterns_query (list): Lista de patrones de consultas anteriores.
+    #         threshold (float): Umbral de similitud para considerar que es una continuación.
+
+    #     Returns:
+    #         bool: True si la consulta es una continuación, False en caso contrario.
+    #     """
+    #     if not patterns_query:
+    #         return False
+    #     last_query = patterns_query[-1]
+    #     similarity = ChatUtils.compute_similarity(query, last_query)
+    #     return similarity >= threshold
 
 
     def split_text_into_chunks(self, text, window_size=20, overlap_size=5):
@@ -275,11 +341,11 @@ class ChatUtils:
             print("⚠️ Contexto insuficiente, ejecutando crawler dinámico...")
             run_crawler(query)
             texts = ChatUtils.load_all_texts(DATA_DYNAMIC_DIR)
-            print("xd")
             embeddings = self.update_knowledge_base(
                      texts, chunk_size=100, overlap_size=10)
             retrieved = self.retrieve(query_norm, embeddings, top_k=top_k)
-            print("xd")
+            ChatUtils.clear_data_directory(DATA_DYNAMIC_DIR)  # Limpia el directorio dinámico después de usarlo
+            
             
             
         # 2. Construir el prompt integrando los fragmentos recuperados y la consulta
@@ -300,7 +366,7 @@ class ChatUtils:
         Llama al modelo de lenguaje con la query y devuelve la respuesta.
         """
         # Cambiar la fuente de conocimiento por la que solo devuelva hoteles y lugares con precios
-        prompt = self.prompt_gen(query,self.store_vectors, top_k=top_k) # Cambia a self.store_vectors por self.store_vectors_formulario
+        prompt = self.prompt_gen(query,self.store_vectors_formulario, top_k=top_k) # Cambia a self.store_vectors por self.store_vectors_formulario
         prompt += "\n\nPor favor, devuelve la respuesta en el siguiente formato JSON:\n" + json_format
         response = self.gemini_model.generate_content(prompt)
         return response.text
