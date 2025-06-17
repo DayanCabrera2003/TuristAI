@@ -186,14 +186,16 @@ def process_page(url, depth, state, allowed_domains, seed, driver=None):
             logging.info(f"[S] [{state.seed_counts[seed]+1}/{state.seed_limits[seed]}] {url}")
 
         info = extract_info(html, url)
+        # --- MODIFICADO: rutas de guardado ---
+        base_dir = os.path.dirname(os.path.abspath(__file__))
         if hasattr(state, "dynamic_mode") and state.dynamic_mode:
-            folder_name = "crawleo_dinamico"
+            save_dir = os.path.join(base_dir, "dinamic-crawler")
         else:
-            folder_name = urlparse(seed).netloc.replace('.', '_')
-        save_dir = os.path.join(SAVE_PATH, folder_name)
+            save_dir = os.path.join(base_dir, "data", urlparse(seed).netloc.replace('.', '_'))
         os.makedirs(save_dir, exist_ok=True)
         filename = os.path.join(save_dir, url_to_filename(url).replace('.html', '.json'))
         save_json(info, filename)
+        # --- FIN MODIFICACIÓN ---
 
         raw_links = extract_links(html, url)
         new_links = filter_links(raw_links, url, allowed_domains)
@@ -287,7 +289,7 @@ def run_crawler(query=None, start_urls=None, max_depth=None, dynamic_mode=False)
     - query: consulta de búsqueda (usa DuckDuckGo si se provee)
     - start_urls: lista de URLs semilla (ignorado si query está presente)
     - max_depth: profundidad máxima de crawleo
-    - dynamic_mode: si True, guarda en carpeta 'crawleo_dinamico'
+    - dynamic_mode: si True, guarda en carpeta 'dinamic-crawler'
     """
     if query:
         if DDGS is None:
