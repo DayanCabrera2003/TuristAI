@@ -1,4 +1,6 @@
 from rag import rag
+import json
+import re
 
 
 """
@@ -26,7 +28,7 @@ class Planer:
                         "properties": {
                             "nombre": {"type": "string", "description": "Nombre del lugar turístico."},
                             "descripcion": {"type": "string", "description": "Descripción breve del lugar."},
-                            "costo": {"type": "number", "description": "Costo estimado del lugar en dólares."},
+                            "precio": {"type": "number", "description": "Costo estimado del lugar en dólares."},
                             "ciudad": {
                                 "type": "string",
                                 "enum": [
@@ -80,13 +82,31 @@ class Planer:
         print("#############Realizando búsqueda con el query:", query)
         result= utils.ask(query,self.schema, 20)
         print("Resultado de la búsqueda:", result)
-        return result
-
-
-
-
-
-
+        raw_json = self.extract_json(result)
+        if raw_json:
+            try:
+                result_json = json.loads(raw_json)
+            except json.JSONDecodeError as e:
+                print("Error al decodificar el JSON extraído:", e)
+                result_json = {}
+        else:
+            print("No se encontró un bloque JSON en la respuesta.")
+            result_json = {}
+        return result_json
+    
+    def extract_json(self,text):
+        """
+        Extrae el primer bloque JSON válido de un string, incluso si está dentro de un bloque Markdown.
+        """
+        # Busca bloque entre ```json ... ```
+        match = re.search(r"```json\s*(\{.*?\})\s*```", text, re.DOTALL)
+        if match:
+            return match.group(1)
+        # Si no hay bloque markdown, busca cualquier bloque {...}
+        match = re.search(r"(\{.*\})", text, re.DOTALL)
+        if match:
+            return match.group(1)
+        return None
 
 
 

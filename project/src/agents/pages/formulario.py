@@ -170,6 +170,5 @@ if st.session_state.pagina == "Itinerario":
     itinerario = planer.generate_itinerary()
     st.write(itinerario)
     st.session_state.pagina = "Finalizado"
-    st.rerun()
 
 

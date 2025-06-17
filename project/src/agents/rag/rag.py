@@ -368,6 +368,6 @@ class ChatUtils:
         """
         # Cambiar la fuente de conocimiento por la que solo devuelva hoteles y lugares con precios
         prompt = self.prompt_gen(query,self.store_vectors_formulario, top_k=top_k,distance_threshold=1) # Cambia a self.store_vectors por self.store_vectors_formulario
-        prompt += "\n\nPor favor, devuelve la respuesta en el siguiente formato JSON:\n" + json.dumps(json_format, ensure_ascii=False, indent=2)
+        prompt += "\n\nPor favor, devuelve la respuesta unicamente en el siguiente formato JSON:\n" + json.dumps(json_format, ensure_ascii=False, indent=2)
         response = self.gemini_model.generate_content(prompt)
         return response.text
