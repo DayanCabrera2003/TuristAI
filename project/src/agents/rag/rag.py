@@ -1,4 +1,6 @@
 import numpy as np
+from pathlib import Path
+import json
 import pickle
 import os
 from sentence_transformers import SentenceTransformer
@@ -8,8 +10,6 @@ import re
 import spacy
 from nltk.corpus import wordnet as wn
 from crawler2 import run_crawler
-from precompute_embeddings import extract_texts_from_json, load_all_texts
-
 local_model = SentenceTransformer('all-MiniLM-L6-v2')
 nlp = spacy.load("es_core_news_sm")
 
@@ -41,6 +41,7 @@ class ChatUtils:
         vector = local_model.encode(text)
         return vector.tolist()
     
+    
     @staticmethod
     def normalize_text(text):
         """
@@ -64,6 +65,43 @@ class ChatUtils:
         # Elimina espacios extra
         text = re.sub(r'\s+', ' ', text).strip()
         return text
+    
+    @staticmethod
+    def extract_texts_from_json(json_path):
+        text=""
+        with open(json_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            if "titulo" in data:
+                text = data["titulo"]
+            
+            # fragmentos de cada sección
+            if "secciones" in data:
+                for seccion in data["secciones"]:
+                    if "fragmentos" in seccion:
+                        lista_fragmentos = seccion["fragmentos"]
+                        text += ".".join(lista_fragmentos)
+            
+        return ChatUtils.normalize_text(text)
+
+    @staticmethod
+    def load_all_texts(data_dir):
+        
+        all_texts = []
+        carpeta_base = Path(data_dir)
+        
+        if not carpeta_base.exists():
+            raise FileNotFoundError(f"La carpeta {carpeta_base} no existe, no se pueden cargar los datos.")
+        
+        for archivo_json in carpeta_base.rglob('*.json'):
+            try:
+                text = ChatUtils.extract_texts_from_json(archivo_json)
+                all_texts.append(text)
+            except json.JSONDecodeError:
+                print(f"❌ Error: Archivo no es JSON válido - {archivo_json}")
+            except Exception as e:
+                print(f"⚠️ Error inesperado en {archivo_json}: {str(e)}")
+        
+        return all_texts
     
     @staticmethod
     def extract_keywords(text):
@@ -236,10 +274,12 @@ class ChatUtils:
             # Ejecuta tu crawler dinámico aquí
             print("⚠️ Contexto insuficiente, ejecutando crawler dinámico...")
             run_crawler(query)
-            texts = load_all_texts(DATA_DYNAMIC_DIR)
+            texts = ChatUtils.load_all_texts(DATA_DYNAMIC_DIR)
+            print("xd")
             embeddings = self.update_knowledge_base(
                      texts, chunk_size=100, overlap_size=10)
             retrieved = self.retrieve(query_norm, embeddings, top_k=top_k)
+            print("xd")
             
             
         # 2. Construir el prompt integrando los fragmentos recuperados y la consulta

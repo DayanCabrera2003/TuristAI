@@ -11,9 +11,9 @@ from collections import defaultdict
 from fake_useragent import UserAgent
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from .utils.utils import save_json, url_to_filename
-from .utils.extractor import extract_links, extract_info
-from .utils.config import START_URLS as CONFIG_START_URLS, MAX_DEPTH, SAVE_PATH, HEADLESS
+from utils.utils import save_json, url_to_filename
+from utils.extractor import extract_links, extract_info
+from utils.config import START_URLS as CONFIG_START_URLS, MAX_DEPTH, SAVE_PATH, HEADLESS
 
 import argparse
 
