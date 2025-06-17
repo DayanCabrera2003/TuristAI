@@ -5,9 +5,39 @@ def clean_text(text):
     return re.sub(r'\s+', ' ', text.strip())
 
 def extract_links(html, base_url):
-    from urllib.parse import urljoin
+    from urllib.parse import urljoin, urlparse
     soup = BeautifulSoup(html, 'lxml')
     links = set()
+    parsed = urlparse(base_url)
+
+    # --- SolwaysCuba hoteles ---
+    if "solwayscuba.com" in parsed.netloc and "/hoteles/" in parsed.path:
+        results_main = soup.find("div", id="results-main")
+        if results_main:
+            for a in results_main.find_all("a", href=True):
+                href = a['href']
+                full_url = urljoin(base_url, href)
+                # Solo enlaces a hoteles
+                if "/hoteles/" in full_url:
+                    links.add(full_url)
+        # También extraer paginación si existe
+        for a in soup.find_all("a", href=True):
+            href = a['href']
+            full_url = urljoin(base_url, href)
+            if "page=" in full_url and "solwayscuba.com" in full_url:
+                links.add(full_url)
+        return list(links)
+
+    # --- VaraderoGuide: seguir todos los enlaces internos ---
+    if "varaderoguide.net" in parsed.netloc:
+        for a in soup.find_all("a", href=True):
+            href = a['href']
+            full_url = urljoin(base_url, href)
+            if urlparse(full_url).netloc == "www.varaderoguide.net":
+                links.add(full_url)
+        return list(links)
+
+    # --- Default: Cuba.travel y otros ---
     for a in soup.find_all('a', href=True):
         href = a['href']
         full_url = urljoin(base_url, href)

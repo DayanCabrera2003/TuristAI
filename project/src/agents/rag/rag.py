@@ -18,7 +18,7 @@ class ChatUtils:
             self.store_vectors = pickle.load(f)
         
         genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-        self.gemini_model = genai.GenerativeModel('gemini-1.5-flash')
+        self.gemini_model = genai.GenerativeModel('gemini-2.0-flash')
     
 
     
@@ -223,6 +223,7 @@ class ChatUtils:
         """
         # 1. Recuperar los fragmentos más relevantes usando el recuperador
         query_norm = ChatUtils.normalize_text(query)
+        # expanded_query = ChatUtils.expand_query_with_synonyms(query, max_synonyms=2)
         retrieved = self.retrieve(query_norm, store_vectors, top_k=top_k)
         
         if all(dist > distance_threshold for dist, _ in retrieved):
@@ -248,16 +249,7 @@ class ChatUtils:
         """
         Llama al modelo de lenguaje con la query y devuelve la respuesta.
         """
+        # Cambiar la fuente de conocimiento por la que solo devuelva hoteles y lugares con precios
         prompt = self.prompt_gen(query,self.store_vectors, top_k=top_k)
         response = self.gemini_model.generate_content(prompt)
         return response.text
-
-
-
-# query = "Quiero visitar playas en Cuba"
-
-# # Expande la consulta
-# expanded_query = ChatUtils.expand_query_with_synonyms(query, max_synonyms=2)
-
-# print("Consulta original:", query)
-# print("Consulta expandida:", expanded_query)
