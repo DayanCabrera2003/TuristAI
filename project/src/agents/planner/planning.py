@@ -1,3 +1,6 @@
+from rag import rag
+
+
 """
 Esta clase genera un itinerario personalizado según las preferencias del turista.
 Utiliza un esquema JSON para solicitar información relevante a través del agente de búsqueda. 
@@ -13,7 +16,7 @@ class Planer:
         self.dias_vacaciones = dias_vacaciones
         self.presupuesto_disponible = presupuesto_disponible
         self.tipolugares = tipolugares
-        schema = {
+        self.schema = {
             "type": "object",
             "properties": {
                 "lugares": {
@@ -53,7 +56,7 @@ class Planer:
                                         "Senderismo", "Excursiones", "Observación de flora", "Observación de fauna",
                                         "Parques Nacionales", "Reservas", "Fortalezas", "Castillos", "Casas-museo", "Museos de historia",
                                         "Spa", "Resorts", "Conciertos", "Festivales de música", "Clubs nocturnos", "Bares", 
-                                        "Iglesias", "Catedrales", "Festividades religiosas", "Otras"
+                                        "Iglesias", "Catedrales", "Festividades religiosas", "Hotel", "Otras"
                                     ]
                                 },
                                 "description": "Lista lugares, de tipos de lugares y de actividades que se realizan en ese lugar turístico."
@@ -69,14 +72,15 @@ class Planer:
             "required": ["actividades"]
         }
     def generate_itinerary(self):
-        prompt = f"""
-        Devuelveme lugares de alguno de este tipo: {self.tipolugares}. y que estén en alguna de las siguientes ciudades: {self.lugares} de Cuba.
-        Utiliza el siguiente esquema JSON para estructurar la información de los lugares turísticos:
-
-        {self.schema}
-
-        Asegúrate de incluir detalles como el nombre, descripción, costo, ciudad, lugares a visitar y tipo de actividad.
+        
+        utils = rag.ChatUtils()
+        query = f"""
+         {", ".join(self.tipolugares)} que estén en alguna de las siguientes provincias: {", ".join(self.lugares)} de Cuba.
         """
+        print("#############Realizando búsqueda con el query:", query)
+        result= utils.ask(query,self.schema, 20)
+        print("Resultado de la búsqueda:", result)
+        return result
 
 
 

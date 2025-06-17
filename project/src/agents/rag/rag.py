@@ -18,6 +18,7 @@ EMBEDDINGS_DYNAMIC_FILE = "./project/src/agents/data_dynamic/embeddings.pkl"
 EMBEDDINGS_FORMULARIO_FILE = "./project/src/agents/data_formulario/embeddings.pkl"
 EMBEDDINGS_FILE = "./project/src/agents/data/embeddings.pkl"
 DATA_DYNAMIC_DIR = "./project/src/agents/data_dynamic"
+GEMINI_API_KEY = "AIzaSyDSWR4UwuJmxjvHrmw8t-V9PzUB5aV3QTU"
 class ChatUtils:
     def __init__(self):
         
@@ -28,7 +29,7 @@ class ChatUtils:
         with open(EMBEDDINGS_FORMULARIO_FILE, "rb") as f:
             self.store_vectors_formulario = pickle.load(f)
         
-        genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+        genai.configure(api_key=GEMINI_API_KEY)
         self.gemini_model = genai.GenerativeModel('gemini-2.0-flash')
     
 
@@ -366,7 +367,7 @@ class ChatUtils:
         Llama al modelo de lenguaje con la query y devuelve la respuesta.
         """
         # Cambiar la fuente de conocimiento por la que solo devuelva hoteles y lugares con precios
-        prompt = self.prompt_gen(query,self.store_vectors_formulario, top_k=top_k) # Cambia a self.store_vectors por self.store_vectors_formulario
-        prompt += "\n\nPor favor, devuelve la respuesta en el siguiente formato JSON:\n" + json_format
+        prompt = self.prompt_gen(query,self.store_vectors_formulario, top_k=top_k,distance_threshold=1) # Cambia a self.store_vectors por self.store_vectors_formulario
+        prompt += "\n\nPor favor, devuelve la respuesta en el siguiente formato JSON:\n" + json.dumps(json_format, ensure_ascii=False, indent=2)
         response = self.gemini_model.generate_content(prompt)
         return response.text

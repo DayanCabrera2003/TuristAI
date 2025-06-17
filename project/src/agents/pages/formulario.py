@@ -1,4 +1,5 @@
 import streamlit as st
+from planner.planning import Planer
 
 st.set_page_config(page_title="Formulario Turístico", layout="centered")
 
@@ -96,7 +97,7 @@ if st.session_state.pagina == "subformulario tipos de actividades":
         subopciones.extend(opcionesGastronomia)
 
     if "Playa" in st.session_state.actividades_seleccionadas:
-        opcionesPlaya = ["Varadero", "Cayos", "Guardalavaca", "Playa Pesquero", "Playa Ancón"]
+        opcionesPlaya = ["Varadero", "Cayos", "Guardalavaca", "Playa Pesquero", "Playa Ancón", "Hotel"]
         subopciones.extend(opcionesPlaya)
 
     if "Naturaleza" in st.session_state.actividades_seleccionadas:
@@ -110,7 +111,7 @@ if st.session_state.pagina == "subformulario tipos de actividades":
         subopciones.extend(opcionesHistoria)
 
     if "Relajación" in st.session_state.actividades_seleccionadas:
-        opcionesRelajacion = ["Spa", "Resorts"]
+        opcionesRelajacion = ["Spa", "Hoteles", "Resorts"]
         subopciones.extend(opcionesRelajacion)
 
     if "Musical" in st.session_state.actividades_seleccionadas:
@@ -155,6 +156,20 @@ if st.session_state.pagina == "formulario lugares":
         if "Marcar todas" in st.session_state.seleccionLug:
             st.session_state.seleccionLug = opcionesLugares[:-1]  # Todas menos "Marcar todas"
         st.success("¡Formulario completado!")
-        
+        st.session_state.pagina = "Itinerario"
+
+if st.session_state.pagina == "Itinerario":
+    st.title("Itinerario Propuesto")
+    st.write("Aquí se mostraría el itinerario propuesto basado en sus selecciones.")
+    planer = Planer(
+        st.session_state.seleccionLug,
+        st.session_state.seleccionAct,
+        st.session_state.diasVacaciones,
+        st.session_state.presupuestoDisponible
+    )
+    itinerario = planer.generate_itinerary()
+    st.write(itinerario)
+    st.session_state.pagina = "Finalizado"
+    st.rerun()
 
 
