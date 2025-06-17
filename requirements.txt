@@ -1,0 +1,15 @@
+streamlit
+google-generativeai
+sentence-transformers 
+geopy
+folium
+numpy
+networkx
+spacy
+nltk
+beautifulsoup4
+lxml
+requests
+selenium
+fake-useragent
+duckduckgo-search
