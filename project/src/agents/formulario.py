@@ -1,10 +1,6 @@
 import streamlit as st
 
 st.set_page_config(page_title="Formulario Turístico", layout="centered")
-seleccionAct = []
-seleccionLug = []
-diasVacaciones = 0
-presupuestoDisponible = 0
 
 
 opcionesLugares = [
@@ -23,6 +19,15 @@ if "pagina" not in st.session_state:
 
 if "actividades_seleccionadas" not in st.session_state:
     st.session_state.actividades_seleccionadas = []
+if "seleccionAct" not in st.session_state:
+    st.session_state.seleccionAct = []
+if "seleccionLug" not in st.session_state:
+    st.session_state.seleccionLug = []
+if "diasVacaciones" not in st.session_state:
+    st.session_state.diasVacaciones = 0
+if "presupuestoDisponible" not in st.session_state:
+    st.session_state.presupuestoDisponible = 0
+
 
 if st.session_state.pagina == "inicio":
     st.title("Formulario de Actividades Turísticas")
@@ -36,11 +41,11 @@ if st.session_state.pagina == "inicio":
         step=1,
         format="%d"
     )
-    diasVacaciones = dias
+    st.session_state.diasVacaciones = dias
     presupuesto_ilimitado = st.checkbox("Presupuesto ilimitado")
     if presupuesto_ilimitado:
         presupuesto = "Ilimitado"
-        presupuestoDisponible = -float('inf')
+        st.session_state.presupuestoDisponible = -float('inf')
     else:
         presupuesto = st.number_input(
             "¿Con cuánto presupuesto cuenta? (USD)",
@@ -48,7 +53,7 @@ if st.session_state.pagina == "inicio":
             step=1,
             format="%d"
         )
-        presupuestoDisponible = presupuesto
+        st.session_state.presupuestoDisponible = presupuesto
 
     if st.button("Siguiente"):
         st.session_state.dias_vacaciones = dias
@@ -117,17 +122,18 @@ if st.session_state.pagina == "subformulario tipos de actividades":
         subopciones.extend(opcionesReligiosas)
     
     if len(subopciones) > 0:
-        subopciones.extend(["Marcar todas", "Otras"])
-
+        subopciones.extend(["Otras", "Marcar todas"])
+        
         for opcion in subopciones:
             checked = st.session_state.get(f"sub_chk_{opcion}", False)
             new_checked = st.checkbox(opcion, value=checked, key=f"sub_chk_{opcion}")
             if new_checked:
-                seleccionAct.append(opcion)
+                st.session_state.seleccionAct.append(opcion)
 
         if st.button("Siguiente", key="sub_siguiente"):
-            if "Marcar todas" in seleccionAct:
-                seleccionAct = opciones[:-1]  # Todas menos "Marcar todas"
+            if "Marcar todas" in st.session_state.seleccionAct:
+                st.session_state.seleccionAct = subopciones[:-1]  # Todas menos "Marcar todas"
+
             st.session_state.pagina = "formulario lugares"
             st.rerun()
         if st.button("Anterior"):
@@ -141,13 +147,13 @@ if st.session_state.pagina == "formulario lugares":
         checked = st.session_state.get(f"lug_chk_{opcion}", False)
         new_checked = st.checkbox(opcion, value=checked, key=f"lug_chk_{opcion}")
         if new_checked:
-            seleccionLug.append(opcion)
+            st.session_state.seleccionLug.append(opcion)
     if st.button("Anterior"):
         st.session_state.pagina = "subformulario tipos de actividades"
         st.rerun()
     if st.button("Siguiente"):
-        if "Marcar todas" in seleccionLug:
-            seleccionLug = opcionesLugares[:-1]  # Todas menos "Marcar todas"
+        if "Marcar todas" in st.session_state.seleccionLug:
+            st.session_state.seleccionLug = opcionesLugares[:-1]  # Todas menos "Marcar todas"
         st.success("¡Formulario completado!")
         
 
