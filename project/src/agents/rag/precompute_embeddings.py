@@ -7,6 +7,8 @@ from rag import ChatUtils
 
 DATA_DIR = "./project/src/agents/data"
 EMBEDDINGS_FILE = "./project/src/agents/data/embeddings.pkl"
+DATA_FORMULARIO = "./project/src/agents/data_formulario"
+EMBEDDINGS_FORMULARIO = "./project/src/agents/data_formulario/embeddings.pkl"
 
 
 def extract_texts_from_json(json_path):
@@ -48,7 +50,7 @@ def load_all_texts(data_dir):
 
 def main():
     print("Extrayendo textos de los JSON...")
-    texts = load_all_texts(DATA_DIR)
+    texts = load_all_texts(DATA_DIR) #Cambia a DATA_FORMULARIO para cargar los datos del formulario
     print(f"Total de fragmentos/textos: {len(texts)}")
 
     print("Inicializando ChatUtils...")
@@ -61,7 +63,7 @@ def main():
 
     print(f"Guardando embeddings en {EMBEDDINGS_FILE} ...")
 
-    with open(EMBEDDINGS_FILE, "wb") as f:
+    with open(EMBEDDINGS_FILE, "wb") as f:  # Cambia a EMBEDDINGS_FORMULARIO para guardar datos del formulario
         pickle.dump(embeddings, f)
 
     print("¡Listo! Embeddings precalculados y guardados.")

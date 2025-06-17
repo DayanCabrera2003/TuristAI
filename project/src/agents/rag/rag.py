@@ -7,14 +7,20 @@ import unicodedata
 import re
 import spacy
 from nltk.corpus import wordnet as wn
+from crawler2 import run_crawler
+from precompute_embeddings import extract_texts_from_json, load_all_texts
 
 local_model = SentenceTransformer('all-MiniLM-L6-v2')
 nlp = spacy.load("es_core_news_sm")
+
+EMBEDDINGS_DYNAMIC_FILE = "./project/src/agents/data_dynamic/embeddings.pkl"
+EMBEDDINGS_FILE = "./project/src/agents/data/embeddings.pkl"
+DATA_DYNAMIC_DIR = "./project/src/agents/data_dynamic"
 class ChatUtils:
-    def __init__(self,embeddings_path="./project/src/agents/data/embeddings.pkl"):
+    def __init__(self):
         
         # Inicializa el modelo de embeddings y el modelo de Gemini
-        with open(embeddings_path, "rb") as f:
+        with open(EMBEDDINGS_FILE, "rb") as f:
             self.store_vectors = pickle.load(f)
         
         genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
@@ -229,9 +235,13 @@ class ChatUtils:
         if all(dist > distance_threshold for dist, _ in retrieved):
             # Ejecuta tu crawler dinámico aquí
             print("⚠️ Contexto insuficiente, ejecutando crawler dinámico...")
-            # crawler_dinamico(query)  # Llama a tu función de crawler aquí
-            return "No se encontró suficiente información, buscando más contexto..."
-
+            run_crawler(query)
+            texts = load_all_texts(DATA_DYNAMIC_DIR)
+            embeddings = self.update_knowledge_base(
+                     texts, chunk_size=100, overlap_size=10)
+            retrieved = self.retrieve(query_norm, embeddings, top_k=top_k)
+            
+            
         # 2. Construir el prompt integrando los fragmentos recuperados y la consulta
         context = ".".join([text for _, text in retrieved])
         prompt = (
@@ -245,11 +255,12 @@ class ChatUtils:
         )
         return prompt
     
-    def ask(self, query, top_k=10):
+    def ask(self, query,json_format, top_k=60):
         """
         Llama al modelo de lenguaje con la query y devuelve la respuesta.
         """
         # Cambiar la fuente de conocimiento por la que solo devuelva hoteles y lugares con precios
-        prompt = self.prompt_gen(query,self.store_vectors, top_k=top_k)
+        prompt = self.prompt_gen(query,self.store_vectors, top_k=top_k) # Cambia a self.store_vectors por self.store_vectors_formulario
+        prompt += "\n\nPor favor, devuelve la respuesta en el siguiente formato JSON:\n" + json_format
         response = self.gemini_model.generate_content(prompt)
         return response.text
