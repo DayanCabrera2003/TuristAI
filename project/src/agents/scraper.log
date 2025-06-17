@@ -1,0 +1,283 @@
+2025-06-16 15:08:22,603 [INFO] Abriendo página principal...
+2025-06-16 15:09:16,379 [INFO] Abriendo página principal...
+2025-06-16 15:09:54,329 [INFO] Banner de cookies cerrado.
+2025-06-16 15:09:54,329 [INFO] Procesando pestaña: Hoteles
+2025-06-16 15:10:00,515 [INFO] Destinos encontrados en Hoteles: ['Varadero', 'La Habana', 'Camagüey', 'Las Tunas', 'Holguín', 'Granma', 'Santiago', 'Ciego de Ávila', 'Matanzas', 'Guantanamo', 'Isla de la Juventud', 'Cayo Largo del Sur', 'Cuba', 'Sancti Spiritus', 'Artemisa', 'Pinar Del Río', 'Mayabeque', 'Cienfuegos', 'Villa Clara', 'Cayo Guillermo', 'Santa Maria', 'Cayo Coco']
+2025-06-16 15:10:00,515 [INFO] Procesando destino: Varadero
+2025-06-16 15:10:09,409 [INFO] Botón Buscar pulsado, esperando resultados...
+2025-06-16 15:10:29,675 [WARNING] No se detectaron resultados visibles para Hoteles - Varadero: Message: 
+Stacktrace:
+#0 0x631d82b5132b <unknown>
+#1 0x631d82595e40 <unknown>
+#2 0x631d825ed639 <unknown>
+#3 0x631d825ed851 <unknown>
+#4 0x631d826427b5 <unknown>
+#5 0x631d82615d8d <unknown>
+#6 0x631d8263f85f <unknown>
+#7 0x631d82615b13 <unknown>
+#8 0x631d825deced <unknown>
+#9 0x631d825dfa72 <unknown>
+#10 0x631d82b10fd4 <unknown>
+#11 0x631d82b151f0 <unknown>
+#12 0x631d82af6ef1 <unknown>
+#13 0x631d82b15ec2 <unknown>
+#14 0x631d82ad9fdf <unknown>
+#15 0x631d82b3cfe7 <unknown>
+#16 0x631d82b3d1f0 <unknown>
+#17 0x631d82b4fcd0 <unknown>
+#18 0x7c07444077eb <unknown>
+#19 0x7c074448b18c <unknown>
+
+2025-06-16 15:10:29,701 [INFO] HTML de depuración guardado en: ./data/debug_html/Hoteles_Varadero_20250616_151029.html
+2025-06-16 15:10:29,815 [INFO] Se encontraron 0 tarjetas de resultados para Hoteles - Varadero
+2025-06-16 15:10:29,816 [INFO] Guardado: ./data/raw/booking/Hoteles_Varadero.json (0 resultados)
+2025-06-16 15:10:50,266 [WARNING] No se pudo volver a la pestaña, continuando...
+2025-06-16 15:10:50,266 [INFO] Procesando destino: La Habana
+2025-06-16 15:11:10,520 [ERROR] No se pudo seleccionar destino La Habana en Hoteles: Message: 
+Stacktrace:
+#0 0x631d82b5132b <unknown>
+#1 0x631d82595e40 <unknown>
+#2 0x631d825ed639 <unknown>
+#3 0x631d825ed851 <unknown>
+#4 0x631d826427b5 <unknown>
+#5 0x631d82615d8d <unknown>
+#6 0x631d8263f85f <unknown>
+#7 0x631d82615b13 <unknown>
+#8 0x631d825deced <unknown>
+#9 0x631d825dfa72 <unknown>
+#10 0x631d82b10fd4 <unknown>
+#11 0x631d82b151f0 <unknown>
+#12 0x631d82af6ef1 <unknown>
+#13 0x631d82b15ec2 <unknown>
+#14 0x631d82ad9fdf <unknown>
+#15 0x631d82b3cfe7 <unknown>
+#16 0x631d82b3d1f0 <unknown>
+#17 0x631d82b4fcd0 <unknown>
+#18 0x7c07444077eb <unknown>
+#19 0x7c074448b18c <unknown>
+
+2025-06-16 15:11:10,521 [INFO] Procesando destino: Camagüey
+2025-06-16 15:13:10,615 [INFO] Abriendo página principal...
+2025-06-16 15:14:50,206 [INFO] Banner de cookies cerrado.
+2025-06-16 15:14:50,206 [INFO] Procesando pestaña: Hoteles
+2025-06-16 15:14:56,449 [INFO] Destinos encontrados en Hoteles: ['Varadero', 'La Habana', 'Camagüey', 'Las Tunas', 'Holguín', 'Granma', 'Santiago', 'Ciego de Ávila', 'Matanzas', 'Guantanamo', 'Isla de la Juventud', 'Cayo Largo del Sur', 'Cuba', 'Sancti Spiritus', 'Artemisa', 'Pinar Del Río', 'Mayabeque', 'Cienfuegos', 'Villa Clara', 'Cayo Guillermo', 'Santa Maria', 'Cayo Coco']
+2025-06-16 15:14:56,450 [INFO] Procesando destino: Varadero
+2025-06-16 15:16:39,695 [INFO] Botón Buscar pulsado, esperando resultados...
+2025-06-16 15:16:59,898 [WARNING] No se detectaron resultados visibles para Hoteles - Varadero: Message: 
+Stacktrace:
+#0 0x5d7a188a032b <unknown>
+#1 0x5d7a182e4e40 <unknown>
+#2 0x5d7a1833c639 <unknown>
+#3 0x5d7a1833c851 <unknown>
+#4 0x5d7a183917b5 <unknown>
+#5 0x5d7a18364d8d <unknown>
+#6 0x5d7a1838e85f <unknown>
+#7 0x5d7a18364b13 <unknown>
+#8 0x5d7a1832dced <unknown>
+#9 0x5d7a1832ea72 <unknown>
+#10 0x5d7a1885ffd4 <unknown>
+#11 0x5d7a188641f0 <unknown>
+#12 0x5d7a18845ef1 <unknown>
+#13 0x5d7a18864ec2 <unknown>
+#14 0x5d7a18828fdf <unknown>
+#15 0x5d7a1888bfe7 <unknown>
+#16 0x5d7a1888c1f0 <unknown>
+#17 0x5d7a1889ecd0 <unknown>
+#18 0x74dd1d2327eb <unknown>
+#19 0x74dd1d2b618c <unknown>
+
+2025-06-16 15:16:59,917 [INFO] HTML de depuración guardado en: ./data/debug_html/Hoteles_Varadero_20250616_151659.html
+2025-06-16 15:17:00,086 [INFO] Se encontraron 0 tarjetas de resultados para Hoteles - Varadero
+2025-06-16 15:17:00,086 [INFO] Guardado: ./data/raw/booking/Hoteles_Varadero.json (0 resultados)
+2025-06-16 15:24:55,106 [INFO] Abriendo página principal...
+2025-06-16 15:25:57,230 [INFO] Banner de cookies cerrado.
+2025-06-16 15:25:57,230 [INFO] Procesando pestaña: Hoteles
+2025-06-16 15:26:03,536 [INFO] Destinos encontrados en Hoteles: ['Varadero', 'La Habana', 'Camagüey', 'Las Tunas', 'Holguín', 'Granma', 'Santiago', 'Ciego de Ávila', 'Matanzas', 'Guantanamo', 'Isla de la Juventud', 'Cayo Largo del Sur', 'Cuba', 'Sancti Spiritus', 'Artemisa', 'Pinar Del Río', 'Mayabeque', 'Cienfuegos', 'Villa Clara', 'Cayo Guillermo', 'Santa Maria', 'Cayo Coco']
+2025-06-16 15:26:03,537 [INFO] Procesando destino: Varadero
+2025-06-16 15:26:15,844 [INFO] Botón Buscar pulsado, esperando resultados...
+2025-06-16 15:26:36,182 [WARNING] No se detectaron resultados visibles para Hoteles - Varadero: Message: 
+Stacktrace:
+#0 0x58d177a0a32b <unknown>
+#1 0x58d17744ee40 <unknown>
+#2 0x58d1774a6639 <unknown>
+#3 0x58d1774a6851 <unknown>
+#4 0x58d1774fb7b5 <unknown>
+#5 0x58d1774ced8d <unknown>
+#6 0x58d1774f885f <unknown>
+#7 0x58d1774ceb13 <unknown>
+#8 0x58d177497ced <unknown>
+#9 0x58d177498a72 <unknown>
+#10 0x58d1779c9fd4 <unknown>
+#11 0x58d1779ce1f0 <unknown>
+#12 0x58d1779afef1 <unknown>
+#13 0x58d1779ceec2 <unknown>
+#14 0x58d177992fdf <unknown>
+#15 0x58d1779f5fe7 <unknown>
+#16 0x58d1779f61f0 <unknown>
+#17 0x58d177a08cd0 <unknown>
+#18 0x7fa3ed2c07eb <unknown>
+#19 0x7fa3ed34418c <unknown>
+
+2025-06-16 15:26:36,194 [INFO] URL después de buscar: https://www.cubatravel.cu/Hotel/Search?refpoint=Varadero&iata=VRA&checkIn=20250623&checkOut=20250624&rooms=1&adults=1&children=0&ipaddress=37.19.199.143&ages=0&currency=USD&filter.type=1
+2025-06-16 15:26:36,218 [INFO] HTML de depuración guardado en: ./data/debug_html/Hoteles_Varadero_20250616_152636.html
+2025-06-16 15:26:36,400 [INFO] Se encontraron 0 tarjetas de resultados para Hoteles - Varadero
+2025-06-16 15:26:36,400 [INFO] Guardado: ./data/raw/booking/Hoteles_Varadero.json (0 resultados)
+2025-06-16 15:26:56,754 [WARNING] No se pudo volver a la pestaña, continuando...
+2025-06-16 15:26:56,754 [INFO] Procesando destino: La Habana
+2025-06-16 15:27:17,112 [ERROR] No se pudo seleccionar destino La Habana en Hoteles: Message: 
+Stacktrace:
+#0 0x58d177a0a32b <unknown>
+#1 0x58d17744ee40 <unknown>
+#2 0x58d1774a6639 <unknown>
+#3 0x58d1774a6851 <unknown>
+#4 0x58d1774fb7b5 <unknown>
+#5 0x58d1774ced8d <unknown>
+#6 0x58d1774f885f <unknown>
+#7 0x58d1774ceb13 <unknown>
+#8 0x58d177497ced <unknown>
+#9 0x58d177498a72 <unknown>
+#10 0x58d1779c9fd4 <unknown>
+#11 0x58d1779ce1f0 <unknown>
+#12 0x58d1779afef1 <unknown>
+#13 0x58d1779ceec2 <unknown>
+#14 0x58d177992fdf <unknown>
+#15 0x58d1779f5fe7 <unknown>
+#16 0x58d1779f61f0 <unknown>
+#17 0x58d177a08cd0 <unknown>
+#18 0x7fa3ed2c07eb <unknown>
+#19 0x7fa3ed34418c <unknown>
+
+2025-06-16 15:27:17,113 [INFO] Procesando destino: Camagüey
+2025-06-16 15:31:14,814 [INFO] Abriendo página principal...
+2025-06-16 15:31:34,445 [INFO] Banner de cookies cerrado.
+2025-06-16 15:31:34,445 [INFO] Procesando pestaña: Hoteles
+2025-06-16 15:31:40,669 [INFO] Destinos encontrados en Hoteles: ['Varadero', 'La Habana', 'Camagüey', 'Las Tunas', 'Holguín', 'Granma', 'Santiago', 'Ciego de Ávila', 'Matanzas', 'Guantanamo', 'Isla de la Juventud', 'Cayo Largo del Sur', 'Cuba', 'Sancti Spiritus', 'Artemisa', 'Pinar Del Río', 'Mayabeque', 'Cienfuegos', 'Villa Clara', 'Cayo Guillermo', 'Santa Maria', 'Cayo Coco']
+2025-06-16 15:31:40,669 [INFO] Procesando destino: Varadero
+2025-06-16 15:31:54,349 [INFO] Botón Buscar pulsado, esperando resultados...
+2025-06-16 15:31:54,357 [INFO] Redirección detectada, esperando resultados...
+2025-06-16 15:32:08,357 [INFO] URL después de buscar: https://www.cubatravel.cu/Hotel/Search?refpoint=Varadero&iata=VRA&checkIn=20250623&checkOut=20250624&rooms=1&adults=1&children=0&ipaddress=37.19.199.143&ages=0&currency=USD&filter.type=1
+2025-06-16 15:32:08,393 [INFO] HTML de depuración guardado en: ./data/debug_html/Hoteles_Varadero_20250616_153208.html
+2025-06-16 15:32:08,659 [INFO] Se encontraron 46 tarjetas de resultados para Hoteles - Varadero
+2025-06-16 15:32:08,759 [INFO] Guardado: ./data/raw/booking/Hoteles_Varadero.json (46 resultados)
+2025-06-16 15:32:29,012 [WARNING] No se pudo volver a la pestaña, continuando...
+2025-06-16 15:32:29,013 [INFO] Procesando destino: La Habana
+2025-06-16 15:32:49,193 [ERROR] No se pudo seleccionar destino La Habana en Hoteles: Message: 
+Stacktrace:
+#0 0x5b4943b5532b <unknown>
+#1 0x5b4943599e40 <unknown>
+#2 0x5b49435f1639 <unknown>
+#3 0x5b49435f1851 <unknown>
+#4 0x5b49436467b5 <unknown>
+#5 0x5b4943619d8d <unknown>
+#6 0x5b494364385f <unknown>
+#7 0x5b4943619b13 <unknown>
+#8 0x5b49435e2ced <unknown>
+#9 0x5b49435e3a72 <unknown>
+#10 0x5b4943b14fd4 <unknown>
+#11 0x5b4943b191f0 <unknown>
+#12 0x5b4943afaef1 <unknown>
+#13 0x5b4943b19ec2 <unknown>
+#14 0x5b4943addfdf <unknown>
+#15 0x5b4943b40fe7 <unknown>
+#16 0x5b4943b411f0 <unknown>
+#17 0x5b4943b53cd0 <unknown>
+#18 0x7ad47aaaf7eb <unknown>
+#19 0x7ad47ab3318c <unknown>
+
+2025-06-16 15:32:49,193 [INFO] Procesando destino: Camagüey
+2025-06-16 15:33:09,382 [ERROR] No se pudo seleccionar destino Camagüey en Hoteles: Message: 
+Stacktrace:
+#0 0x5b4943b5532b <unknown>
+#1 0x5b4943599e40 <unknown>
+#2 0x5b49435f1639 <unknown>
+#3 0x5b49435f1851 <unknown>
+#4 0x5b49436467b5 <unknown>
+#5 0x5b4943619d8d <unknown>
+#6 0x5b494364385f <unknown>
+#7 0x5b4943619b13 <unknown>
+#8 0x5b49435e2ced <unknown>
+#9 0x5b49435e3a72 <unknown>
+#10 0x5b4943b14fd4 <unknown>
+#11 0x5b4943b191f0 <unknown>
+#12 0x5b4943afaef1 <unknown>
+#13 0x5b4943b19ec2 <unknown>
+#14 0x5b4943addfdf <unknown>
+#15 0x5b4943b40fe7 <unknown>
+#16 0x5b4943b411f0 <unknown>
+#17 0x5b4943b53cd0 <unknown>
+#18 0x7ad47aaaf7eb <unknown>
+#19 0x7ad47ab3318c <unknown>
+
+2025-06-16 15:33:09,383 [INFO] Procesando destino: Las Tunas
+2025-06-16 15:33:29,583 [ERROR] No se pudo seleccionar destino Las Tunas en Hoteles: Message: 
+Stacktrace:
+#0 0x5b4943b5532b <unknown>
+#1 0x5b4943599e40 <unknown>
+#2 0x5b49435f1639 <unknown>
+#3 0x5b49435f1851 <unknown>
+#4 0x5b49436467b5 <unknown>
+#5 0x5b4943619d8d <unknown>
+#6 0x5b494364385f <unknown>
+#7 0x5b4943619b13 <unknown>
+#8 0x5b49435e2ced <unknown>
+#9 0x5b49435e3a72 <unknown>
+#10 0x5b4943b14fd4 <unknown>
+#11 0x5b4943b191f0 <unknown>
+#12 0x5b4943afaef1 <unknown>
+#13 0x5b4943b19ec2 <unknown>
+#14 0x5b4943addfdf <unknown>
+#15 0x5b4943b40fe7 <unknown>
+#16 0x5b4943b411f0 <unknown>
+#17 0x5b4943b53cd0 <unknown>
+#18 0x7ad47aaaf7eb <unknown>
+#19 0x7ad47ab3318c <unknown>
+
+2025-06-16 15:33:29,583 [INFO] Procesando destino: Holguín
+2025-06-16 15:33:49,767 [ERROR] No se pudo seleccionar destino Holguín en Hoteles: Message: 
+Stacktrace:
+#0 0x5b4943b5532b <unknown>
+#1 0x5b4943599e40 <unknown>
+#2 0x5b49435f1639 <unknown>
+#3 0x5b49435f1851 <unknown>
+#4 0x5b49436467b5 <unknown>
+#5 0x5b4943619d8d <unknown>
+#6 0x5b494364385f <unknown>
+#7 0x5b4943619b13 <unknown>
+#8 0x5b49435e2ced <unknown>
+#9 0x5b49435e3a72 <unknown>
+#10 0x5b4943b14fd4 <unknown>
+#11 0x5b4943b191f0 <unknown>
+#12 0x5b4943afaef1 <unknown>
+#13 0x5b4943b19ec2 <unknown>
+#14 0x5b4943addfdf <unknown>
+#15 0x5b4943b40fe7 <unknown>
+#16 0x5b4943b411f0 <unknown>
+#17 0x5b4943b53cd0 <unknown>
+#18 0x7ad47aaaf7eb <unknown>
+#19 0x7ad47ab3318c <unknown>
+
+2025-06-16 15:33:49,767 [INFO] Procesando destino: Granma
+2025-06-16 15:34:09,941 [ERROR] No se pudo seleccionar destino Granma en Hoteles: Message: 
+Stacktrace:
+#0 0x5b4943b5532b <unknown>
+#1 0x5b4943599e40 <unknown>
+#2 0x5b49435f1639 <unknown>
+#3 0x5b49435f1851 <unknown>
+#4 0x5b49436467b5 <unknown>
+#5 0x5b4943619d8d <unknown>
+#6 0x5b494364385f <unknown>
+#7 0x5b4943619b13 <unknown>
+#8 0x5b49435e2ced <unknown>
+#9 0x5b49435e3a72 <unknown>
+#10 0x5b4943b14fd4 <unknown>
+#11 0x5b4943b191f0 <unknown>
+#12 0x5b4943afaef1 <unknown>
+#13 0x5b4943b19ec2 <unknown>
+#14 0x5b4943addfdf <unknown>
+#15 0x5b4943b40fe7 <unknown>
+#16 0x5b4943b411f0 <unknown>
+#17 0x5b4943b53cd0 <unknown>
+#18 0x7ad47aaaf7eb <unknown>
+#19 0x7ad47ab3318c <unknown>
+
+2025-06-16 15:34:09,941 [INFO] Procesando destino: Santiago
