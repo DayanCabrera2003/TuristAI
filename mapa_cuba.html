@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_e7fc0bdac20c7779ffa63f41a39781e3 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_e7fc0bdac20c7779ffa63f41a39781e3" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_e7fc0bdac20c7779ffa63f41a39781e3 = L.map(
+                "map_e7fc0bdac20c7779ffa63f41a39781e3",
+                {
+                    center: [21.5218, -77.7812],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_e7fc0bdac20c7779ffa63f41a39781e3);
+
+            
+
+        
+    
+            var tile_layer_7b383f251f5b977a1e4e3cd82417296b = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 7,
+  "maxZoom": 30,
+  "maxNativeZoom": 30,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_7b383f251f5b977a1e4e3cd82417296b.addTo(map_e7fc0bdac20c7779ffa63f41a39781e3);
+        
+    
+            var marker_3e768454a8a7fa5523a53f81083b3cfe = L.marker(
+                [23.0341733, -81.4950103],
+                {
+}
+            ).addTo(map_e7fc0bdac20c7779ffa63f41a39781e3);
+        
+    
+        var popup_93437d011c43db8a1aea92bcf348d96d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_afaf2235a76eda659aa7dfeba0c1f63f = $(`<div id="html_afaf2235a76eda659aa7dfeba0c1f63f" style="width: 100.0%; height: 100.0%;">hotel canimao, Matanzas</div>`)[0];
+                popup_93437d011c43db8a1aea92bcf348d96d.setContent(html_afaf2235a76eda659aa7dfeba0c1f63f);
+            
+        
+
+        marker_3e768454a8a7fa5523a53f81083b3cfe.bindPopup(popup_93437d011c43db8a1aea92bcf348d96d)
+        ;
+
+        
+    
+    
+            var marker_17d481757ed26bde90cea22f3dd98fdc = L.marker(
+                [23.0482903, -82.3646695],
+                {
+}
+            ).addTo(map_e7fc0bdac20c7779ffa63f41a39781e3);
+        
+    
+        var popup_fa3889d9a2e3a34218c5fd7cd07238c1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2edd70c1a7e5cb100c1936a631166fa1 = $(`<div id="html_2edd70c1a7e5cb100c1936a631166fa1" style="width: 100.0%; height: 100.0%;">nh capri la habana, La Habana</div>`)[0];
+                popup_fa3889d9a2e3a34218c5fd7cd07238c1.setContent(html_2edd70c1a7e5cb100c1936a631166fa1);
+            
+        
+
+        marker_17d481757ed26bde90cea22f3dd98fdc.bindPopup(popup_fa3889d9a2e3a34218c5fd7cd07238c1)
+        ;
+
+        
+    
+    
+            var marker_b2189d362d05e3757b85af4cb927ef0e = L.marker(
+                [23.0454443, -81.5768234],
+                {
+}
+            ).addTo(map_e7fc0bdac20c7779ffa63f41a39781e3);
+        
+    
+        var popup_7073abf2e3046d5081c247e00f3b6d22 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f3284e9f8016694959cf711585dc45ce = $(`<div id="html_f3284e9f8016694959cf711585dc45ce" style="width: 100.0%; height: 100.0%;">hotel rio san juan, Matanzas</div>`)[0];
+                popup_7073abf2e3046d5081c247e00f3b6d22.setContent(html_f3284e9f8016694959cf711585dc45ce);
+            
+        
+
+        marker_b2189d362d05e3757b85af4cb927ef0e.bindPopup(popup_7073abf2e3046d5081c247e00f3b6d22)
+        ;
+
+        
+    
+</script>
+</html>

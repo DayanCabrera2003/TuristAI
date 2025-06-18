@@ -1,5 +1,8 @@
 import streamlit as st
 from planner.planning import Planer
+import os
+import planner.mapaCuba as mapaCuba
+
 
 st.set_page_config(page_title="Formulario Turístico", layout="centered")
 
@@ -123,7 +126,7 @@ if st.session_state.pagina == "subformulario tipos de actividades":
         subopciones.extend(opcionesHistoria)
 
     if "Relajación" in st.session_state.actividades_seleccionadas:
-        opcionesRelajacion = ["Spa", "Hoteles", "Resorts"]
+        opcionesRelajacion = ["Spa", "Resorts"]
         subopciones.extend(opcionesRelajacion)
 
     if "Musical" in st.session_state.actividades_seleccionadas:
@@ -138,7 +141,10 @@ if st.session_state.pagina == "subformulario tipos de actividades":
         subopciones.extend(["Otras", "Marcar todas"])
         
         for opcion in subopciones:
-            checked = st.session_state.get(f"sub_chk_{opcion}", False)
+            if opcion not in st.session_state.seleccionAct:
+                checked = st.session_state.get(f"sub_chk_{opcion}", False)
+            else:
+                checked = True
             new_checked = st.checkbox(opcion, value=checked, key=f"sub_chk_{opcion}")
             if new_checked:
                 st.session_state.seleccionAct.append(opcion)
@@ -212,7 +218,56 @@ if st.session_state.pagina == "Itinerario":
     itinerario, _ = planer.generate_itinerary()
     st.title("Itinerario Propuesto")
     st.write("Aquí se mostraría el itinerario propuesto basado en sus selecciones.")
-    st.write(itinerario)
+    # Imprime el itinerario de forma bonita
+    # Asume que cada actividad es un dict con las claves: 'nombre', 'descripcion', 'ciudad', 'precio'
+    
+    lugares = []
+
+    def mostrar_actividad(actividad):
+        nombre = actividad.get('nombre', 'Sin nombre')
+        descripcion = actividad.get('descripcion', 'Sin descripción')
+        ciudad = actividad.get('ciudad', 'Sin ciudad')
+        precio = actividad.get('precio', 'Sin precio')
+        st.markdown(f"**Lugar:** {nombre}")
+        st.markdown(f"**Descripción:** {descripcion}")
+        st.markdown(f"**Ciudad:** {ciudad}")
+        st.markdown(f"**Precio:** {precio} USD")
+        st.markdown("---")
+        str = nombre + ", " + ciudad
+        lugares.append(str)
+
+    
+    if isinstance(itinerario, dict):
+        for dia, actividades in itinerario.items():
+            st.subheader(f"Día {dia}")
+            if isinstance(actividades, list):
+                for actividad in actividades:
+                    if isinstance(actividad, dict):
+                        mostrar_actividad(actividad)
+            elif isinstance(actividades, dict):
+                mostrar_actividad(actividades)
+    elif isinstance(itinerario, list):
+        for idx, actividades in enumerate(itinerario, 1):
+            st.subheader(f"Día {idx}")
+            if isinstance(actividades, list):
+                for actividad in actividades:
+                    if isinstance(actividad, dict):
+                        mostrar_actividad(actividad)
+            elif isinstance(actividades, dict):
+                mostrar_actividad(actividades)
+    elif isinstance(itinerario, dict):
+        mostrar_actividad(itinerario)
+    else:
+        st.write("No hay actividades para mostrar.")
+    
+    
+    try:
+        mapaCuba.crear_mapa(lugares)
+        with open("mapa_cuba.html", "r", encoding="utf-8") as f:
+            html_content = f.read()
+        st.components.v1.html(html_content, height=600, scrolling=True)
+    except Exception as e:
+        st.warning(f"No se pudo generar el mapa: {e}")
     st.session_state.pagina = "Finalizado"
 
 

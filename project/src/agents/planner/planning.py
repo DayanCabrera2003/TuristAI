@@ -99,7 +99,7 @@ class Planer:
         lugares = result_json["lugares"]
         if not lugares:
             print("No se encontraron lugares turísticos en la respuesta. No se puede generar itinerario.")
-            return []
+            return [], 0
 
 
         metaheuristica = MetaheuristicasItinerario(
