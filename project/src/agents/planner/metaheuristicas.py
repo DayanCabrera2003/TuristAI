@@ -1,5 +1,5 @@
 import random
-from mapaCuba import dist_recorrido
+from .mapaCuba import dist_recorrido
 
 """
 En este módulo se implementan las metaheurísticas Algoritmo Genético (GA), Enjambre de Partículas (PSO) y
@@ -7,9 +7,9 @@ Colonia de Hormigas (ACO) para la optimización de itinerarios turísticos.
 """
 
 class MetaheuristicasItinerario:
-    def __init__(self, actividades_turisticas=None, preferencias_actividades=None, preferencias_lugares=None,
+    def __init__(self, lugares_turisticos=None, preferencias_actividades=None, preferencias_lugares=None,
                  presupuesto_max=0, min_presupuesto=False, max_lugares=False):
-        self.actividades_turisticas = actividades_turisticas if actividades_turisticas is not None else []
+        self.lugares_turisticos = lugares_turisticos if lugares_turisticos is not None else []
         self.variables = {}  # a cada variable se le asigna una actividad de la lista actividades
         self.preferencias_actividades = preferencias_actividades if preferencias_actividades is not None else []
         self.preferencias_lugares = preferencias_lugares if preferencias_lugares is not None else []

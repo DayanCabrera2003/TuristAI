@@ -157,10 +157,10 @@ if st.session_state.pagina == "formulario lugares":
             st.session_state.seleccionLug = opcionesLugares[:-1]  # Todas menos "Marcar todas"
         st.success("¡Formulario completado!")
         st.session_state.pagina = "Itinerario"
+        st.rerun()
 
 if st.session_state.pagina == "Itinerario":
-    st.title("Itinerario Propuesto")
-    st.write("Aquí se mostraría el itinerario propuesto basado en sus selecciones.")
+    st.title("Generando itinerario...")
     planer = Planer(
         st.session_state.seleccionLug,
         st.session_state.seleccionAct,
@@ -168,8 +168,10 @@ if st.session_state.pagina == "Itinerario":
         st.session_state.presupuestoDisponible
     )
     itinerario = planer.generate_itinerary()
+    st.title("Itinerario Propuesto")
+    st.write("Aquí se mostraría el itinerario propuesto basado en sus selecciones.")
     st.write(itinerario)
     st.session_state.pagina = "Finalizado"
-    st.rerun()
+   
 
 
