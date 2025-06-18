@@ -1,10 +1,27 @@
+"""
+Módulo de utilidades para extracción de información y enlaces de páginas HTML.
+
+Incluye funciones para:
+- Limpiar texto.
+- Extraer enlaces relevantes según el dominio.
+- Extraer información estructurada (título, secciones, teléfonos, emails).
+"""
 from bs4 import BeautifulSoup
 import re
 
 def clean_text(text):
+    """
+    Limpia un texto eliminando espacios extra y saltos de línea.
+    """
     return re.sub(r'\s+', ' ', text.strip())
 
 def extract_links(html, base_url):
+    """
+    Extrae enlaces relevantes de una página HTML según el dominio:
+    - Para solwayscuba.com: enlaces a hoteles y paginación.
+    - Para varaderoguide.net: enlaces internos.
+    - Para cuba.travel y otros: enlaces en español.
+    """
     from urllib.parse import urljoin, urlparse
     soup = BeautifulSoup(html, 'lxml')
     links = set()
@@ -46,6 +63,12 @@ def extract_links(html, base_url):
     return list(links)
 
 def extract_info(html, url):
+    """
+    Extrae información estructurada de una página HTML:
+    - Título (h1, title, h2)
+    - Secciones de texto (h2, h3, p, li)
+    - Teléfonos y correos electrónicos encontrados en el texto
+    """
     soup = BeautifulSoup(html, 'lxml')
 
     # Título heurístico
