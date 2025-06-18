@@ -1,3 +1,16 @@
+"""
+Scrapper de pestañas y destinos para cubatravel.cu.
+
+Este script automatiza la extracción de información de diferentes pestañas (Hoteles, Casas, Tours, etc.)
+y sus destinos en el sitio web cubatravel.cu, usando Selenium para interactuar con la interfaz dinámica.
+Guarda los resultados en archivos JSON y HTML de depuración para análisis posterior.
+
+Características:
+- Navega por cada pestaña y destino, seleccionando opciones en menús desplegables.
+- Extrae tarjetas de resultados y sus detalles.
+- Guarda HTML de depuración para facilitar troubleshooting.
+- Enriquecer la descripción de cada resultado accediendo a su enlace.
+"""
 import os
 import time
 import logging
@@ -28,6 +41,10 @@ logging.basicConfig(
 )
 
 def scroll_and_click(driver, element):
+    """
+    Hace scroll hasta el elemento y realiza un click robusto usando Selenium.
+    Si el click normal falla, intenta con JavaScript.
+    """
     driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", element)
     time.sleep(0.2)
     try:
@@ -36,6 +53,9 @@ def scroll_and_click(driver, element):
         driver.execute_script("arguments[0].click();", element)
 
 def create_driver():
+    """
+    Crea y configura una instancia de Selenium WebDriver en modo headless.
+    """
     options = Options()
     options.add_argument("--headless=new")
     options.add_argument("--no-sandbox")
@@ -48,6 +68,9 @@ def create_driver():
     return webdriver.Chrome(options=options)
 
 def save_debug_html(html, pestaña, destino):
+    """
+    Guarda el HTML de la página actual para depuración, incluyendo pestaña y destino en el nombre.
+    """
     os.makedirs(HTML_DEBUG_DIR, exist_ok=True)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     filename = os.path.join(
@@ -58,6 +81,10 @@ def save_debug_html(html, pestaña, destino):
     logging.info(f"HTML de depuración guardado en: {filename}")
 
 def extract_result_cards(soup):
+    """
+    Extrae las tarjetas de resultados de la página usando varios selectores posibles.
+    Devuelve una lista de elementos BeautifulSoup.
+    """
     selectors = [
         ".row.pb15",
         ".card-hotel, .card-house, .card-tour, .card-campismo",
@@ -70,6 +97,10 @@ def extract_result_cards(soup):
     return []
 
 def extract_card_data(card):
+    """
+    Extrae los datos relevantes de una tarjeta de resultado:
+    nombre, descripción, dirección, tarifa, precio, estrellas y enlace.
+    """
     def safe_text(selector):
         elem = card.select_one(selector)
         return elem.text.strip() if elem else ""
@@ -99,6 +130,9 @@ def extract_card_data(card):
     }
 
 def save_json_with_destino(data, filepath, destino):
+    """
+    Guarda los resultados en un archivo JSON, precedido por el nombre del destino.
+    """
     os.makedirs(os.path.dirname(filepath), exist_ok=True)
     with open(filepath, "w", encoding="utf-8") as f:
         f.write(f"Destino: {destino}\n")
@@ -106,6 +140,10 @@ def save_json_with_destino(data, filepath, destino):
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 def click_tab(driver, wait, pestaña):
+    """
+    Hace clic en la pestaña especificada usando su nombre visible.
+    Espera a que el elemento esté presente y visible.
+    """
     span_xpath = f"//li[contains(@class, 'buttons-tabs-booking')]/a/span[normalize-space(.)='{pestaña}']"
     span_elem = wait.until(EC.presence_of_element_located((By.XPATH, span_xpath)))
     tab_btn = span_elem.find_element(By.XPATH, "..")
@@ -113,6 +151,9 @@ def click_tab(driver, wait, pestaña):
     time.sleep(2)
 
 def limpiar_selector_destino(driver):
+    """
+    Limpia la selección previa en el menú de destinos, si existe.
+    """
     try:
         clear_btn = driver.find_element(By.CSS_SELECTOR, ".multiselect__clear")
         clear_btn.click()
@@ -122,7 +163,10 @@ def limpiar_selector_destino(driver):
         pass
 
 def wait_for_multiselect(driver, timeout=120, poll_frequency=1):
-    """Espera a que el formulario .multiselect esté presente, avisando cada 30s."""
+    """
+    Espera a que el formulario de selección de destinos (.multiselect) esté presente y visible.
+    Muestra mensajes de depuración cada 30 segundos.
+    """
     waited = 0
     while waited < timeout:
         try:
@@ -138,7 +182,11 @@ def wait_for_multiselect(driver, timeout=120, poll_frequency=1):
     raise TimeoutError("No apareció el formulario de destinos (.multiselect) en el tiempo esperado.")
 
 def abrir_selector_destinos(driver, wait, pestaña):
-    """Abre el menú de destinos, limpiando selección previa si es necesario."""
+    """
+    Abre el menú de destinos en la pestaña activa.
+    Si hay una selección previa, la limpia.
+    Devuelve True si el menú se abrió correctamente, False si hubo error.
+    """
     try:
         wait.until(lambda d: d.find_element(By.CSS_SELECTOR, "div.tab-pane.active .multiselect").is_displayed())
         print("[DEBUG] .multiselect ahora visible tras cambio de pestaña.")
@@ -186,6 +234,12 @@ def abrir_selector_destinos(driver, wait, pestaña):
         return False
 
 def scrape():
+    """
+    Función principal del scrapper.
+    - Abre la página principal.
+    - Itera por cada pestaña y destino, seleccionando y extrayendo resultados.
+    - Guarda los resultados en archivos JSON y HTML de depuración.
+    """
     os.makedirs(DATA_FORMULARIO_DIR, exist_ok=True)
     driver = create_driver()
     wait = WebDriverWait(driver, 40)
@@ -362,7 +416,7 @@ def scrape():
                 if data["nombre"]:
                     resultados.append(data)
 
-            # --- NUEVO BLOQUE: Enriquecer descripción desde el enlace ---
+
             for data in resultados:
                 enlace = data.get("enlace")
                 if enlace:
@@ -384,7 +438,7 @@ def scrape():
             # Elimina el campo 'enlace' antes de guardar si no lo quieres en el JSON final
             for data in resultados:
                 data.pop("enlace", None)
-            # --- FIN BLOQUE NUEVO ---
+            
 
             filename = os.path.join(subfolder_path, f"{destino}.json".replace(" ", "_"))
             save_json_with_destino(resultados, filename, destino)
@@ -394,4 +448,7 @@ def scrape():
     logging.info("Scraping de pestañas y destinos completado.")
 
 if __name__ == "__main__":
+    """
+    Permite ejecutar el scrapper directamente desde la línea de comandos.
+    """
     scrape()
