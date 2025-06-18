@@ -111,8 +111,8 @@ for i in range(0, len(muestra)-1) :
         1000                       # presupuesto_disponible
     )
 
-    itinerario1, valor1 = planificador.generate_itinerary(metaheuristic="AG")
-    itinerario2, valor2 = planificador.generate_itinerary(metaheuristic="PSO")
+    _, valor1 = planificador.generate_itinerary(metaheuristic="AG")
+    _, valor2 = planificador.generate_itinerary(metaheuristic="PSO")
     promedio1 += valor1
     promedio2 += valor2
 

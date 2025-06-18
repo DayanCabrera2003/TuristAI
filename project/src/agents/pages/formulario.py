@@ -138,7 +138,10 @@ if st.session_state.pagina == "subformulario tipos de actividades":
         subopciones.extend(["Otras", "Marcar todas"])
         
         for opcion in subopciones:
-            checked = st.session_state.get(f"sub_chk_{opcion}", False)
+            if opcion not in st.session_state.seleccionAct:
+                checked = st.session_state.get(f"sub_chk_{opcion}", False)
+            else:
+                checked = True
             new_checked = st.checkbox(opcion, value=checked, key=f"sub_chk_{opcion}")
             if new_checked:
                 st.session_state.seleccionAct.append(opcion)
