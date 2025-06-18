@@ -20,9 +20,9 @@ from collections import defaultdict
 from fake_useragent import UserAgent
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from agents.Crawler.utils.utils import save_json, url_to_filename
-from agents.Crawler.utils.extractor import extract_links, extract_info
-from agents.Crawler.utils.config import START_URLS as CONFIG_START_URLS, MAX_DEPTH, SAVE_PATH, HEADLESS
+from Crawler.utils.utils import save_json, url_to_filename
+from Crawler.utils.extractor import extract_links, extract_info
+from Crawler.utils.config import START_URLS as CONFIG_START_URLS, MAX_DEPTH, SAVE_PATH, HEADLESS
 
 import argparse
 
