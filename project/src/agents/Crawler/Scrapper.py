@@ -416,7 +416,7 @@ def scrape():
                 if data["nombre"]:
                     resultados.append(data)
 
-            # --- NUEVO BLOQUE: Enriquecer descripción desde el enlace ---
+
             for data in resultados:
                 enlace = data.get("enlace")
                 if enlace:
@@ -438,7 +438,7 @@ def scrape():
             # Elimina el campo 'enlace' antes de guardar si no lo quieres en el JSON final
             for data in resultados:
                 data.pop("enlace", None)
-            # --- FIN BLOQUE NUEVO ---
+            
 
             filename = os.path.join(subfolder_path, f"{destino}.json".replace(" ", "_"))
             save_json_with_destino(resultados, filename, destino)
