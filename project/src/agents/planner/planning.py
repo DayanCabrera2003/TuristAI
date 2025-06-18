@@ -1,6 +1,7 @@
 from rag import rag
 import json
 import re
+from .metaheuristicas import MetaheuristicasItinerario
 
 
 """
@@ -13,7 +14,10 @@ según los objetivos definidos por el usuario.
 
 """
 class Planer:
-    def __init__(self, tipolugares, lugares, dias_vacaciones, presupuesto_disponible):
+    def __init__(self, tipolugares, lugares, dias_vacaciones, presupuesto_disponible,
+                 max_cant_lugares=True, min_presupuesto=False):
+        self.max_cant_lugares = max_cant_lugares
+        self.min_presupuesto = min_presupuesto
         self.lugares = lugares
         self.dias_vacaciones = dias_vacaciones
         self.presupuesto_disponible = presupuesto_disponible
@@ -47,7 +51,7 @@ class Planer:
                                 },
                                 "required": ["dia", "mes", "hora"]
                             },
-                            "tipo_lugar": {
+                            "tipo_actividad": {
                                 "type": "array",
                                 "items": {
                                     "type": "string",
@@ -73,15 +77,14 @@ class Planer:
             },
             "required": ["lugares"]
         }
-    def generate_itinerary(self):
+    def generate_itinerary(self, metaheuristic = "AG"):
         
         utils = rag.ChatUtils()
         query = f"""
          {", ".join(self.tipolugares)} que estén en alguna de las siguientes provincias: {", ".join(self.lugares)} de Cuba.
         """
-        print("#############Realizando búsqueda con el query:", query)
+        
         result= utils.ask(query,self.schema, 20)
-        print("Resultado de la búsqueda:", result)
         raw_json = self.extract_json(result)
         if raw_json:
             try:
@@ -92,8 +95,30 @@ class Planer:
         else:
             print("No se encontró un bloque JSON en la respuesta.")
             result_json = {}
-        return result_json
+        
+        lugares = result_json["lugares"]
+        if not lugares:
+            print("No se encontraron lugares turísticos en la respuesta. No se puede generar itinerario.")
+            return []
+
+
+        metaheuristica = MetaheuristicasItinerario(
+            lugares_turisticos=lugares,
+            preferencias_tipos_lugares=self.tipolugares,
+            preferencias_lugares=self.lugares,
+            presupuesto_max=self.presupuesto_disponible,
+            min_presupuesto= self.min_presupuesto,
+            max_lugares= self.max_cant_lugares
+        )
+        itinerario = None
+        valor = 0
+        if metaheuristic == "AG":
+            itinerario, valor = metaheuristica.algoritmo_genetico_itinerario()
+        elif metaheuristic == "PSO":
+            itinerario, valor = metaheuristica.pso_itinerario()
+        return itinerario, valor
     
+
     def extract_json(self,text):
         """
         Extrae el primer bloque JSON válido de un string, incluso si está dentro de un bloque Markdown.
