@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_eed70dc72ef7e3406d1b4a29bee84a21 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_eed70dc72ef7e3406d1b4a29bee84a21" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_eed70dc72ef7e3406d1b4a29bee84a21 = L.map(
+                "map_eed70dc72ef7e3406d1b4a29bee84a21",
+                {
+                    center: [21.5218, -77.7812],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_eed70dc72ef7e3406d1b4a29bee84a21);
+
+            
+
+        
+    
+            var tile_layer_626dfc50d2d05d53090ca50c58815804 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 7,
+  "maxZoom": 30,
+  "maxNativeZoom": 30,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_626dfc50d2d05d53090ca50c58815804.addTo(map_eed70dc72ef7e3406d1b4a29bee84a21);
+        
+    
+            var marker_f92b6c68cf9c70317602456146ab2613 = L.marker(
+                [20.4819964, -75.8037122],
+                {
+}
+            ).addTo(map_eed70dc72ef7e3406d1b4a29bee84a21);
+        
+    
+        var popup_1904b9e6d32def6ec40ec8990730554d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d86fd116e6cd2ed8f8467771e126ac52 = $(`<div id="html_d86fd116e6cd2ed8f8467771e126ac52" style="width: 100.0%; height: 100.0%;">Villa Pinares de Mayari, Holguin</div>`)[0];
+                popup_1904b9e6d32def6ec40ec8990730554d.setContent(html_d86fd116e6cd2ed8f8467771e126ac52);
+            
+        
+
+        marker_f92b6c68cf9c70317602456146ab2613.bindPopup(popup_1904b9e6d32def6ec40ec8990730554d)
+        ;
+
+        
+    
+    
+            var marker_aabbe985712ec178f3fccc2b5be05164 = L.marker(
+                [21.915878, -80.0177152],
+                {
+}
+            ).addTo(map_eed70dc72ef7e3406d1b4a29bee84a21);
+        
+    
+        var popup_8dc32828ac9aa58544b81f22012dd7c7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bbf0b490d46136df27c51e6c0a784251 = $(`<div id="html_bbf0b490d46136df27c51e6c0a784251" style="width: 100.0%; height: 100.0%;">Topes de Collantes, Sancti Spiritus</div>`)[0];
+                popup_8dc32828ac9aa58544b81f22012dd7c7.setContent(html_bbf0b490d46136df27c51e6c0a784251);
+            
+        
+
+        marker_aabbe985712ec178f3fccc2b5be05164.bindPopup(popup_8dc32828ac9aa58544b81f22012dd7c7)
+        ;
+
+        
+    
+    
+            var marker_e8c2f50062e92259abf92b1251781086 = L.marker(
+                [21.5978207, -81.5275619],
+                {
+}
+            ).addTo(map_eed70dc72ef7e3406d1b4a29bee84a21);
+        
+    
+        var popup_da9d4811413aacf24e138452a7c4312d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dfecb420a9fd79cebb105ef73310217e = $(`<div id="html_dfecb420a9fd79cebb105ef73310217e" style="width: 100.0%; height: 100.0%;">Sol Cayo Largo, Isla de la Juventud</div>`)[0];
+                popup_da9d4811413aacf24e138452a7c4312d.setContent(html_dfecb420a9fd79cebb105ef73310217e);
+            
+        
+
+        marker_e8c2f50062e92259abf92b1251781086.bindPopup(popup_da9d4811413aacf24e138452a7c4312d)
+        ;
+
+        
+    
+</script>
+</html>

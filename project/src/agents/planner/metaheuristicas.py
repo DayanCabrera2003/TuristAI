@@ -1,6 +1,5 @@
 import random
 from .mapaCuba import dist_recorrido
-
 """
 En este módulo se implementan las metaheurísticas Algoritmo Genético (GA), Enjambre de Partículas (PSO) y
 Colonia de Hormigas (ACO) para la optimización de itinerarios turísticos.
@@ -19,39 +18,59 @@ class MetaheuristicasItinerario:
         self.max_lugares = max_lugares
 
     def evaluar_itinerario(self, actividades):
-        evaluacion = 0
+        evaluacion = 0.0
 
         actividades_cubiertas = [False] * len(self.preferencias_actividades)
         lugares_cubiertos = [False] * len(self.preferencias_lugares)
-        total_costo = 0
+        total_costo = 0.0
+        total_lugares = 0
+
+        # Pesos ajustables para cada criterio
+        peso_lugares = 10
+        peso_tipo_pref = 30
+        peso_lugar_pref = 30
+        peso_distancia = 5
+        peso_presupuesto = 1
 
         for actividad in actividades:
-            # Maximizar lugares visitados
-            if self.max_lugares:
-                evaluacion += len(actividad.get("lugares_a_visitar", []))
-            # Minimizar presupuesto
-            if self.min_presupuesto:
-                total_costo += actividad.get("costo", 0)
+            lugares_visitar = actividad.get("lugares_a_visitar", [])
+            total_lugares += len(lugares_visitar)
+            total_costo += actividad.get("costo", 0)
+
             # Preferencias de tipo de actividad
+            tipos_actividad = actividad.get("tipo_actividad", [])
             for i, tipo in enumerate(self.preferencias_actividades):
-                for tipo_actividad_propuesta in actividad.get("tipo_actividad"):
-                    if tipo_actividad_propuesta == tipo:
-                        evaluacion += 1 if  actividades_cubiertas[i] else 2 # Mayor peso por cubrir preferencia
-                        actividades_cubiertas[i] = True 
+                if tipo in tipos_actividad and not actividades_cubiertas[i]:
+                    evaluacion += peso_tipo_pref
+                    actividades_cubiertas[i] = True
+
             # Preferencias de lugares
-            for lugar in actividad.get("lugares_a_visitar", []):
+            for lugar in lugares_visitar:
                 for i, lugar_preferido in enumerate(self.preferencias_lugares):
-                    if lugar == lugar_preferido:
-                        evaluacion += 1 if lugares_cubiertos[i] else 2
+                    if lugar == lugar_preferido and not lugares_cubiertos[i]:
+                        evaluacion += peso_lugar_pref
                         lugares_cubiertos[i] = True
 
+        # Maximizar lugares visitados (solo si se desea)
+        if self.max_lugares:
+            evaluacion += peso_lugares * total_lugares
+
         # Penalización por no cubrir preferencias
-        penalizacion = actividades_cubiertas.count(False) + lugares_cubiertos.count(False)
+        penalizacion = actividades_cubiertas.count(False) * peso_tipo_pref + lugares_cubiertos.count(False) * peso_lugar_pref
         evaluacion -= penalizacion
 
+        # Penaliza la distancia total recorrida (más distancia, menor evaluación)
+        lugares_totales = [lugar for actividad in actividades for lugar in actividad.get("lugares_a_visitar", [])]
+        if lugares_totales:
+            evaluacion -= peso_distancia * (dist_recorrido(lugares_totales) / 1000)
+
         # Penalización si se excede el presupuesto
-        if self.min_presupuesto and total_costo > self.presupuesto_max > 0:
-            evaluacion -= (total_costo - self.presupuesto_max) / 10  # Penaliza el exceso
+        if self.min_presupuesto and self.presupuesto_max > 0 and total_costo > self.presupuesto_max:
+            evaluacion -= peso_presupuesto * (total_costo - self.presupuesto_max)
+
+        # Bonificación si se ajusta bien al presupuesto
+        if self.min_presupuesto and self.presupuesto_max > 0 and total_costo <= self.presupuesto_max:
+            evaluacion += peso_presupuesto * (self.presupuesto_max - total_costo) / self.presupuesto_max
 
         return evaluacion
 

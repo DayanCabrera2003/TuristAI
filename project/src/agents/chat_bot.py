@@ -1,97 +1,87 @@
-SHELL=/usr/bin/zsh
-SESSION_MANAGER=local/eveliz:@/tmp/.ICE-unix/856,unix/eveliz:/tmp/.ICE-unix/856
-XDG_CONFIG_DIRS=/home/eveliz/.config/kdedefaults:/etc/xdg:/usr/share/manjaro-kde-settings/xdg
-XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session1
-XDG_MENU_PREFIX=plasma-
-ICEAUTHORITY=/run/user/1000/iceauth_OtzQHC
-LANGUAGE=
-LC_ADDRESS=es_CU
-LC_NAME=es_CU
-MEMORY_PRESSURE_WRITE=c29tZSAyMDAwMDAgMjAwMDAwMAA=
-DESKTOP_SESSION=plasma
-LC_MONETARY=es_CU
-GTK_RC_FILES=/etc/gtk/gtkrc:/home/eveliz/.gtkrc:/home/eveliz/.config/gtkrc
-GTK_MODULES=canberra-gtk-module
-XDG_SEAT=seat0
-PWD=/home/eveliz/Documentos/Integrador/TuristAI
-LOGNAME=eveliz
-XDG_SESSION_DESKTOP=KDE
-XDG_SESSION_TYPE=x11
-SYSTEMD_EXEC_PID=905
-XAUTHORITY=/tmp/xauth_VvxqFj
-MOTD_SHOWN=pam
-GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/eveliz/.gtkrc-2.0:/home/eveliz/.config/gtkrc-2.0
-HOME=/home/eveliz
-LANG=en_US.UTF-8
-LC_PAPER=es_CU
-XDG_CURRENT_DESKTOP=KDE
-MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/plasma-plasmashell.service/memory.pressure
-XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
-INVOCATION_ID=dea2468b3ae84b0c81901490a84cc0bb
-MANAGERPID=742
-KDE_SESSION_UID=1000
-XDG_SESSION_CLASS=user
-LC_IDENTIFICATION=es_CU
-USER=eveliz
-QT_WAYLAND_RECONNECT=1
-KDE_SESSION_VERSION=6
-PAM_KWALLET5_LOGIN=/run/user/1000/kwallet5.socket
-DISPLAY=:0
-SHLVL=2
-LC_TELEPHONE=es_CU
-LC_MEASUREMENT=es_CU
-XDG_VTNR=2
-XDG_SESSION_ID=2
-QT_LINUX_ACCESSIBILITY_ALWAYS_ON=1
-XDG_RUNTIME_DIR=/run/user/1000
-DEBUGINFOD_URLS=https://debuginfod.archlinux.org 
-LC_TIME=es_CU
-QT_AUTO_SCREEN_SCALE_FACTOR=0
-JOURNAL_STREAM=9:11597
-GTK3_MODULES=xapp-gtk3-module
-XDG_DATA_DIRS=/home/eveliz/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
-KDE_FULL_SESSION=true
-PATH=/home/eveliz/.vscode/extensions/ms-python.python-2025.8.0-linux-x64/python_files/deactivate/zsh:/home/eveliz/Documentos/Integrador/TuristAI/entorno/bin:/home/eveliz/.vscode/extensions/ms-python.python-2025.8.0-linux-x64/python_files/deactivate/zsh:/home/eveliz/Documentos/Integrador/TuristAI/entorno/bin:/home/eveliz/.local/bin:/home/eveliz/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
-DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
-KDE_APPLICATIONS_AS_SCOPE=1
-MAIL=/var/spool/mail/eveliz
-LC_NUMERIC=es_CU
-OLDPWD=/home/eveliz/Documentos/Integrador/TuristAI
-_=/bin/python
-CHROME_DESKTOP=code.desktop
-ORIGINAL_XDG_CURRENT_DESKTOP=KDE
-GDK_BACKEND=x11
-NO_AT_BRIDGE=1
-TERM_PROGRAM=vscode
-TERM_PROGRAM_VERSION=1.100.3
-COLORTERM=truecolor
-GIT_ASKPASS=/opt/visual-studio-code/resources/app/extensions/git/dist/askpass.sh
-VSCODE_GIT_ASKPASS_NODE=/opt/visual-studio-code/code
-VSCODE_GIT_ASKPASS_EXTRA_ARGS=
-VSCODE_GIT_ASKPASS_MAIN=/opt/visual-studio-code/resources/app/extensions/git/dist/askpass-main.js
-VSCODE_GIT_IPC_HANDLE=/run/user/1000/vscode-git-6d71dda89f.sock
-PYDEVD_DISABLE_FILE_VALIDATION=1
-VSCODE_DEBUGPY_ADAPTER_ENDPOINTS=/home/eveliz/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-474955012853c4cc.txt
-BUNDLED_DEBUGPY_PATH=/home/eveliz/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/libs/debugpy
-VIRTUAL_ENV=/home/eveliz/Documentos/Integrador/TuristAI/entorno
-VIRTUAL_ENV_PROMPT=entorno
-VSCODE_INJECTION=1
-VSCODE_NONCE=9c7c5e07-7849-4b42-91ae-9a4a2e7012af
-ZDOTDIR=/home/eveliz
-USER_ZDOTDIR=/home/eveliz
-TERM=xterm-256color
-LESS_TERMCAP_mb=[01;32m
-LESS_TERMCAP_md=[01;32m
-LESS_TERMCAP_me=[0m
-LESS_TERMCAP_se=[0m
-LESS_TERMCAP_so=[01;47;34m
-LESS_TERMCAP_ue=[0m
-LESS_TERMCAP_us=[01;36m
-LESS=-R
-LS_OPTIONS=--color=auto
-LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.7z=01;31:*.ace=01;31:*.alz=01;31:*.apk=01;31:*.arc=01;31:*.arj=01;31:*.bz=01;31:*.bz2=01;31:*.cab=01;31:*.cpio=01;31:*.crate=01;31:*.deb=01;31:*.drpm=01;31:*.dwm=01;31:*.dz=01;31:*.ear=01;31:*.egg=01;31:*.esd=01;31:*.gz=01;31:*.jar=01;31:*.lha=01;31:*.lrz=01;31:*.lz=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.lzo=01;31:*.pyz=01;31:*.rar=01;31:*.rpm=01;31:*.rz=01;31:*.sar=01;31:*.swm=01;31:*.t7z=01;31:*.tar=01;31:*.taz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tgz=01;31:*.tlz=01;31:*.txz=01;31:*.tz=01;31:*.tzo=01;31:*.tzst=01;31:*.udeb=01;31:*.war=01;31:*.whl=01;31:*.wim=01;31:*.xz=01;31:*.z=01;31:*.zip=01;31:*.zoo=01;31:*.zst=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.jxl=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:
-P9K_SSH=0
-_P9K_SSH_TTY=/dev/pts/4
-PS1=entorno%m%# 
-P9K_TTY=old
-_P9K_TTY=/dev/pts/4
+import streamlit as st
+import google.generativeai as genai
+from rag import rag
+
+
+
+# API Key para la API de Google Gemini
+GEMINI_API_KEY = "AIzaSyDSWR4UwuJmxjvHrmw8t-V9PzUB5aV3QTU"
+
+chat_utils = rag.ChatUtils()
+
+st.set_page_config(page_title="TuristAI", page_icon="🌴", layout="centered")
+st.title("🌴 TuristAI: Tu Asistente Turístico")
+st.write("¡Hola! Soy TuristAI, tu asistente turístico. ¿En qué puedo ayudarte hoy?")
+
+
+# CSS para diferenciar mensajes
+st.markdown("""
+    <style>
+    .user-msg {
+        background-color: #DCF8C6;
+        color: #222;
+        padding: 10px 16px;
+        border-radius: 12px;
+        margin-bottom: 8px;
+        margin-left: 40px;
+        max-width: 70%;
+        align-self: flex-end;
+    }
+    .bot-msg {
+        background-color: #F1F0F0;
+        color: #222;
+        padding: 10px 16px;
+        border-radius: 12px;
+        margin-bottom: 8px;
+        margin-right: 40px;
+        max-width: 70%;
+        align-self: flex-start;
+    }
+    .chat-container {
+        display: flex;
+        flex-direction: column;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+st.markdown('<div class="chat-container">', unsafe_allow_html=True)
+for msg in st.session_state.messages:
+    if msg["role"] == "user":
+        st.markdown(f'<div class="user-msg"><b>Tú:</b> {msg["content"]}</div>', unsafe_allow_html=True)
+    else:
+        st.markdown(f'<div class="bot-msg"><b>TuristAI:</b> {msg["content"]}</div>', unsafe_allow_html=True)
+st.markdown('</div>', unsafe_allow_html=True)
+
+user_input = st.text_input("Escribe tu mensaje:")
+#Utilizar la funcion para mejorar el prompt
+
+def generate(messages):  
+    historial = ""
+    for m in messages[:-1]:
+        if m["role"] == "user":
+            historial += f"Usuario: {m['content']}\n"
+        else:
+            historial += f"Asistente: {m['content']}\n"
+    
+    user_query = messages[-1]["content"]
+    prompt_enriquecido = chat_utils.prompt_gen(user_query, chat_utils.store_vectors, top_k=30)
+    
+    prompt = historial + "\n" + prompt_enriquecido
+  
+
+    genai.configure(api_key=GEMINI_API_KEY)
+    model = genai.GenerativeModel('gemini-2.0-flash')
+    response = model.generate_content(prompt)
+        
+    return response.text
+
+
+if st.button("Enviar") and user_input:
+    st.session_state.messages.append({"role": "user", "content": user_input})
+    bot_reply = generate(st.session_state.messages)
+    st.session_state.messages.append({"role": "assistant", "content": bot_reply})
+    st.rerun()

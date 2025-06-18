@@ -14,19 +14,21 @@ Esta información se utiliza como parámetro en la función de evaluación del i
 def crear_mapa(lugares):
     # Coordenadas aproximadas del centro de Cuba
     cuba_center = [21.5218, -77.7812]
-
     # Crear el mapa centrado en Cuba con opción de zoom
     mapa = folium.Map(location=cuba_center, zoom_start=7, control_scale=True, max_zoom=30, min_zoom=7)
     geolocator = Nominatim(user_agent="turistia")
     
     for lugar in lugares:
-        location = geolocator.geocode(f"{lugar}, Cuba")
-        if location:
-            folium.Marker([location.latitude, location.longitude], popup=lugar).add_to(mapa)
+        try:
+            location = geolocator.geocode(f"{lugar}, Cuba")
+            if location:
+                folium.Marker([location.latitude, location.longitude], popup=lugar).add_to(mapa)
+        except Exception as e:
+            print(f"[ERROR] No se pudo geolocalizar '{lugar}': {e}")
     
     # Guardar el mapa en un archivo HTML
     mapa.save("mapa_cuba.html")
-    webbrowser.open("mapa_cuba.html")
+    
 
 
 def obtener_coordenadas(lugares):
