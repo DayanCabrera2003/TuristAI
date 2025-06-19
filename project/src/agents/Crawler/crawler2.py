@@ -236,9 +236,10 @@ def process_page(url, depth, state, allowed_domains, seed, driver=None):
         info = extract_info(html, url)
         base_dir = os.path.dirname(os.path.abspath(__file__))
         if hasattr(state, "dynamic_mode") and state.dynamic_mode:
-            save_dir = os.path.join(base_dir, "data_dynamic")
+            agents_dir = os.path.abspath(os.path.join(base_dir, ".."))
+            save_dir = os.path.join(agents_dir, "data_dynamic")
         else:
-            save_dir = os.path.join(base_dir, "data", urlparse(seed).netloc.replace('.', '_'))
+            save_dir = os.path.join(agents_dir, "data", urlparse(seed).netloc.replace('.', '_'))
         os.makedirs(save_dir, exist_ok=True)
         filename = os.path.join(save_dir, url_to_filename(url).replace('.html', '.json'))
         save_json(info, filename)

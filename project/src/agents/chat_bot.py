@@ -87,9 +87,10 @@ def generate(messages):
             historial += f"Asistente: {m['content']}\n"
     
     user_query = messages[-1]["content"]
+    print("User query:", user_query)
     if chat_utils.is_continuation_of_previous_query(user_query,PATERN_CONTINUACION):
         print("Entro")
-        prompt_enriquecido = chat_utils.prompt_gen(messages[-2]["content"]+messages[-1]["content"],chat_utils.store_vectors,top_k=30)
+        prompt_enriquecido = chat_utils.prompt_gen(messages[-2]["content"]+user_query,chat_utils.store_vectors,top_k=30)
     else:
         prompt_enriquecido = chat_utils.prompt_gen(user_query, chat_utils.store_vectors, top_k=30)
     

@@ -268,6 +268,10 @@ if st.session_state.pagina == "Itinerario":
         st.components.v1.html(html_content, height=600, scrolling=True)
     except Exception as e:
         st.warning(f"No se pudo generar el mapa: {e}")
-    st.session_state.pagina = "Finalizado"
+    
+    if st.button("Cerrar"):
+        st.session_state.pagina = "inicio"
+        st.rerun()
+    
 
 
