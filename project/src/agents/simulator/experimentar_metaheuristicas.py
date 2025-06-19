@@ -48,7 +48,7 @@ k = len(gustos)
 muestra = []
 muestraluagres = []
 contador = 0
-while(contador < 100):
+while(contador < 30):
     contador += 1
     # Parámetros de la distribución normal
     media = (total_preferencias + 1) / 2
@@ -103,6 +103,8 @@ while(contador < 100):
 
 promedio1 = 0
 promedio2 = 0
+contador_validos1 = 0
+contador_validos2 = 0
 for i in range(0, len(muestra)-1) :
     planificador = Planer(
         muestra[i],                # tipolugares (preferencias de actividades)
@@ -111,16 +113,43 @@ for i in range(0, len(muestra)-1) :
         1000                       # presupuesto_disponible
     )
 
-    _, valor1 = planificador.generate_itinerary(metaheuristic="AG")
-    _, valor2 = planificador.generate_itinerary(metaheuristic="PSO")
-    promedio1 += valor1
-    promedio2 += valor2
+    try:
+        _, valor1 = planificador.generate_itinerary(metaheuristic="AG")
+    except KeyError as e:
+        print(f"[AG] Error: {e} - No se encontró un bloque JSON o la clave 'lugares'")
+        valor1 = None
+    except Exception as e:
+        print(f"[AG] Error inesperado: {e}")
+        valor1 = None
 
-promedio1 /= 100
-promedio2 /= 100
+    try:
+        _, valor2 = planificador.generate_itinerary(metaheuristic="PSO")
+    except KeyError as e:
+        print(f"[PSO] Error: {e} - No se encontró un bloque JSON o la clave 'lugares'")
+        valor2 = None
+    except Exception as e:
+        print(f"[PSO] Error inesperado: {e}")
+        valor2 = None
 
-print("Promedio de valor de los itinerarios que genera la metaheuristica AG: " + promedio1)
-print("Promedio de valor de los itinerarios que genera la metaheuristica PGO: " + promedio2)
+    if isinstance(valor1, (int, float)):
+        promedio1 += valor1
+        contador_validos1 += 1
+    if isinstance(valor2, (int, float)):
+        promedio2 += valor2
+        contador_validos2 += 1
+
+if contador_validos1 > 0:
+    promedio1 /= contador_validos1
+else:
+    promedio1 = "No hay resultados válidos para AG"
+
+if contador_validos2 > 0:
+    promedio2 /= contador_validos2
+else:
+    promedio2 = "No hay resultados válidos para PSO"
+
+print("Promedio de valor de los itinerarios que genera la metaheuristica AG: " + str(promedio1))
+print("Promedio de valor de los itinerarios que genera la metaheuristica PGO: " + str(promedio2))
 
 
 
