@@ -90,8 +90,12 @@ class Planer:
             try:
                 result_json = json.loads(raw_json)
             except json.JSONDecodeError as e:
-                print("Error al decodificar el JSON extraído:", e)
-                result_json = {}
+                print(f"Error al decodificar el JSON extraído: {e}")
+                return None, "Error al decodificar el JSON extraído"
+
+            if "lugares" not in result_json:
+                print("Error: la clave 'lugares' no existe en el JSON extraído")
+                return None, "Error: la clave 'lugares' no existe en el JSON extraído"
         else:
             print("No se encontró un bloque JSON en la respuesta.")
             result_json = {}
