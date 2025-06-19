@@ -8,6 +8,25 @@ from rag import rag
 GEMINI_API_KEY = "AIzaSyDSWR4UwuJmxjvHrmw8t-V9PzUB5aV3QTU"
 
 chat_utils = rag.ChatUtils()
+PATERN_CONTINUACION = [
+    "que mas puedes decirme sobre eso",
+    "tienes mas informacion sobre eso",
+    "puedes darme mas detalles",
+    "hay algo mas que deba saber",
+    "puedes ampliar un poco mas sobre ese tema",
+    "puedes profundizar un poco mas en eso",
+    "puedes darme mas contexto sobre eso",
+    "puedes explicarme eso con mas detalle",
+    "puedes darme mas ejemplos sobre eso",
+    "puedes darme mas informacion sobre eso",
+    "puedes darme mas detalles sobre eso",
+    "puedes añadir algo mas sobre eso",
+    "puedes darme mas informacion sobre ese tema",
+    "puedes ampliar un poco mas sobre ese tema",
+    "dame mas informacion sobre ese tema",
+    "argumentame un poco mas sobre eso",
+    "argumenta mas la respuesta"
+    ]
 
 st.set_page_config(page_title="TuristAI", page_icon="🌴", layout="centered")
 st.title("🌴 TuristAI: Tu Asistente Turístico")
@@ -68,7 +87,11 @@ def generate(messages):
             historial += f"Asistente: {m['content']}\n"
     
     user_query = messages[-1]["content"]
-    prompt_enriquecido = chat_utils.prompt_gen(user_query, chat_utils.store_vectors, top_k=30)
+    if chat_utils.is_continuation_of_previous_query(user_query,PATERN_CONTINUACION):
+        print("Entro")
+        prompt_enriquecido = chat_utils.prompt_gen(messages[-2]["content"]+messages[-1]["content"],chat_utils.store_vectors,top_k=30)
+    else:
+        prompt_enriquecido = chat_utils.prompt_gen(user_query, chat_utils.store_vectors, top_k=30)
     
     prompt = historial + "\n" + prompt_enriquecido
   
