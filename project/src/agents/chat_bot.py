@@ -90,7 +90,10 @@ def generate(messages):
     print("User query:", user_query)
     if chat_utils.is_continuation_of_previous_query(user_query,PATERN_CONTINUACION):
         print("Entro")
-        prompt_enriquecido = chat_utils.prompt_gen(messages[-2]["content"]+user_query,chat_utils.store_vectors,top_k=30)
+        if(len(messages)>=2):
+         prompt_enriquecido = chat_utils.prompt_gen(messages[-2]["content"]+user_query,chat_utils.store_vectors,top_k=30)
+        else:
+            prompt_enriquecido = chat_utils.prompt_gen(user_query,chat_utils.store_vectors,top_k=30)
     else:
         prompt_enriquecido = chat_utils.prompt_gen(user_query, chat_utils.store_vectors, top_k=30)
     
