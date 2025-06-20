@@ -81,7 +81,7 @@ class Planer:
         
         utils = rag.ChatUtils()
         query = f"""
-         {", ".join(self.tipolugares)} que estén en alguna de las siguientes provincias: {", ".join(self.lugares)} de Cuba.
+         {", ".join(self.lugares)} que estén en alguna de las siguientes provincias: {", ".join(self.tipolugares)} de Cuba.
         """
         
         result= utils.ask(query,self.schema, 20)
