@@ -32,10 +32,6 @@ Nuestro sistema se enfoca en el dominio de **guía turístico**, con énfasis en
 - **Sentence Transformers**: Embeddings para búsqueda semántica.
 - **duckduckgo-search**: API para búsquedas web rápidas.
 - **Google Generative AI (Gemini API)**: Generación de respuestas naturales.
-- **APIs externas**:
-    - **Google Gemini API**: Para generación de texto y respuestas enriquecidas.
-    - **(Opcional) Google Maps API**: Para geolocalización y mapas (ver planner/mapaCuba.py).
-    - **(Opcional) Weather.com API**: Para pronósticos del tiempo (puedes integrar si lo deseas).
 
 ---
 
@@ -102,9 +98,6 @@ El sistema está compuesto por varios agentes especializados:
 ### Configuraciones Previas
 
 - **API Key de Google Gemini**: Necesaria para la generación de respuestas. Debes obtenerla en [Google AI Studio](https://aistudio.google.com/app/apikey) y colocarla en el archivo de configuración o como variable de entorno `GEMINI_API_KEY`.
-- (Opcional) **API Key de Google Maps**: Para funcionalidades de geolocalización.
-- (Opcional) **API Key de Weather.com**: Para pronósticos del tiempo.
-
 ---
 
 ## Instalación

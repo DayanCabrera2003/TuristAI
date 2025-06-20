@@ -211,24 +211,38 @@ class ChatUtils:
         # Devuelve la query original más las palabras clave y sus sinónimos
         return query + " " + " ".join(expanded)
     
-    # @staticmethod
-    # def is_continuation_of_previous_query(query, patterns_query, threshold=0.35):
-    #     """
-    #     Comprueba si una consulta es una continuación de la anterior basándose en patrones y similitud.
+    def is_continuation_of_previous_query(self,query, patterns_query, threshold=0.35):
+        """
+        Comprueba si una consulta es una continuación de la anterior basándose en patrones y similitud.
 
-    #     Args:
-    #         query (str): Consulta actual del usuario.
-    #         patterns_query (list): Lista de patrones de consultas anteriores.
-    #         threshold (float): Umbral de similitud para considerar que es una continuación.
+        Args:
+            query (str): Consulta actual del usuario.
+            patterns_query (list): Lista de patrones de consultas anteriores.
+            threshold (float): Umbral de similitud para considerar que es una continuación.
 
-    #     Returns:
-    #         bool: True si la consulta es una continuación, False en caso contrario.
-    #     """
-    #     if not patterns_query:
-    #         return False
-    #     last_query = patterns_query[-1]
-    #     similarity = ChatUtils.compute_similarity(query, last_query)
-    #     return similarity >= threshold
+        Returns:
+            bool: True si la consulta es una continuación, False en caso contrario.
+        """
+        
+        if not patterns_query:
+            return False
+        
+        store_vectors = self.update_knowledge_base(patterns_query, chunk_size=15, overlap_size=5)
+        query_norm = ChatUtils.normalize_text(query)
+        query_vector = self.get_embedding(query_norm)
+        
+        if query_vector is None:
+            return False
+        
+        query_vector = np.array(query_vector)
+        distances = []
+        for emb, text in store_vectors:
+            emb_np = np.array(emb)
+            dist = np.linalg.norm(query_vector - emb_np)
+            distances.append((dist,text))
+        if any(dist < threshold for dist, _ in distances):
+            return True
+        return False
 
 
     def split_text_into_chunks(self, text, window_size=20, overlap_size=5):
@@ -372,3 +386,5 @@ class ChatUtils:
         prompt += "\n\nPor favor, devuelve la respuesta unicamente en el siguiente formato JSON:\n" + json.dumps(json_format, ensure_ascii=False, indent=2)
         response = self.gemini_model.generate_content(prompt)
         return response.text
+
+
