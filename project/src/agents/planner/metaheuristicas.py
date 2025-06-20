@@ -10,7 +10,7 @@ class MetaheuristicasItinerario:
                  presupuesto_max=0, min_presupuesto=False, max_lugares=False):
         
         self.lugares_turisticos = lugares_turisticos if lugares_turisticos is not None else []
-        self.variables = {}  # a cada variable se le asigna una actividad de la lista actividades
+        # self.variables = {}  # a cada variable se le asigna una actividad de la lista actividades
         self.preferencias_actividades = preferencias_tipos_lugares if preferencias_tipos_lugares is not None else []
         self.preferencias_lugares = preferencias_lugares if preferencias_lugares is not None else []
         self.presupuesto_max = presupuesto_max

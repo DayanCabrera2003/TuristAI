@@ -1,11 +1,13 @@
 import sys
 import os
 import random
+import matplotlib.pyplot as plt
 
 # Agrega el directorio padre al sys.path para poder importar planner
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from planner.planning import Planer
+import numpy as np
 
 """
 n tamaño del subconjunto de preferencias de lugares turísticos
@@ -122,6 +124,7 @@ for i in range(0, len(muestra)-1) :
         print(f"[AG] Error inesperado: {e}")
         valor1 = None
 
+    # Ejecutar la metaheurística PSO y almacenar los valores
     try:
         _, valor2 = planificador.generate_itinerary(metaheuristic="PSO")
     except KeyError as e:
@@ -131,31 +134,74 @@ for i in range(0, len(muestra)-1) :
         print(f"[PSO] Error inesperado: {e}")
         valor2 = None
 
+    # Guardar los valores para análisis estadístico
+    if not 'valores_ag' in locals():
+        valores_ag = []
+    if not 'valores_pso' in locals():
+        valores_pso = []
+
     if isinstance(valor1, (int, float)):
         promedio1 += valor1
         contador_validos1 += 1
+        valores_ag.append(valor1)
     if isinstance(valor2, (int, float)):
         promedio2 += valor2
         contador_validos2 += 1
+        valores_pso.append(valor2)
 
+# Estadísticas para AG
 if contador_validos1 > 0:
     promedio1 /= contador_validos1
+    ag_mean = np.mean(valores_ag)
+    ag_std = np.std(valores_ag)
+    ag_min = np.min(valores_ag)
+    ag_max = np.max(valores_ag)
 else:
     promedio1 = "No hay resultados válidos para AG"
+    ag_mean = ag_std = ag_min = ag_max = "N/A"
 
+# Estadísticas para PSO
 if contador_validos2 > 0:
     promedio2 /= contador_validos2
+    pso_mean = np.mean(valores_pso)
+    pso_std = np.std(valores_pso)
+    pso_min = np.min(valores_pso)
+    pso_max = np.max(valores_pso)
 else:
     promedio2 = "No hay resultados válidos para PSO"
+    pso_mean = pso_std = pso_min = pso_max = "N/A"
 
 print("Promedio de valor de los itinerarios que genera la metaheuristica AG: " + str(promedio1))
-print("Promedio de valor de los itinerarios que genera la metaheuristica PGO: " + str(promedio2))
+print("Promedio de valor de los itinerarios que genera la metaheuristica PSO: " + str(promedio2))
+print("\n--- Estadísticas AG ---")
+print(f"Media: {ag_mean}, Desviación estándar: {ag_std}, Mínimo: {ag_min}, Máximo: {ag_max}")
+print("\n--- Estadísticas PSO ---")
+print(f"Media: {pso_mean}, Desviación estándar: {pso_std}, Mínimo: {pso_min}, Máximo: {pso_max}")
+
+plt.figure(figsize=(12, 5))
+
+# Histograma de valores AG
+plt.subplot(1, 2, 1)
+plt.hist(valores_ag, bins=10, color='skyblue', edgecolor='black')
+plt.title('Histograma de valores - AG')
+plt.xlabel('Valor del itinerario')
+plt.ylabel('Frecuencia')
+
+# Histograma de valores PSO
+plt.subplot(1, 2, 2)
+plt.hist(valores_pso, bins=10, color='salmon', edgecolor='black')
+plt.title('Histograma de valores - PSO')
+plt.xlabel('Valor del itinerario')
+plt.ylabel('Frecuencia')
+
+plt.tight_layout()
+plt.savefig("histogramas_ag_pso.png")
 
 
-
-
-
-
-
-
-
+# Boxplot comparativo
+plt.figure(figsize=(6, 5))
+plt.boxplot([valores_ag, valores_pso], labels=['AG', 'PSO'])
+plt.title('Comparación de valores de itinerarios')
+plt.ylabel('Valor del itinerario')
+plt.savefig("boxplot_ag_pso.png")
+plt.show()
