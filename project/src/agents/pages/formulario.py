@@ -81,7 +81,11 @@ if st.session_state.pagina == "tipo actividades":
         checked = st.session_state.get(f"tipo_chk_{opcion}", False)
         new_checked = st.checkbox(opcion, value=checked, key=f"tipo_chk_{opcion}")
         if new_checked:
-            seleccion.append(opcion)
+            if opcion not in seleccion:
+                seleccion.append(opcion)
+        else:
+            if opcion in seleccion:
+                seleccion.remove(opcion)
     cols = st.columns([1, 1])
     with cols[0]:
         if st.button("Anterior"):
@@ -147,7 +151,8 @@ if st.session_state.pagina == "subformulario tipos de actividades":
                 checked = True
             new_checked = st.checkbox(opcion, value=checked, key=f"sub_chk_{opcion}")
             if new_checked:
-                st.session_state.seleccionAct.append(opcion)
+                if opcion not in st.session_state.seleccionAct:
+                    st.session_state.seleccionAct.append(opcion)
 
         cols = st.columns([1, 1])
         with cols[0]:
@@ -169,7 +174,11 @@ if st.session_state.pagina == "formulario lugares":
         checked = st.session_state.get(f"lug_chk_{opcion}", False)
         new_checked = st.checkbox(opcion, value=checked, key=f"lug_chk_{opcion}")
         if new_checked:
-            st.session_state.seleccionLug.append(opcion)
+            if opcion not in st.session_state.seleccionLug:
+                st.session_state.seleccionLug.append(opcion)
+        else:
+            if opcion in st.session_state.seleccionLug:
+                st.session_state.seleccionLug.remove(opcion)
     cols = st.columns([1, 1])
     with cols[0]:
         if st.button("Anterior"):
@@ -189,8 +198,15 @@ if st.session_state.pagina == "Optimizacion":
         checked = st.session_state.get(f"lug_chk_{opcion}", False)
         new_checked = st.checkbox(opcion, value=checked, key=f"lug_chk_{opcion}")
         if new_checked:
-            st.session_state.max_cant_lugares = True if opcion == "Visitar la mayor cantidad de lugares" else False
-            st.session_state.min_presupuesto = True if opcion == "Reducir el presupuesto" else False
+            if opcion == "Visitar la mayor cantidad de lugares":
+                st.session_state.max_cant_lugares = True
+            elif opcion == "Reducir el presupuesto":
+                st.session_state.min_presupuesto = True
+        else:
+            if opcion == "Visitar la mayor cantidad de lugares":
+                st.session_state.max_cant_lugares = False
+            elif opcion == "Reducir el presupuesto":
+                st.session_state.min_presupuesto = False
     cols = st.columns([1, 1])
     with cols[0]:
         if st.button("Anterior"):
@@ -268,6 +284,31 @@ if st.session_state.pagina == "Itinerario":
         st.components.v1.html(html_content, height=600, scrolling=True)
     except Exception as e:
         st.warning(f"No se pudo generar el mapa: {e}")
-    st.session_state.pagina = "Finalizado"
+    
+    if st.button("Cerrar"):
+        # Limpiar todas las variables globales de session_state usadas en el formulario
+        keys_to_clear = [
+            "pagina",
+            "actividades_seleccionadas",
+            "seleccionAct",
+            "seleccionLug",
+            "diasVacaciones",
+            "presupuestoDisponible",
+            "max_cant_lugares",
+            "min_presupuesto",
+            "dias_vacaciones",
+            "presupuesto"
+        ]
+        # También limpiar los checks dinámicos
+        for key in list(st.session_state.keys()):
+            if key.startswith("tipo_chk_") or key.startswith("sub_chk_") or key.startswith("lug_chk_"):
+                del st.session_state[key]
+        for key in keys_to_clear:
+            if key in st.session_state:
+                del st.session_state[key]
+        st.session_state.pagina = "inicio"
+        st.rerun()
+
+    
 
 
