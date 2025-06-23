@@ -120,6 +120,8 @@ class Planer:
             itinerario, valor = metaheuristica.algoritmo_genetico_itinerario()
         elif metaheuristic == "PSO":
             itinerario, valor = metaheuristica.pso_itinerario()
+        elif metaheuristic == "TS":
+            itinerario, valor = metaheuristica.tabu_search_itinerario()
         return itinerario, valor
     
 

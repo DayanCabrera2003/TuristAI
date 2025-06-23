@@ -197,3 +197,57 @@ class MetaheuristicasItinerario:
                         mejor_global_fitness = fit
 
         return mejor_global, mejor_global_fitness
+    
+    # Metaheurística: Búsqueda Tabú (Tabu Search)
+    def tabu_search_itinerario(self, max_iter=50, tabu_tam=10):
+        """
+        Optimiza el itinerario usando Búsqueda Tabú.
+        Retorna el mejor itinerario encontrado y su evaluación.
+        """
+        if not self.lugares_turisticos:
+            print("No hay lugares turísticos disponibles para generar el itinerario.")
+            return [], 0.0
+
+        # Solución inicial aleatoria
+        tam_itinerario = random.randint(1, min(5, len(self.lugares_turisticos)))
+        mejor_solucion = random.sample(self.lugares_turisticos, tam_itinerario)
+        mejor_fitness = self.evaluar_itinerario(mejor_solucion)
+        actual_solucion = mejor_solucion[:]
+        actual_fitness = mejor_fitness
+
+        tabu_lista = []
+
+        for _ in range(max_iter):
+            vecinos = []
+            # Generar vecinos por swap o reemplazo de una actividad
+            for i in range(len(actual_solucion)):
+                for lugar in self.lugares_turisticos:
+                    if lugar not in actual_solucion:
+                        vecino = actual_solucion[:]
+                        vecino[i] = lugar
+                        if vecino not in tabu_lista:
+                            vecinos.append(vecino)
+            if not vecinos:
+                break
+
+            # Evaluar vecinos
+            vecinos_fitness = [self.evaluar_itinerario(v) for v in vecinos]
+            mejor_vecino_idx = vecinos_fitness.index(max(vecinos_fitness))
+            mejor_vecino = vecinos[mejor_vecino_idx]
+            mejor_vecino_fitness = vecinos_fitness[mejor_vecino_idx]
+
+            # Actualizar solución actual
+            actual_solucion = mejor_vecino
+            actual_fitness = mejor_vecino_fitness
+
+            # Actualizar mejor solución global
+            if actual_fitness > mejor_fitness:
+                mejor_solucion = actual_solucion[:]
+                mejor_fitness = actual_fitness
+
+            # Actualizar lista tabú
+            tabu_lista.append(actual_solucion)
+            if len(tabu_lista) > tabu_tam:
+                tabu_lista.pop(0)
+
+        return mejor_solucion, mejor_fitness

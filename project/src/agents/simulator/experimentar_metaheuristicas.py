@@ -105,8 +105,10 @@ while(contador < 30):
 
 promedio1 = 0
 promedio2 = 0
+promedio3 = 0
 contador_validos1 = 0
 contador_validos2 = 0
+contador_validos3 = 0
 for i in range(0, len(muestra)-1) :
     planificador = Planer(
         muestra[i],                # tipolugares (preferencias de actividades)
@@ -133,12 +135,23 @@ for i in range(0, len(muestra)-1) :
     except Exception as e:
         print(f"[PSO] Error inesperado: {e}")
         valor2 = None
+    
+    try:
+        _, valor3 = planificador.generate_itinerary(metaheuristic="TS")
+    except KeyError as e:
+        print(f"[AG] Error: {e} - No se encontró un bloque JSON o la clave 'lugares'")
+        valor3 = None
+    except Exception as e:
+        print(f"[AG] Error inesperado: {e}")
+        valor3 = None
 
     # Guardar los valores para análisis estadístico
     if not 'valores_ag' in locals():
         valores_ag = []
     if not 'valores_pso' in locals():
         valores_pso = []
+    if not 'valores_ts' in locals():
+        valores_ts = []
 
     if isinstance(valor1, (int, float)):
         promedio1 += valor1
@@ -148,6 +161,10 @@ for i in range(0, len(muestra)-1) :
         promedio2 += valor2
         contador_validos2 += 1
         valores_pso.append(valor2)
+    if isinstance(valor3, (int, float)):
+        promedio3 += valor3
+        contador_validos3 += 1
+        valores_ts.append(valor3)
 
 # Estadísticas para AG
 if contador_validos1 > 0:
@@ -171,37 +188,57 @@ else:
     promedio2 = "No hay resultados válidos para PSO"
     pso_mean = pso_std = pso_min = pso_max = "N/A"
 
+# Estadísticas para TS
+if 'contador_validos3' in locals() and contador_validos3 > 0:
+    promedio3 /= contador_validos3
+    ts_mean = np.mean(valores_ts)
+    ts_std = np.std(valores_ts)
+    ts_min = np.min(valores_ts)
+    ts_max = np.max(valores_ts)
+else:
+    promedio3 = "No hay resultados válidos para TS"
+    ts_mean = ts_std = ts_min = ts_max = "N/A"
+
 print("Promedio de valor de los itinerarios que genera la metaheuristica AG: " + str(promedio1))
 print("Promedio de valor de los itinerarios que genera la metaheuristica PSO: " + str(promedio2))
+print("Promedio de valor de los itinerarios que genera la metaheuristica TS: " + str(promedio3))
 print("\n--- Estadísticas AG ---")
 print(f"Media: {ag_mean}, Desviación estándar: {ag_std}, Mínimo: {ag_min}, Máximo: {ag_max}")
 print("\n--- Estadísticas PSO ---")
 print(f"Media: {pso_mean}, Desviación estándar: {pso_std}, Mínimo: {pso_min}, Máximo: {pso_max}")
+print("\n--- Estadísticas TS ---")
+print(f"Media: {ts_mean}, Desviación estándar: {ts_std}, Mínimo: {ts_min}, Máximo: {ts_max}")
 
-plt.figure(figsize=(12, 5))
+plt.figure(figsize=(18, 5))
 
 # Histograma de valores AG
-plt.subplot(1, 2, 1)
+plt.subplot(1, 3, 1)
 plt.hist(valores_ag, bins=10, color='skyblue', edgecolor='black')
 plt.title('Histograma de valores - AG')
 plt.xlabel('Valor del itinerario')
 plt.ylabel('Frecuencia')
 
 # Histograma de valores PSO
-plt.subplot(1, 2, 2)
+plt.subplot(1, 3, 2)
 plt.hist(valores_pso, bins=10, color='salmon', edgecolor='black')
 plt.title('Histograma de valores - PSO')
 plt.xlabel('Valor del itinerario')
 plt.ylabel('Frecuencia')
 
-plt.tight_layout()
-plt.savefig("histogramas_ag_pso.png")
+# Histograma de valores TS
+plt.subplot(1, 3, 3)
+plt.hist(valores_ts, bins=10, color='lightgreen', edgecolor='black')
+plt.title('Histograma de valores - TS')
+plt.xlabel('Valor del itinerario')
+plt.ylabel('Frecuencia')
 
+plt.tight_layout()
+plt.savefig("histogramas_ag_pso_ts.png")
 
 # Boxplot comparativo
-plt.figure(figsize=(6, 5))
-plt.boxplot([valores_ag, valores_pso], labels=['AG', 'PSO'])
+plt.figure(figsize=(8, 5))
+plt.boxplot([valores_ag, valores_pso, valores_ts], labels=['AG', 'PSO', 'TS'])
 plt.title('Comparación de valores de itinerarios')
 plt.ylabel('Valor del itinerario')
-plt.savefig("boxplot_ag_pso.png")
+plt.savefig("boxplot_ag_pso_ts.png")
 plt.show()
