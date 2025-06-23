@@ -1,8 +1,14 @@
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../..')))
+
 from project.src.agents.rag import rag
 import time
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import json
+import numpy as np
+import matplotlib.pyplot as plt
 
 # Instancia de ChatUtils
 chat_utils = rag.ChatUtils()
@@ -132,7 +138,6 @@ def experimentar_rag():
         time.sleep(60)
 
     # Guardar resultados en un archivo para análisis posterior
-    import json
     with open("project/src/agents/simulator/resultados_experimento_rag.json", "w", encoding="utf-8") as f:
         json.dump(resultados, f, ensure_ascii=False, indent=2)
     print("Resultados guardados en resultados_experimento_rag.json")
@@ -169,4 +174,35 @@ def calcular_similitud_respuestas(json_path):
 
 if __name__ == "__main__":
     #experimentar_rag()
-    calcular_similitud_respuestas("project/src/agents/simulator/resultados_experimento_rag.json")
+    # calcular_similitud_respuestas("project/src/agents/simulator/resultados_experimento_rag.json")
+
+    def analisis_estadistico_similitud(json_path):
+        with open(json_path, "r", encoding="utf-8") as f:
+            similitudes = json.load(f)
+        valores = [float(v) for v in similitudes.values()]
+        media = np.mean(valores)
+        mediana = np.median(valores)
+        desviacion = np.std(valores)
+        minimo = np.min(valores)
+        maximo = np.max(valores)
+        print("\nAnálisis estadístico de la similitud coseno:")
+        print(f"  Media: {media:.3f}")
+        print(f"  Mediana: {mediana:.3f}")
+        print(f"  Desviación estándar: {desviacion:.3f}")
+        print(f"  Mínimo: {minimo:.3f}")
+        print(f"  Máximo: {maximo:.3f}")
+
+        # Crear gráfico de barras
+        plt.figure(figsize=(10, 5))
+        plt.bar(range(1, len(valores) + 1), valores, color='skyblue')
+        plt.axhline(media, color='red', linestyle='--', label=f"Media: {media:.2f}")
+        plt.xlabel("Pregunta")
+        plt.ylabel("Similitud coseno")
+        plt.title("Similitud coseno por pregunta")
+        plt.legend()
+        plt.tight_layout()
+        plt.savefig("project/src/agents/simulator/similitud_coseno_grafico.png")
+        plt.show()
+
+    # Llama a la función después de calcular las similitudes
+    analisis_estadistico_similitud("project/src/agents/simulator/similitud_preguntas_rag.json")

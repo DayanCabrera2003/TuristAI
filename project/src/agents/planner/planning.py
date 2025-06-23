@@ -112,7 +112,9 @@ class Planer:
             preferencias_lugares=self.lugares,
             presupuesto_max=self.presupuesto_disponible,
             min_presupuesto= self.min_presupuesto,
-            max_lugares= self.max_cant_lugares
+            max_lugares= self.max_cant_lugares,
+            dias_vacaciones=self.dias_vacaciones
+
         )
         itinerario = None
         valor = 0
@@ -122,6 +124,7 @@ class Planer:
             itinerario, valor = metaheuristica.pso_itinerario()
         elif metaheuristic == "TS":
             itinerario, valor = metaheuristica.tabu_search_itinerario()
+        
         return itinerario, valor
     
 
