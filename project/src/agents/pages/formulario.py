@@ -234,8 +234,6 @@ if st.session_state.pagina == "Itinerario":
     itinerario, _ = planer.generate_itinerary()
     st.title("Itinerario Propuesto")
     st.write("Aquí se mostraría el itinerario propuesto basado en sus selecciones.")
-    # Imprime el itinerario de forma bonita
-    # Asume que cada actividad es un dict con las claves: 'nombre', 'descripcion', 'ciudad', 'precio'
     
     lugares = []
 
@@ -286,6 +284,7 @@ if st.session_state.pagina == "Itinerario":
         st.warning(f"No se pudo generar el mapa: {e}")
     
     if st.button("Cerrar"):
+        st.session_state.pagina = "inicio"
         # Limpiar todas las variables globales de session_state usadas en el formulario
         keys_to_clear = [
             "pagina",
@@ -306,7 +305,7 @@ if st.session_state.pagina == "Itinerario":
         for key in keys_to_clear:
             if key in st.session_state:
                 del st.session_state[key]
-        st.session_state.pagina = "inicio"
+        
         st.rerun()
 
     

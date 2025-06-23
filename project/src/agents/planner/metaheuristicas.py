@@ -7,7 +7,7 @@ Colonia de Hormigas (ACO) para la optimización de itinerarios turísticos.
 
 class MetaheuristicasItinerario:
     def __init__(self, lugares_turisticos=None, preferencias_tipos_lugares=None, preferencias_lugares=None,
-                 presupuesto_max=0, min_presupuesto=False, max_lugares=False):
+                 presupuesto_max=0, min_presupuesto=False, max_lugares=False, dias_vacaciones=7):
         
         self.lugares_turisticos = lugares_turisticos if lugares_turisticos is not None else []
         # self.variables = {}  # a cada variable se le asigna una actividad de la lista actividades
@@ -16,6 +16,7 @@ class MetaheuristicasItinerario:
         self.presupuesto_max = presupuesto_max
         self.min_presupuesto = min_presupuesto
         self.max_lugares = max_lugares
+        self.dias_vacaciones = dias_vacaciones  # Nuevo parámetro
 
     def evaluar_itinerario(self, actividades):
         evaluacion = 0.0
@@ -85,13 +86,11 @@ class MetaheuristicasItinerario:
         return hijo1, hijo2
 
     def mutar(self, itinerario, actividades_disponibles, prob_mutacion=0.1):
-        """Mutación: reemplaza aleatoriamente una actividad por otra."""
+        """Mutación: reemplaza aleatoriamente una actividad por otra (puede haber repetidas)."""
         nuevo = itinerario[:]
         for i in range(len(nuevo)):
             if random.random() < prob_mutacion:
-                opciones = [a for a in actividades_disponibles if a not in nuevo]
-                if opciones:
-                    nuevo[i] = random.choice(opciones)
+                nuevo[i] = random.choice(actividades_disponibles)
         return nuevo
 
     def seleccionar(self, poblacion, fitnesses, num_seleccionados):
@@ -111,8 +110,8 @@ class MetaheuristicasItinerario:
         # Inicialización aleatoria de la población
         poblacion = []
         for _ in range(tam_poblacion):
-            tam_itinerario = random.randint(1, min(5, len(self.lugares_turisticos)))
-            individuo = random.sample(self.lugares_turisticos, tam_itinerario)
+            # El itinerario tiene tamaño igual a dias_vacaciones, permitiendo repetidos
+            individuo = [random.choice(self.lugares_turisticos) for _ in range(self.dias_vacaciones)]
             poblacion.append(individuo)
 
         for _ in range(generaciones):
@@ -148,8 +147,7 @@ class MetaheuristicasItinerario:
         mejor_personal_fitness = []
 
         for _ in range(num_particulas):
-            tam_itinerario = random.randint(1, min(5, len(self.lugares_turisticos)))
-            individuo = random.sample(self.lugares_turisticos, tam_itinerario)
+            individuo = [random.choice(self.lugares_turisticos) for _ in range(self.dias_vacaciones)]
             particulas.append(individuo)
             velocidades.append([])  # Velocidad como lista de swaps (índices a intercambiar)
             mejor_personal.append(individuo[:])
@@ -181,10 +179,7 @@ class MetaheuristicasItinerario:
                 # Aplicar velocidad (swaps)
                 nueva_particula = particula[:]
                 for idx in velocidades[i]:
-                    # Reemplazar actividad por una aleatoria no repetida
-                    opciones = [a for a in self.lugares_turisticos if a not in nueva_particula]
-                    if opciones:
-                        nueva_particula[idx % len(nueva_particula)] = random.choice(opciones)
+                    nueva_particula[idx % len(nueva_particula)] = random.choice(self.lugares_turisticos)
                 particulas[i] = nueva_particula
 
                 # Evaluar fitness
@@ -209,8 +204,8 @@ class MetaheuristicasItinerario:
             return [], 0.0
 
         # Solución inicial aleatoria
-        tam_itinerario = random.randint(1, min(5, len(self.lugares_turisticos)))
-        mejor_solucion = random.sample(self.lugares_turisticos, tam_itinerario)
+        tam_itinerario = self.dias_vacaciones
+        mejor_solucion = [random.choice(self.lugares_turisticos) for _ in range(tam_itinerario)]
         mejor_fitness = self.evaluar_itinerario(mejor_solucion)
         actual_solucion = mejor_solucion[:]
         actual_fitness = mejor_fitness
@@ -219,10 +214,10 @@ class MetaheuristicasItinerario:
 
         for _ in range(max_iter):
             vecinos = []
-            # Generar vecinos por swap o reemplazo de una actividad
+            # Generar vecinos por reemplazo de una actividad (permitiendo repetidos)
             for i in range(len(actual_solucion)):
                 for lugar in self.lugares_turisticos:
-                    if lugar not in actual_solucion:
+                    if actual_solucion[i] != lugar:
                         vecino = actual_solucion[:]
                         vecino[i] = lugar
                         if vecino not in tabu_lista:
