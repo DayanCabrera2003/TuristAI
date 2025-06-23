@@ -218,6 +218,7 @@ def process_page(url, depth, state, allowed_domains, seed, driver=None):
             response.raise_for_status()
             html = response.text
             logging.info(f"[S] [{state.seed_counts[seed]+1}/{state.seed_limits[seed]}] {url}")
+            time.sleep(3) 
         else:
             if ("alamesacuba" in url or "la-habana" in url) and driver:
                 driver.get(url)
@@ -225,6 +226,7 @@ def process_page(url, depth, state, allowed_domains, seed, driver=None):
                 interact_with_dynamic_content(driver)
                 html = driver.page_source
                 logging.info(f"[D] [{state.seed_counts[seed]+1}/{state.seed_limits[seed]}] {url}")
+                
             else:
                 session = requests.Session()
                 headers = {'User-Agent': UserAgent().random}
