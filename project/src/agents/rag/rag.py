@@ -10,7 +10,7 @@ import unicodedata
 import re
 import spacy
 from nltk.corpus import wordnet as wn
-from Crawler.crawler2 import run_crawler
+from project.src.agents.Crawler.crawler2 import run_crawler
 # from project.agents.Crawler.crawler2 import run_crawler
 local_model = SentenceTransformer('all-MiniLM-L6-v2')
 nlp = spacy.load("es_core_news_sm")
