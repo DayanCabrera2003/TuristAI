@@ -142,6 +142,7 @@ def calcular_similitud_respuestas(json_path):
         resultados = json.load(f)
 
     print("\nSimilitud coseno entre respuesta esperada y respuesta del modelo:\n")
+    similitudes = {}
     for idx, item in enumerate(resultados, 1):
         pregunta = item["pregunta"]
         resp_esperada = item["respuesta_esperada"]
@@ -154,11 +155,17 @@ def calcular_similitud_respuestas(json_path):
         vecs = vectorizer.transform([resp_esperada2, resp_modelo2])
         sim = cosine_similarity(vecs[0], vecs[1])[0][0]
 
+        similitudes[str(idx)] = sim  # Guarda como string para compatibilidad JSON
+
         print(f"{idx}. Pregunta: {pregunta}")
         print(f"   Similitud coseno: {sim:.3f}")
         print(f"   Esperada: {resp_esperada}")
         print(f"   Modelo: {resp_modelo}\n")
 
+    # Guardar similitudes en un JSON
+    with open("project/src/agents/simulator/similitud_preguntas_rag.json", "w", encoding="utf-8") as f:
+        json.dump(similitudes, f, ensure_ascii=False, indent=2)
+    print("Similitudes guardadas en similitud_preguntas_rag.json")
 
 if __name__ == "__main__":
     #experimentar_rag()
