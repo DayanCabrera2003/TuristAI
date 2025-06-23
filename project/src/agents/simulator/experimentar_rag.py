@@ -1,4 +1,5 @@
 from project.src.agents.rag import rag
+import time
 
 # Instancia de ChatUtils
 chat_utils = rag.ChatUtils()
@@ -66,10 +67,6 @@ preguntas_respuestas = [
         "respuesta": "Hoteles, casas particulares y resorts todo incluido."
     },
     {
-        "pregunta": "¿Qué es una casa particular en Cuba?",
-        "respuesta": "Es un alojamiento privado similar a un bed & breakfast, gestionado por familias cubanas."
-    },
-    {
         "pregunta": "¿Se puede usar internet en Cuba?",
         "respuesta": "Sí, pero el acceso es limitado y suele ser de pago en zonas Wi-Fi y hoteles."
     },
@@ -92,10 +89,6 @@ preguntas_respuestas = [
     {
         "pregunta": "¿Qué museos importantes hay en Cuba?",
         "respuesta": "Museo de la Revolución, Museo Nacional de Bellas Artes y Museo del Ron."
-    },
-    {
-        "pregunta": "¿Qué deportes acuáticos se pueden practicar en Cuba?",
-        "respuesta": "Buceo, snorkel, kitesurf, pesca y navegación."
     },
     {
         "pregunta": "¿Cómo es la vida nocturna en Cuba?",
@@ -132,6 +125,7 @@ def experimentar_rag():
         print(f"{idx}. Pregunta: {pregunta}")
         print(f"   Esperada: {respuesta_esperada}")
         print(f"   Modelo: {respuesta_modelo[:200]}...\n")  # Muestra solo los primeros 200 caracteres
+        time.sleep(60)
 
     # Guardar resultados en un archivo para análisis posterior
     import json
