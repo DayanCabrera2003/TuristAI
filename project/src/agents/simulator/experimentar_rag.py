@@ -1,5 +1,8 @@
 from project.src.agents.rag import rag
 import time
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+import json
 
 # Instancia de ChatUtils
 chat_utils = rag.ChatUtils()
@@ -108,6 +111,7 @@ preguntas_respuestas = [
     }
 ]
 
+
 def experimentar_rag():
     print("Iniciando experimentación RAG con 30 preguntas sobre turismo en Cuba...\n")
     resultados = []
@@ -129,9 +133,33 @@ def experimentar_rag():
 
     # Guardar resultados en un archivo para análisis posterior
     import json
-    with open("resultados_experimento_rag.json", "w", encoding="utf-8") as f:
+    with open("project/src/agents/simulator/resultados_experimento_rag.json", "w", encoding="utf-8") as f:
         json.dump(resultados, f, ensure_ascii=False, indent=2)
     print("Resultados guardados en resultados_experimento_rag.json")
 
+def calcular_similitud_respuestas(json_path):
+    with open(json_path, "r", encoding="utf-8") as f:
+        resultados = json.load(f)
+
+    print("\nSimilitud coseno entre respuesta esperada y respuesta del modelo:\n")
+    for idx, item in enumerate(resultados, 1):
+        pregunta = item["pregunta"]
+        resp_esperada = item["respuesta_esperada"]
+        resp_esperada2 = chat_utils.normalize_text(resp_esperada)
+        resp_modelo = item["respuesta_modelo"]
+        resp_modelo2 = chat_utils.normalize_text(resp_modelo)
+
+        # Vectorización TF-IDF
+        vectorizer = TfidfVectorizer().fit([resp_esperada2, resp_modelo2])
+        vecs = vectorizer.transform([resp_esperada2, resp_modelo2])
+        sim = cosine_similarity(vecs[0], vecs[1])[0][0]
+
+        print(f"{idx}. Pregunta: {pregunta}")
+        print(f"   Similitud coseno: {sim:.3f}")
+        print(f"   Esperada: {resp_esperada}")
+        print(f"   Modelo: {resp_modelo}\n")
+
+
 if __name__ == "__main__":
-    experimentar_rag()
+    #experimentar_rag()
+    calcular_similitud_respuestas("project/src/agents/simulator/resultados_experimento_rag.json")
