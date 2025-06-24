@@ -73,7 +73,7 @@ class MetaheuristicasItinerario:
         if self.min_presupuesto and self.presupuesto_max > 0 and total_costo <= self.presupuesto_max:
             evaluacion += peso_presupuesto * (self.presupuesto_max - total_costo) / self.presupuesto_max
 
-        return evaluacion
+        return evaluacion + 1500
 
     # Metaheurística: Algoritmo Genético
     def cruzar(self, padre1, padre2):

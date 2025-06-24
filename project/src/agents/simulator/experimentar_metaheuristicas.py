@@ -111,11 +111,17 @@ contador_validos2 = 0
 contador_validos3 = 0
 
 for i in range(0, len(muestra)-1) :
+    # Generar dias_vacaciones con distribución normal entre 1 y 30
+    media_dias = 15.5
+    desviacion_dias = 30 / 6  # Aproximadamente el 99% cae dentro del rango
+    dias_vacaciones = int(round(random.gauss(media_dias, desviacion_dias)))
+    dias_vacaciones = max(1, min(dias_vacaciones, 30))
+
     planificador = Planer(
-        muestra[i],                # tipolugares (preferencias de actividades)
-        muestraluagres[i],         # lugares (preferencias de lugares)
-        7,                         # dias_vacaciones (puedes ajustar este valor)
-        1000                       # presupuesto_disponible
+        muestra[i],                
+        muestraluagres[i],         
+        dias_vacaciones,                       
+        1000                       
     )
 
     try:
