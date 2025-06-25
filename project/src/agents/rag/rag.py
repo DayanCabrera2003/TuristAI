@@ -11,6 +11,8 @@ import re
 import spacy
 from nltk.corpus import wordnet as wn
 from Crawler.crawler2 import run_crawler
+from rag.ontology import OntologyManager
+# from ontology import OntologyManager
 # from project.agents.Crawler.crawler2 import run_crawler
 local_model = SentenceTransformer('all-MiniLM-L6-v2')
 nlp = spacy.load("es_core_news_sm")
@@ -33,6 +35,9 @@ class ChatUtils:
         
         genai.configure(api_key=GEMINI_API_KEY)
         self.gemini_model = genai.GenerativeModel('gemini-2.0-flash')
+        
+        self.ontology_manager = OntologyManager()
+        self.ontology_manager.load_ontology()
     
 
     
@@ -318,8 +323,18 @@ class ChatUtils:
         Returns:
             List of str: Texts closest to the query.
         """
-        # Obtener el embedding de la consulta
-        query_vector = self.get_embedding(query)
+        ontology_results = self.ontology_manager.get_structured_answer(query)
+        
+        # Enriquecer la query con resultados de ontología para mejorar la búsqueda por embeddings
+        enhanced_query = query
+        if ontology_results:
+            # Agregar los resultados de la ontología a la query para mejorar la búsqueda
+            ontology_context = " ".join(ontology_results[:5])  # Limitar a 5 resultados
+            enhanced_query = f"{query} {ontology_context}"
+            print(f"[DEBUG] Query enriquecida: {enhanced_query}")
+        
+        # Obtener el embedding de la consulta enriquecida
+        query_vector = self.get_embedding(enhanced_query)
         if query_vector is None:
             return []
         query_vector = np.array(query_vector)
@@ -332,11 +347,27 @@ class ChatUtils:
             distances.append((dist,text))
 
         # Obtener los índices de los top_k fragmentos más cercanos
-        # indices = np.argsort(distances)[:top_k]
         distances.sort(key=lambda x: x[0])
-        # Devolver los textos correspondientes
-        # return [store_vectors[i][1] for i in indices]
-        return distances[:top_k]
+        embedding_results = distances[:top_k]
+        
+        # Combinar resultados
+        if ontology_results:
+            # Si hay resultados de la ontología, los incluye como contexto prioritario
+            combined_results = []
+            
+            # Agrega los resultados de la ontología como texto con distancia 0 (máxima prioridad)
+            for result in ontology_results[:3]:  # Limita a 3 resultados de ontología
+                combined_results.append((0.0, f"Información estructurada: {result}"))
+            
+            # Agrega algunos resultados de embeddings para contexto adicional (mejorados por la query enriquecida)
+            remaining_slots = max(1, top_k - len(combined_results))
+            for dist, text in embedding_results[:remaining_slots]:
+                combined_results.append((dist, text))
+            
+            return combined_results
+        else:
+            # Si no hay resultados de ontología, usa solo embeddings
+            return embedding_results
 
     def prompt_gen(self, query, store_vectors, top_k=10, distance_threshold=0.7):
         """
