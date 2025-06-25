@@ -1,0 +1,3253 @@
+@prefix ex: <http://turistai.org/turismo#> .
+
+ex:ANOCHECER_EN_MI_HABANA a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "ANOCHECER EN MI HABANA" .
+
+ex:AROMAS_DE_MI_HABANA a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "AROMAS DE MI HABANA" .
+
+ex:ARQUITECTURA_INTRAMUROS_Y_TRAMA_URBANA a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "ARQUITECTURA INTRAMUROS Y TRAMA URBANA" .
+
+ex:A_SANTIAGO_A_PIE a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santiago ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "A SANTIAGO A PIE" .
+
+ex:Ambos_Mundos a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Ambos Mundos" .
+
+ex:Apartamento_Arrechavala_B1 a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Apartamento Arrechavala B1" .
+
+ex:Aparthotel_Azul a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Aparthotel Azul" .
+
+ex:Aparthotel_Terrazas_Atl_ntico a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Aparthotel Terrazas Atlántico" .
+
+ex:Armadores_de_Santander a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Armadores de Santander" .
+
+ex:Baracoa a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Guantanamo ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Baracoa" .
+
+ex:Barcel__Solymar a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Barceló Solymar" .
+
+ex:Bella_Isla_Resort a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Bella Isla Resort" .
+
+ex:Bellarena a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Bellarena" .
+
+ex:Bello_Caribe a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Bello Caribe" .
+
+ex:Biotur_2020 a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Biotur 2020" .
+
+ex:Brisas_Covarrubias a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Brisas Covarrubias" .
+
+ex:Brisas_Guardalavaca a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Brisas Guardalavaca" .
+
+ex:Brisas_Santa_Luc_a a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Camag_ey,
+        ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Brisas Santa Lucía" .
+
+ex:Brisas_Sierra_Mar a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Santiago ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Brisas Sierra Mar" .
+
+ex:Brisas_del_Caribe a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Matanzas,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Brisas del Caribe" .
+
+ex:CABARET_CONTINENTAL a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Matanzas,
+        ex:Playa_Gir_n,
+        ex:Varadero ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "CABARET CONTINENTAL" .
+
+ex:CAMINO_LEAL a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "CAMINO LEAL" .
+
+ex:CAMPISMO_DOS_HERMANAS a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Pinar_Del_R_o ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "CAMPISMO DOS HERMANAS" .
+
+ex:CAPITOLIO_NACIONAL a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "CAPITOLIO NACIONAL" .
+
+ex:CIB_Mar_a_La_Gorda a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "CIB María La Gorda" .
+
+ex:CITY_TOUR_EXCLUSIVO_CON_ALMUERZO___AUTOS_ANTIGUOS__2_horas_ a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "CITY TOUR EXCLUSIVO CON ALMUERZO + AUTOS ANTIGUOS (2 horas)" .
+
+ex:CITY_TOUR_HABANA_EXCLUSIVO a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "CITY TOUR HABANA EXCLUSIVO" .
+
+ex:CITY_TOUR_HABANA_EXCLUSIVO_CON_ALMUERZO a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "CITY TOUR HABANA EXCLUSIVO CON ALMUERZO" .
+
+ex:CITY_TOUR_HABANA__COLECTIVO_ a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "CITY TOUR HABANA (COLECTIVO)" .
+
+ex:CITY_TOUR_SANTIAGO_DE_CUBA a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santiago ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "CITY TOUR SANTIAGO DE CUBA" .
+
+ex:CITY_TOUR_VARADERO_EN_BUS a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Matanzas,
+        ex:Playa_Gir_n,
+        ex:Varadero ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "CITY TOUR VARADERO EN BUS" .
+
+ex:CLASES_DE_BAILES_POPULARES a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santiago ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "CLASES DE BAILES POPULARES" .
+
+ex:CLUB_TROPICAL a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "CLUB TROPICAL" .
+
+ex:CUBA_SOLAR_2020 a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "CUBA SOLAR 2020" .
+
+ex:CUBA__MAR__NATURALEZA_E_HISTORIA a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "CUBA, MAR, NATURALEZA E HISTORIA" .
+
+ex:Campismo_Aguada_de_V_squez a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Las_Tunas ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Aguada de Vásquez" .
+
+ex:Campismo_Arco_ris a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Villa_Clara ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Arcoíris" .
+
+ex:Campismo_Arroyo_Lajas a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Sancti_Spiritus ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Arroyo Lajas" .
+
+ex:Campismo_Bacunayagua a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Matanzas ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Bacunayagua" .
+
+ex:Campismo_Bamburanao a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Sancti_Spiritus ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Bamburanao" .
+
+ex:Campismo_Batalla_de_Saratoga a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Camag_ey ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Batalla de Saratoga" .
+
+ex:Campismo_Boca_de_Galafre a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Pinar_Del_R_o ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Boca de Galafre" .
+
+ex:Campismo_Boca_de_Jaruco a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Mayabeque ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Boca de Jaruco" .
+
+ex:Campismo_Boquer_n a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Ciego_de__vila ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Boquerón" .
+
+ex:Campismo_Calet_n_Blanco a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santiago ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Caletón Blanco" .
+
+ex:Campismo_Can_mar_Abajo a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Matanzas ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Canímar Abajo" .
+
+ex:Campismo_Casa_del_Vaquero a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Holgu_n ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Casa del Vaquero" .
+
+ex:Campismo_Cayo_Coco a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Ciego_de__vila ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Cayo Coco" .
+
+ex:Campismo_Cayo_Conuco a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Villa_Clara ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Cayo Conuco" .
+
+ex:Campismo_Cerro_de_Caisim_ a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Las_Tunas ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Cerro de Caisimú" .
+
+ex:Campismo_Charcazo a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Ciego_de__vila ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Charcazo" .
+
+ex:Campismo_Cinco_Az_car a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cienfuegos ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Cinco Azúcar" .
+
+ex:Campismo_Copey___Brisas_del_Mar a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Pinar_Del_R_o ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Copey – Brisas del Mar" .
+
+ex:Campismo_Cueva_de_Los_Portales a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Pinar_Del_R_o ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Cueva de Los Portales" .
+
+ex:Campismo_Duaba a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Guantanamo ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Duaba" .
+
+ex:Campismo_El_Abra a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Mayabeque ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo El Abra" .
+
+ex:Campismo_El_Salto a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Villa_Clara ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo El Salto" .
+
+ex:Campismo_El_Yunque a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Guantanamo ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo El Yunque" .
+
+ex:Campismo_Faro_de_Maya a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Matanzas ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Faro de Maya" .
+
+ex:Campismo_Ganuza a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Villa_Clara ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Ganuza" .
+
+ex:Campismo_Guayabal a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Las_Tunas ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Guayabal" .
+
+ex:Campismo_Jagua a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cienfuegos ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Jagua" .
+
+ex:Campismo_Jard_n_de_Aspiro a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Artemisa ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Jardín de Aspiro" .
+
+ex:Campismo_La_Altura a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Artemisa ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo La Altura" .
+
+ex:Campismo_La_Barbacoa a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Camag_ey ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo La Barbacoa" .
+
+ex:Campismo_La_Caridad a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Artemisa ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo La Caridad" .
+
+ex:Campismo_La_Chorrera a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Artemisa ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo La Chorrera" .
+
+ex:Campismo_La_Coronela a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Artemisa ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo La Coronela" .
+
+ex:Campismo_La_Hormiga a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Sancti_Spiritus ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo La Hormiga" .
+
+ex:Campismo_La_Laguna a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Mayabeque ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo La Laguna" .
+
+ex:Campismo_La_Mula a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santiago ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo La Mula" .
+
+ex:Campismo_La_Sierrita a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Granma ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo La Sierrita" .
+
+ex:Campismo_Las_Almendras a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Mayabeque ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Las Almendras" .
+
+ex:Campismo_Las_Caletas a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Mayabeque ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Las Caletas" .
+
+ex:Campismo_Las_Clavellinas a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Camag_ey ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Las Clavellinas" .
+
+ex:Campismo_Las_Coloradas a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Granma ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Las Coloradas" .
+
+ex:Campismo_Las_Palmas a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Camag_ey ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Las Palmas" .
+
+ex:Campismo_Las__Golondrinas a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santiago ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Las  Golondrinas" .
+
+ex:Campismo_Loma_Blanca a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santiago ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Loma Blanca" .
+
+ex:Campismo_Los_Cangilones a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Camag_ey ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Los Cangilones" .
+
+ex:Campismo_Los_Cantiles a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Granma ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Los Cantiles" .
+
+ex:Campismo_Los_Cocos a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Mayabeque ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Los Cocos" .
+
+ex:Campismo_Los_Naranjos a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Ciego_de__vila ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Los Naranjos" .
+
+ex:Campismo_Los_Pinos_de_Manat_ a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Las_Tunas ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Los Pinos de Manatí" .
+
+ex:Campismo_Manacal a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Sancti_Spiritus ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Manacal" .
+
+ex:Campismo_Marbella a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Marbella" .
+
+ex:Campismo_Monte_Oscuro a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Camag_ey ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Monte Oscuro" .
+
+ex:Campismo_Pajarito a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Pinar_Del_R_o ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Pajarito" .
+
+ex:Campismo_Pe_a_Blanca a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Mayabeque ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Peña Blanca" .
+
+ex:Campismo_Planta_Cant_ a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Sancti_Spiritus ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Planta Cantú" .
+
+ex:Campismo_Playa_Amarilla a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Mayabeque ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Playa Amarilla" .
+
+ex:Campismo_Playa_Antillita a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Holgu_n ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Playa Antillita" .
+
+ex:Campismo_Playa_Barrancones a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Holgu_n ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Playa Barrancones" .
+
+ex:Campismo_Playa_Blanca a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Holgu_n ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Playa Blanca" .
+
+ex:Campismo_Playa_Carenerito a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Holgu_n ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Playa Carenerito" .
+
+ex:Campismo_Playa_Corella a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Las_Tunas ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Playa Corella" .
+
+ex:Campismo_Playa_El_Ingl_s a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cienfuegos ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Playa El Inglés" .
+
+ex:Campismo_Playa_Larga a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santiago ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Playa Larga" .
+
+ex:Campismo_Playa_Morales a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Holgu_n ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Playa Morales" .
+
+ex:Campismo_Playita_de_Cajobabo a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Guantanamo ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Playita de Cajobabo" .
+
+ex:Campismo_Poza_Azul a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Sancti_Spiritus ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Poza Azul" .
+
+ex:Campismo_Presa_Minerva a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Villa_Clara ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Presa Minerva" .
+
+ex:Campismo_Puerto_Escondido a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Mayabeque ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Puerto Escondido" .
+
+ex:Campismo_Punta_Alegre a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Ciego_de__vila ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Punta Alegre" .
+
+ex:Campismo_Punta_Ganado a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Camag_ey ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Punta Ganado" .
+
+ex:Campismo_R_o_Can_mar a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Matanzas ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Río Canímar" .
+
+ex:Campismo_R_o_Caunao a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Villa_Clara ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Río Caunao" .
+
+ex:Campismo_R_o_Jobabo a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Las_Tunas ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Río Jobabo" .
+
+ex:Campismo_R_o_San_Juan a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Matanzas ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Río San Juan" .
+
+ex:Campismo_R_o_Seibabo a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Villa_Clara ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Río Seibabo" .
+
+ex:Campismo_Rio_Cabonico a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Holgu_n ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Rio Cabonico" .
+
+ex:Campismo_Salto_de_Jibacoa a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Granma ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Salto de Jibacoa" .
+
+ex:Campismo_Salto_de_los_Portales a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Pinar_Del_R_o ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Salto de los Portales" .
+
+ex:Campismo_San_Pedro a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Artemisa ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo San Pedro" .
+
+ex:Campismo_Sierra_Morena a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Villa_Clara ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Sierra Morena" .
+
+ex:Campismo_Silla_de_Gibara a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Holgu_n ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Silla de Gibara" .
+
+ex:Campismo_Taburete a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Artemisa ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Taburete" .
+
+ex:Campismo_Villa_Camping a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Mayabeque ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Villa Camping" .
+
+ex:Campismo_Villa_Cromita a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Holgu_n ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Villa Cromita" .
+
+ex:Campismo_Villa_del_Sol a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Camag_ey ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Villa del Sol" .
+
+ex:Campismo_Yacabo_Abajo a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Guantanamo ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Campismo Yacabo Abajo" .
+
+ex:Caribbean a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Caribbean" .
+
+ex:Casa_1201_PA_Acuazul a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 1201 PA Acuazul" .
+
+ex:Casa_1201_PB_Acuazul a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 1201 PB Acuazul" .
+
+ex:Casa_1301_Acuazul a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 1301 Acuazul" .
+
+ex:Casa_132_Mirador_del_Mar a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 132 Mirador del Mar" .
+
+ex:Casa_178_Boca_Ciega a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 178 Boca Ciega" .
+
+ex:Casa_2008_Club_Tropical a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 2008 Club Tropical" .
+
+ex:Casa_2101_Club_Tropical a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 2101 Club Tropical" .
+
+ex:Casa_2102_Club_Tropical a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 2102 Club Tropical" .
+
+ex:Casa_2104_Club_Tropical a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 2104 Club Tropical" .
+
+ex:Casa_21_Club_Karey a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 21 Club Karey" .
+
+ex:Casa_2301_Club_Tropical a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 2301 Club Tropical" .
+
+ex:Casa_2303_Club_Tropical a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 2303 Club Tropical" .
+
+ex:Casa_2603_Club_Tropical a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 2603 Club Tropical" .
+
+ex:Casa_3204_Los_Delfines a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 3204 Los Delfines" .
+
+ex:Casa_3241_A_Acuazul a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 3241-A Acuazul" .
+
+ex:Casa_3241_B_Acuazul a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 3241-B Acuazul" .
+
+ex:Casa_3242_Acuazul a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 3242 Acuazul" .
+
+ex:Casa_3602_Los_Delfines a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 3602 Los Delfines" .
+
+ex:Casa_3604_Los_Delfines a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 3604 Los Delfines" .
+
+ex:Casa_3606_PA_Los_Delfines a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 3606 PA Los Delfines" .
+
+ex:Casa_3606_PB_Los_Delfines a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 3606 PB Los Delfines" .
+
+ex:Casa_390_Boca_Ciega a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 390 Boca Ciega" .
+
+ex:Casa_402_Acuazul a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 402 Acuazul" .
+
+ex:Casa_412_Boca_Ciega a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 412 Boca Ciega" .
+
+ex:Casa_415 a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 415" .
+
+ex:Casa_431_Acuazul a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 431 Acuazul" .
+
+ex:Casa_432_Acuazul a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 432 Acuazul" .
+
+ex:Casa_437_Acuazul a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 437 Acuazul" .
+
+ex:Casa_438_Acuazul a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 438 Acuazul" .
+
+ex:Casa_471_Boca_Ciega a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 471 Boca Ciega" .
+
+ex:Casa_474_Boca_Ciega a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 474 Boca Ciega" .
+
+ex:Casa_479_Boca_Ciega a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 479 Boca Ciega" .
+
+ex:Casa_480_Boca_Ciega a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 480 Boca Ciega" .
+
+ex:Casa_481_Boca_Ciega a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 481 Boca Ciega" .
+
+ex:Casa_489_Boca_Ciega a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 489 Boca Ciega" .
+
+ex:Casa_490A_Boca_Ciega a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 490A Boca Ciega" .
+
+ex:Casa_490_Boca_Ciega a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 490 Boca Ciega" .
+
+ex:Casa_495_Boca_Ciega a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 495 Boca Ciega" .
+
+ex:Casa_496_Boca_Ciega a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 496 Boca Ciega" .
+
+ex:Casa_500_Boca_Ciega a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 500 Boca Ciega" .
+
+ex:Casa_502_Boca_Ciega a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 502 Boca Ciega" .
+
+ex:Casa_5201 a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 5201" .
+
+ex:Casa_5502_Pullman_Dos_Mares a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 5502 Pullman Dos Mares" .
+
+ex:Casa_554_Alturas_de_Boca_Ciega a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 554 Alturas de Boca Ciega" .
+
+ex:Casa_580_Alturas_de_Boca_Ciega a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 580 Alturas de Boca Ciega" .
+
+ex:Casa_580_Brisas_del_Mar a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 580 Brisas del Mar" .
+
+ex:Casa_615_Alturas_de_Boca_Ciega a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 615 Alturas de Boca Ciega" .
+
+ex:Casa_628_Brisas_del_Mar a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 628 Brisas del Mar" .
+
+ex:Casa_664_Alturas_de_Boca_Ciega a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 664 Alturas de Boca Ciega" .
+
+ex:Casa_6_Club_Karey a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 6 Club Karey" .
+
+ex:Casa_717_Alturas_de_Boca_Ciega a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 717 Alturas de Boca Ciega" .
+
+ex:Casa_718_Alturas_de_Boca_Ciega a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 718 Alturas de Boca Ciega" .
+
+ex:Casa_727_Alturas_de_Boca_Ciega a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 727 Alturas de Boca Ciega" .
+
+ex:Casa_750_Alturas_de_Boca_Ciega a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 750 Alturas de Boca Ciega" .
+
+ex:Casa_808_Alturas_de_Boca_Ciega a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 808 Alturas de Boca Ciega" .
+
+ex:Casa_820_Alturas_de_Boca_Ciega a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa 820 Alturas de Boca Ciega" .
+
+ex:Casa_Arrechavala_PB_Los_Delfines a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa Arrechavala PB Los Delfines" .
+
+ex:Casa_Villa_Comercio_191_Boca_Ciega a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa Villa Comercio 191 Boca Ciega" .
+
+ex:Casa_Villa_Comercio_192_Boca_Ciega a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa Villa Comercio 192 Boca Ciega" .
+
+ex:Casa_Villa_Comercio_194_Boca_Ciega a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa Villa Comercio 194 Boca Ciega" .
+
+ex:Casa_Villa_Comercio_195_Boca_Ciega a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "casas" ;
+    ex:tieneNombre "Casa Villa Comercio 195 Boca Ciega" .
+
+ex:Castillo_en_las_Nubes a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Castillo en las Nubes" .
+
+ex:Cayo_Saet_a a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Holgu_n ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Cayo Saetía" .
+
+ex:Chateau_Miramar a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Chateau Miramar" .
+
+ex:Club_Amigo_Anc_n a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Sancti_Spiritus ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Club Amigo Ancón" .
+
+ex:Club_Amigo_Atl_ntico_Guardalavaca a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Club Amigo Atlántico Guardalavaca" .
+
+ex:Club_Amigo_Atl_ntico___Guardalavaca a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Holgu_n ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Club Amigo Atlántico - Guardalavaca" .
+
+ex:Club_Amigo_Caracol a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Club Amigo Caracol" .
+
+ex:Club_Amigo_Carisol a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santiago ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Club Amigo Carisol" .
+
+ex:Club_Amigo_Carisol_Los_Corales a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Club Amigo Carisol Los Corales" .
+
+ex:Club_Amigo_Costa_Sur a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Sancti_Spiritus ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Club Amigo Costa Sur" .
+
+ex:Club_Amigo_Marea_del_Portillo a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Club Amigo Marea del Portillo" .
+
+ex:Club_Amigo_Mayanabo a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Club Amigo Mayanabo" .
+
+ex:Club_Cayo_Guillermo a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Club Cayo Guillermo" .
+
+ex:Club_Tropical a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Matanzas,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Club Tropical" .
+
+ex:Colonial_Cayo_Coco a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Colonial Cayo Coco" .
+
+ex:Conde_de_Villanueva a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Conde de Villanueva" .
+
+ex:Condominio_Calle_12 a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Condominio Calle 12" .
+
+ex:Condominio_Calle_32 a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Condominio Calle 32" .
+
+ex:Condominio_Calle_36 a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Condominio Calle 36" .
+
+ex:Condominio_Calle_54 a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Condominio Calle 54" .
+
+ex:Condominio_Calle_62 a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Condominio Calle 62" .
+
+ex:Condominio_Calle__39 a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Condominio Calle  39" .
+
+ex:Condominio_Calle__40 a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Condominio Calle  40" .
+
+ex:Copacabana a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Copacabana" .
+
+ex:Cuba_test a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cayo_Coco ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Cuba test" .
+
+ex:Cubanacan_Am_rica a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Santa_Maria,
+        ex:Villa_Clara ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Cubanacan América" .
+
+ex:Cubanacan_Club_Acuario a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Cubanacan Club Acuario" .
+
+ex:Cubanacan_Comodoro a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Cubanacan Comodoro" .
+
+ex:Cubanacan_Imperial a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santiago ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Cubanacan Imperial" .
+
+ex:Cubanacan_Las_Cuevas a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Sancti_Spiritus ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Cubanacan Las Cuevas" .
+
+ex:Cubanacan_Punta_Gorda a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Cubanacan Punta Gorda" .
+
+ex:Cubanacan_Versalles a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Cubanacan Versalles" .
+
+ex:DE_ARTE_Y_COLOR a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "DE ARTE Y COLOR" .
+
+ex:Deauville a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Deauville" .
+
+ex:Dos_Mares a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Matanzas,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Dos Mares" .
+
+ex:ENCANTO_CUBANO a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santiago ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "ENCANTO CUBANO" .
+
+ex:ENTRE_CANCHANCHARA_Y_ARTESANIA a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Sancti_Spiritus,
+        ex:Trinidad ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "ENTRE CANCHANCHARA Y ARTESANIA" .
+
+ex:ENTRE_TAMBORES_Y_LEYENDAS a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Sancti_Spiritus,
+        ex:Trinidad ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "ENTRE TAMBORES Y LEYENDAS" .
+
+ex:EXCURSION_A_LAS_TERRAZAS__EXCLUSIVO_ a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "EXCURSION A LAS TERRAZAS (EXCLUSIVO)" .
+
+ex:EXCURSION_A_VARADERO_EN_TODO_INCLUIDO a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "EXCURSION A VARADERO EN TODO INCLUIDO" .
+
+ex:EXCURSION_A_VI_ALES__COLECTIVO_ a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "EXCURSION A VIÑALES (COLECTIVO)" .
+
+ex:EXCURSION_A_VI_ALES__EXCLUSIVO_ a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "EXCURSION A VIÑALES (EXCLUSIVO)" .
+
+ex:EXPRESO_HABANA___SANTIAGO a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santiago ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "EXPRESO HABANA - SANTIAGO" .
+
+ex:EXPRESO_HABANA___TRINIDAD a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "EXPRESO HABANA - TRINIDAD" .
+
+ex:EXPRESO_VARADERO___TRINIDAD a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "EXPRESO VARADERO - TRINIDAD" .
+
+ex:E_Barcelona a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santa_Maria,
+        ex:Villa_Clara ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "E Barcelona" .
+
+ex:E_Camino_de_Hierro a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Camag_ey ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "E Camino de Hierro" .
+
+ex:E_Central_Villa_Clara a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santa_Maria,
+        ex:Villa_Clara ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "E Central Villa Clara" .
+
+ex:E_El_Cobre a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santiago ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "E El Cobre" .
+
+ex:E_El_Marqu_s a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Camag_ey ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "E El Marqués" .
+
+ex:E_La_Avellaneda a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Camag_ey ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "E La Avellaneda" .
+
+ex:E_La_Calesa a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Sancti_Spiritus ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "E La Calesa" .
+
+ex:E_La_Sevillana a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Camag_ey ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "E La Sevillana" .
+
+ex:E_Louvre a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Matanzas,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "E Louvre" .
+
+ex:E_Mes_n_del_Regidor a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Sancti_Spiritus ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "E Mesón del Regidor" .
+
+ex:E_Ordo_o a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Holgu_n ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "E Ordoño" .
+
+ex:E_Rueda a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Ciego_de__vila ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "E Rueda" .
+
+ex:E_Sagua a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santa_Maria,
+        ex:Villa_Clara ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "E Sagua" .
+
+ex:E_Velasco a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Matanzas,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "E Velasco" .
+
+ex:El_Comendador a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "El Comendador" .
+
+ex:El_Mes_n_de_la_Flota a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "El Mesón de la Flota" .
+
+ex:Encanto_Plaza a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Encanto Plaza" .
+
+ex:Evento_Universidad_2020 a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Evento Universidad 2020" .
+
+ex:Floreale a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santa_Maria,
+        ex:Villa_Clara ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Floreale" .
+
+ex:GRAN_HOTEL_managed_by_Meli__Hotels_International a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Camag_ey,
+        ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "GRAN HOTEL managed by Meliá Hotels International" .
+
+ex:GRAN_PIEDRA_CON_TERRAZAS_LA_CARIDAD a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santiago ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "GRAN PIEDRA CON TERRAZAS LA CARIDAD" .
+
+ex:GUARDALAVACA_ENTRE_LEYENDAS a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Holgu_n ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "GUARDALAVACA ENTRE LEYENDAS" .
+
+ex:Gaviota_Santiago a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santiago ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Gaviota Santiago" .
+
+ex:Gran_Hotel a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Camag_ey ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Gran Hotel" .
+
+ex:Gran_Piedra a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Gran Piedra" .
+
+ex:HISTORIA_Y_SABOR a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Matanzas,
+        ex:Playa_Gir_n,
+        ex:Varadero ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "HISTORIA Y SABOR" .
+
+ex:HOLGU_N_300 a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Holgu_n ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "HOLGUÍN 300" .
+
+ex:HOLGU_N_300_PLUS a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Holgu_n ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "HOLGUÍN 300 PLUS" .
+
+ex:HOLGU_N_LA_M_S_HERMOSA a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Holgu_n ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "HOLGUÍN LA MÁS HERMOSA" .
+
+ex:HOTEL_CLUB_KAREY a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "HOTEL CLUB KAREY" .
+
+ex:HOTEL_COL_N_managed_by_Meli__Hotels_International a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Camag_ey,
+        ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "HOTEL COLÓN managed by Meliá Hotels International" .
+
+ex:HOTEL_LA_UNI_N_managed_by_Meli__Hotels_International a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cienfuegos,
+        ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "HOTEL LA UNIÓN managed by Meliá Hotels International" .
+
+ex:HOTEL_LIBERTAD a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "HOTEL LIBERTAD" .
+
+ex:HOTEL_ROYALTON a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "HOTEL ROYALTON" .
+
+ex:Hanabanilla a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Santa_Maria,
+        ex:Villa_Clara ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hanabanilla" .
+
+ex:Horizontes_Don_Pedro a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Horizontes Don Pedro" .
+
+ex:Horizontes_Finca_Ma_Dolores a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Horizontes Finca Ma Dolores" .
+
+ex:Horizontes_La_Ermita a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Pinar_Del_R_o ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Horizontes La Ermita" .
+
+ex:Horizontes_La_Granjita a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Santa_Maria,
+        ex:Villa_Clara ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Horizontes La Granjita" .
+
+ex:Horizontes_Los_Caneyes a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Santa_Maria,
+        ex:Villa_Clara ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Horizontes Los Caneyes" .
+
+ex:Horizontes_Los_Jazmines a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Horizontes Los Jazmines" .
+
+ex:Horizontes_Playa_Larga a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Horizontes Playa Larga" .
+
+ex:Horizontes_Rancho_San_Vicente a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Pinar_Del_R_o ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Horizontes Rancho San Vicente" .
+
+ex:Horizontes_Soroa a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Artemisa ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Horizontes Soroa" .
+
+ex:Horizontes_Villa_Soroa a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Horizontes Villa Soroa" .
+
+ex:Hostal_1511 a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hostal 1511" .
+
+ex:Hostal_Boulevard a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hostal Boulevard" .
+
+ex:Hostal_La_Habanera a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hostal La Habanera" .
+
+ex:Hostal_R_o_Miel a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hostal Río Miel" .
+
+ex:Hostal_Valencia a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hostal Valencia" .
+
+ex:Hostel_Vedado_Azul a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hostel Vedado Azul" .
+
+ex:Hotel_Acuazul a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Acuazul" .
+
+ex:Hotel_Ambos_Mundos a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Ambos Mundos" .
+
+ex:Hotel_Atl_ntico a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Atlántico" .
+
+ex:Hotel_Balc_n_del_Caribe a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santiago ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Balcón del Caribe" .
+
+ex:Hotel_Balcon_del_Caribe a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Balcon del Caribe" .
+
+ex:Hotel_Baracoa a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Baracoa" .
+
+ex:Hotel_Bella_Habana a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Bella Habana" .
+
+ex:Hotel_Beltr_n_de_Santa_Cruz a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Beltrán de Santa Cruz" .
+
+ex:Hotel_Cadillac a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Cadillac" .
+
+ex:Hotel_Caimanera a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Guantanamo ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Caimanera" .
+
+ex:Hotel_Camag_ey a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Camag_ey,
+        ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Camagüey" .
+
+ex:Hotel_Canimao a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Matanzas ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Canimao" .
+
+ex:Hotel_Caonaba a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Camag_ey,
+        ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Caonaba" .
+
+ex:Hotel_Caribbean a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Caribbean" .
+
+ex:Hotel_Ciego_de__vila a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Ciego de Ávila" .
+
+ex:Hotel_Club_Karey a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Club Karey" .
+
+ex:Hotel_Col_n a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Camag_ey ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Colón" .
+
+ex:Hotel_Colina a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Colina" .
+
+ex:Hotel_Colony a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Colony" .
+
+ex:Hotel_Costa_Blanca a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Camag_ey,
+        ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Costa Blanca" .
+
+ex:Hotel_Costa_Morena a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Santiago ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Costa Morena" .
+
+ex:Hotel_Deauville a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Deauville" .
+
+ex:Hotel_Deportivo a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Santiago ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Deportivo" .
+
+ex:Hotel_Don_Florencio a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Sancti_Spiritus ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Don Florencio" .
+
+ex:Hotel_E_Barcelona a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel E Barcelona" .
+
+ex:Hotel_E_Camino_de_Hierro a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel E Camino de Hierro" .
+
+ex:Hotel_E_Camino_del_Principe a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel E Camino del Principe" .
+
+ex:Hotel_E_Casa_Bauza a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel E Casa Bauza" .
+
+ex:Hotel_E_Central_Vi_ales a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel E Central Viñales" .
+
+ex:Hotel_E_Central_Villa_Clara a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel E Central Villa Clara" .
+
+ex:Hotel_E_El_Colonial a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel E El Colonial" .
+
+ex:Hotel_E_El_Marques a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel E El Marques" .
+
+ex:Hotel_E_La_Avellaneda a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel E La Avellaneda" .
+
+ex:Hotel_E_La_Calesa a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel E La Calesa" .
+
+ex:Hotel_E_La_Ronda a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel E La Ronda" .
+
+ex:Hotel_E_La_Sevillana a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel E La Sevillana" .
+
+ex:Hotel_E_Louvre a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel E Louvre" .
+
+ex:Hotel_E_Meson_del_Regidor a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel E Meson del Regidor" .
+
+ex:Hotel_E_Real a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel E Real" .
+
+ex:Hotel_E_Rueda a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel E Rueda" .
+
+ex:Hotel_E_San_Basilio a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel E San Basilio" .
+
+ex:Hotel_E_Santa_Maria a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel E Santa Maria" .
+
+ex:Hotel_E_Velasco a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel E Velasco" .
+
+ex:Hotel_E__Mascotte a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel E  Mascotte" .
+
+ex:Hotel_El_Bosque a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel El Bosque" .
+
+ex:Hotel_El_Castillo a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel El Castillo" .
+
+ex:Hotel_El_Comendador a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel El Comendador" .
+
+ex:Hotel_Elguea a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Elguea" .
+
+ex:Hotel_Faro_Luna a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cienfuegos,
+        ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Faro Luna" .
+
+ex:Hotel_Faro_de_Mais_ a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Guantanamo ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Faro de Maisí" .
+
+ex:Hotel_Flor_ale a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Floréale" .
+
+ex:Hotel_Florida a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Camag_ey,
+        ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Florida" .
+
+ex:Hotel_Gran_Piedra a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santiago ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Gran Piedra" .
+
+ex:Hotel_Guacanayabo a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Granma ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Guacanayabo" .
+
+ex:Hotel_Guant_namo a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Guantanamo ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Guantánamo" .
+
+ex:Hotel_Guantanamo a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Guantanamo" .
+
+ex:Hotel_Habana_612 a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Habana 612" .
+
+ex:Hotel_Inglaterra a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Inglaterra" .
+
+ex:Hotel_Isla_de_Cuba a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Camag_ey,
+        ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Isla de Cuba" .
+
+ex:Hotel_Kohly a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Kohly" .
+
+ex:Hotel_La_Marina_Plaza___Spa a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel La Marina Plaza & Spa" .
+
+ex:Hotel_La_Rusa a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel La Rusa" .
+
+ex:Hotel_Las_Am_ricas a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santiago ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Las Américas" .
+
+ex:Hotel_Las_Tunas a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Las Tunas" .
+
+ex:Hotel_Las_Yagrumas a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Las Yagrumas" .
+
+ex:Hotel_Libertad a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santiago ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Libertad" .
+
+ex:Hotel_Lido a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Lido" .
+
+ex:Hotel_Lincoln a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Lincoln" .
+
+ex:Hotel_Los_Frailes a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Los Frailes" .
+
+ex:Hotel_Los_Helechos a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Los Helechos" .
+
+ex:Hotel_Mar_del_Sur a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Mar del Sur" .
+
+ex:Hotel_Marqu_s_de_C_rdenas_y_Montehermoso a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Marqués de Cárdenas y Montehermoso" .
+
+ex:Hotel_Marqu_s_de_Prado_Ameno a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Marqués de Prado Ameno" .
+
+ex:Hotel_Miraflores a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Holgu_n ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Miraflores" .
+
+ex:Hotel_Moka a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Moka" .
+
+ex:Hotel_Mor_n a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Ciego_de__vila,
+        ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Morón" .
+
+ex:Hotel_Nacional_de_Cuba a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Nacional de Cuba" .
+
+ex:Hotel_Niquero a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Granma ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Niquero" .
+
+ex:Hotel_Palacio_Marqu_s_de_San_Felipe_y_Santiago_de_Bejucal a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Palacio Marqués de San Felipe y Santiago de Bejucal" .
+
+ex:Hotel_Palacio_O_Farill a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Palacio O'Farill" .
+
+ex:Hotel_Palacio_de_Cueto a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Palacio de Cueto" .
+
+ex:Hotel_Panamericano a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Panamericano" .
+
+ex:Hotel_Park_View a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Park View" .
+
+ex:Hotel_Pasacaballos a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Pasacaballos" .
+
+ex:Hotel_Paseo_Habana a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Paseo Habana" .
+
+ex:Hotel_Pelicano a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Pelicano" .
+
+ex:Hotel_Pernik a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Pernik" .
+
+ex:Hotel_Playa_Cayo_Santa_Mar_a a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Playa Cayo Santa María" .
+
+ex:Hotel_Playa_Coco a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Playa Coco" .
+
+ex:Hotel_Playa_Costa_Verde a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Playa Costa Verde" .
+
+ex:Hotel_Playa_Para_so a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Playa Paraíso" .
+
+ex:Hotel_Playa_Pesquero a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Playa Pesquero" .
+
+ex:Hotel_Plaza a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Camag_ey,
+        ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Plaza" .
+
+ex:Hotel_Porto_Santo a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Porto Santo" .
+
+ex:Hotel_Puerto_Pr_ncipe a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Camag_ey,
+        ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Puerto Príncipe" .
+
+ex:Hotel_Punta_La_Cueva a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Punta La Cueva" .
+
+ex:Hotel_Punta_Las_Cuevas a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cienfuegos ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Punta Las Cuevas" .
+
+ex:Hotel_Puntarena___Playa_Caleta a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Puntarena - Playa Caleta" .
+
+ex:Hotel_REX a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel REX" .
+
+ex:Hotel_R_o_San_Juan a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Río San Juan" .
+
+ex:Hotel_Rancho_Club a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Santiago ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Rancho Club" .
+
+ex:Hotel_Rancho_Luna a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Rancho Luna" .
+
+ex:Hotel_Raquel a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Raquel" .
+
+ex:Hotel_Rijo a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Sancti_Spiritus ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Rijo" .
+
+ex:Hotel_Saint_John_s a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Saint John´s" .
+
+ex:Hotel_San_Alejandro a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel San Alejandro" .
+
+ex:Hotel_San_Fernando a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Ciego_de__vila,
+        ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel San Fernando" .
+
+ex:Hotel_San_Juan a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Santiago ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel San Juan" .
+
+ex:Hotel_San_Miguel a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel San Miguel" .
+
+ex:Hotel_Santa_Isabel a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Santa Isabel" .
+
+ex:Hotel_Sevilla a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Sevilla" .
+
+ex:Hotel_Sitio_La_G_ira a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Ciego_de__vila ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Sitio La Güira" .
+
+ex:Hotel_Tararaco a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Camag_ey,
+        ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Tararaco" .
+
+ex:Hotel_Tejadillo a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Tejadillo" .
+
+ex:Hotel_Tel_grafo a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Granma ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Telégrafo" .
+
+ex:Hotel_Terral a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Terral" .
+
+ex:Hotel_Tulip_n a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Tulipán" .
+
+ex:Hotel_Vedado a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Vedado" .
+
+ex:Hotel_Vedado_500 a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Vedado 500" .
+
+ex:Hotel_Vedado__Saint_John a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Vedado- Saint John" .
+
+ex:Hotel_Villa_Cayo_Saet_a a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Villa Cayo Saetía" .
+
+ex:Hotel_Villa_Gaviota_Santiago a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Villa Gaviota Santiago" .
+
+ex:Hotel_Villa_Las_Brujas a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Villa Las Brujas" .
+
+ex:Hotel_Villa_Maguana a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Villa Maguana" .
+
+ex:Hotel_Villa_Tortuga a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Villa Tortuga" .
+
+ex:Hotel_Vueltabajo a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Vueltabajo" .
+
+ex:Hotel_Zaza a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Sancti_Spiritus ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel Zaza" .
+
+ex:Hotel__Pinar_del_Rio a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Hotel  Pinar del Rio" .
+
+ex:Iberostar_Coral_Esmeralda a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Camag_ey ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Iberostar Coral Esmeralda" .
+
+ex:Iberostar_Grand_Trinidad a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Sancti_Spiritus ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Iberostar Grand Trinidad" .
+
+ex:Iberostar_Origin_Bella_Costa a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Iberostar Origin Bella Costa" .
+
+ex:Iberostar_Origin_Bella_Vista_Varadero a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Iberostar Origin Bella Vista Varadero" .
+
+ex:Iberostar_Origin_Daiquiri a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Ciego_de__vila ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Iberostar Origin Daiquiri" .
+
+ex:Iberostar_Origin_Laguna_Azul a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Iberostar Origin Laguna Azul" .
+
+ex:Iberostar_Origin_Playa_Alameda a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Iberostar Origin Playa Alameda" .
+
+ex:Iberostar_Origin_Playa_Pilar a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Ciego_de__vila ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Iberostar Origin Playa Pilar" .
+
+ex:Iberostar_Origin_Tainos a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Iberostar Origin Tainos" .
+
+ex:Iberostar_Selection_Ensenachos a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Villa_Clara ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Iberostar Selection Ensenachos" .
+
+ex:Iberostar_Selection_Esmeralda a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Camag_ey ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Iberostar Selection Esmeralda" .
+
+ex:Iberostar_Selection_Parque_Central a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Iberostar Selection Parque Central" .
+
+ex:Iberostar_Selection_Varadero a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Iberostar Selection Varadero" .
+
+ex:JAGUA_managed_by_Meli__Hotels_International a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cienfuegos,
+        ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "JAGUA managed by Meliá Hotels International" .
+
+ex:Kawama a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Kawama" .
+
+ex:Kohly a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Kohly" .
+
+ex:KurHotel_Escambray a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "KurHotel Escambray" .
+
+ex:LOS_DELFINES a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "LOS DELFINES" .
+
+ex:La_Casona a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "La Casona" .
+
+ex:Las_Am_ricas a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Las Américas" .
+
+ex:Las_Morlas a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Matanzas,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Las Morlas" .
+
+ex:Las_Yagrumas a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Artemisa ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Las Yagrumas" .
+
+ex:Lido a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Lido" .
+
+ex:Los_Cactus a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Matanzas,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Los Cactus" .
+
+ex:Los_Delfines a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Matanzas,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Los Delfines" .
+
+ex:Los_Frailes a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Los Frailes" .
+
+ex:MATANZAS_CUEVAS_DE_BELLAMAR a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Matanzas,
+        ex:Playa_Gir_n,
+        ex:Varadero ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "MATANZAS CUEVAS DE BELLAMAR" .
+
+ex:MINI_JEEP a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Ciego_de__vila ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "MINI JEEP" .
+
+ex:Maguana a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Guantanamo ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Maguana" .
+
+ex:Mar_del_Sur a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Matanzas,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Mar del Sur" .
+
+ex:Marazul a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Marazul" .
+
+ex:Mariposa a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Mariposa" .
+
+ex:Marqu_s_de_C_rdenas_de_Montehermoso a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Marqués de Cárdenas de Montehermoso" .
+
+ex:Mart_ a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Guantanamo ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Martí" .
+
+ex:Meli__Buenavista a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Santa_Maria,
+        ex:Villa_Clara ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Meliá Buenavista" .
+
+ex:Meli__Cayo_Coco a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Ciego_de__vila,
+        ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Meliá Cayo Coco" .
+
+ex:Meli__Cayo_Guillermo a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Meliá Cayo Guillermo" .
+
+ex:Meli__Cayo_Santa_Mar_a a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Santa_Maria,
+        ex:Villa_Clara ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Meliá Cayo Santa María" .
+
+ex:Meli__Cohiba a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Meliá Cohiba" .
+
+ex:Meli__Habana a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Meliá Habana" .
+
+ex:Meli__Internacional a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Matanzas,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Meliá Internacional" .
+
+ex:Meli__Jardines_del_Rey a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Ciego_de__vila,
+        ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Meliá Jardines del Rey" .
+
+ex:Meli__Las_Am_ricas a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Matanzas,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Meliá Las Américas" .
+
+ex:Meli__Las_Antillas a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Matanzas,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Meliá Las Antillas" .
+
+ex:Meli__Las_Dunas a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Santa_Maria,
+        ex:Villa_Clara ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Meliá Las Dunas" .
+
+ex:Meli__Marina_Varadero a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Matanzas,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Meliá Marina Varadero" .
+
+ex:Meli__Marina_Varadero_Apartments a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Matanzas,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Meliá Marina Varadero Apartments" .
+
+ex:Meli__Peninsula_Varadero a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Matanzas,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Meliá Peninsula Varadero" .
+
+ex:Meli__San_Carlos a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cienfuegos,
+        ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Meliá San Carlos" .
+
+ex:Meli__Santiago_de_Cuba a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Santiago ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Meliá Santiago de Cuba" .
+
+ex:Meli__Varadero a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Matanzas,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Meliá Varadero" .
+
+ex:Mirador_de_San_Diego a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Pinar_Del_R_o ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Mirador de San Diego" .
+
+ex:Mojito a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Ciego_de__vila ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Mojito" .
+
+ex:Moka a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Artemisa ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Moka" .
+
+ex:Muthu_Playa_Varadero a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Muthu Playa Varadero" .
+
+ex:NH_Capri_La_Habana a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "NH Capri La Habana" .
+
+ex:NH_Collection_Victoria_La_Habana a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "NH Collection Victoria La Habana" .
+
+ex:Neptuno_Trit_n a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Neptuno Tritón" .
+
+ex:OFICINA_DE_HISTORIADOR__REHABILITACI_N_PATRIMONIAL_Y_LABOR_SOCIAL a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "OFICINA DE HISTORIADOR: REHABILITACIÓN PATRIMONIAL Y LABOR SOCIAL" .
+
+ex:Occidental_Arenas_Blancas a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Occidental Arenas Blancas" .
+
+ex:PARQUE_EL_YUNQUE a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santiago ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "PARQUE EL YUNQUE" .
+
+ex:PARQUE_HUMBOLDT a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santiago ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "PARQUE HUMBOLDT" .
+
+ex:PATRIMONIO_SACRO_Y_RELIGIOSIDAD_POPULAR a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "PATRIMONIO SACRO Y RELIGIOSIDAD POPULAR" .
+
+ex:PLAZAS_COLONIALES__EMPORIO_DE_LEYENDAS a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Sancti_Spiritus,
+        ex:Trinidad ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "PLAZAS COLONIALES, EMPORIO DE LEYENDAS" .
+
+ex:Palacio_Cueto a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Palacio Cueto" .
+
+ex:Palacio_O_Farrill a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Palacio O?Farrill" .
+
+ex:Palacio_de_los_Corredores a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Palacio de los Corredores" .
+
+ex:Palacio_del_Marqu_s_de_San_Felipe_y_Santiago_de_Bejucal a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Palacio del Marqués de San Felipe y Santiago de Bejucal" .
+
+ex:Palma_Real a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Matanzas,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Palma Real" .
+
+ex:Paradisus_Los_Cayos a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Santa_Maria,
+        ex:Villa_Clara ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Paradisus Los Cayos" .
+
+ex:Paradisus_Princesa_del_Mar_Resort___Spa a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Matanzas,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Paradisus Princesa del Mar Resort & Spa" .
+
+ex:Paradisus_R_o_de_Oro_Resort___Spa a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Holgu_n ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Paradisus Río de Oro Resort & Spa" .
+
+ex:Paradisus_Varadero_Resort___Spa a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Matanzas,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Paradisus Varadero Resort & Spa" .
+
+ex:Pinares_de_Mayar_ a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Holgu_n ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Pinares de Mayarí" .
+
+ex:Playa_Caleta a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Matanzas,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Playa Caleta" .
+
+ex:Plaza a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Plaza" .
+
+ex:Porto_Santo a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Guantanamo ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Porto Santo" .
+
+ex:Pullman_Cayo_Coco a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Ciego_de__vila ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Pullman Cayo Coco" .
+
+ex:Pullman_Dos_Mares a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Pullman Dos Mares" .
+
+ex:RECORRIDO_A_PIE_EXCLUSIVO_CON_ALMUERZO___AUTOS_ANTIGUOS a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "RECORRIDO A PIE EXCLUSIVO CON ALMUERZO + AUTOS ANTIGUOS" .
+
+ex:RECORRIDO_COLONIAL a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "RECORRIDO COLONIAL" .
+
+ex:ROC_Arenas_Doradas a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "ROC Arenas Doradas" .
+
+ex:ROC_Barlovento a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "ROC Barlovento" .
+
+ex:ROC_Presidente a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "ROC Presidente" .
+
+ex:RUTA_CASA_EUSEBIO_LEAL a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "RUTA CASA EUSEBIO LEAL" .
+
+ex:RUTA_HEMINGWAY__EXCLUSIVO_ a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "RUTA HEMINGWAY (EXCLUSIVO)" .
+
+ex:Rancho_El_Tesoro a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Rancho El Tesoro" .
+
+ex:Rex a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santiago ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Rex" .
+
+ex:Roc_Arenas_Doradas a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Matanzas,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Roc Arenas Doradas" .
+
+ex:Roc_Barlovento a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Matanzas,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Roc Barlovento" .
+
+ex:Roc_El_Viejo_y_El_Mar a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Roc El Viejo y El Mar" .
+
+ex:Roc_Presidente a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Roc Presidente" .
+
+ex:SABOREANDO_CUBA__CLASES_DE_COCINA a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santiago ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "SABOREANDO CUBA. CLASES DE COCINA" .
+
+ex:SHOW_CABARET_TROPICANA a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santiago ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "SHOW CABARET TROPICANA" .
+
+ex:SIERRA_MAESTRA a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "SIERRA MAESTRA" .
+
+ex:Santa_Clara_Libre a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Santa Clara Libre" .
+
+ex:Santa_Isabel a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Santa Isabel" .
+
+ex:Santo_Domingo a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Granma ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Santo Domingo" .
+
+ex:Sitio_La_Guira a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Sitio La Guira" .
+
+ex:Sol_Caribe_Beach a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Matanzas,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Sol Caribe Beach" .
+
+ex:Sol_Cayo_Coco a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Ciego_de__vila,
+        ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Sol Cayo Coco" .
+
+ex:Sol_Cayo_Guillermo a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Sol Cayo Guillermo" .
+
+ex:Sol_Cayo_Largo a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Sol Cayo Largo" .
+
+ex:Sol_Cayo_Santa_Mar_a a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Santa_Maria,
+        ex:Villa_Clara ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Sol Cayo Santa María" .
+
+ex:Sol_Palmeras a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Matanzas,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Sol Palmeras" .
+
+ex:Sol_R_o_De_Luna_y_Mares a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Holgu_n ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Sol Río De Luna y Mares" .
+
+ex:Sol_Sirenas_Coral a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Sol Sirenas Coral" .
+
+ex:Sol_Varadero_Beach_All_Inclusive a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Matanzas,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Sol Varadero Beach All Inclusive" .
+
+ex:Sun_Beach a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Sun Beach" .
+
+ex:TOUR_BOCA_DE_R_O_YUMUR_ a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santiago ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "TOUR BOCA DE RÍO YUMURÍ" .
+
+ex:TOUR_DE_BARES a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Holgu_n ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "TOUR DE BARES" .
+
+ex:TOUR_DUABA___RANCHO_TOA a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santiago ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "TOUR DUABA - RANCHO TOA" .
+
+ex:TOUR_MORRO___COBRE a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santiago ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "TOUR MORRO - COBRE" .
+
+ex:TRINIDAD_DETENIDA_EN_EL_TIEMPO a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Sancti_Spiritus,
+        ex:Trinidad ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "TRINIDAD DETENIDA EN EL TIEMPO" .
+
+ex:TRINIDAD__AROMA_Y_TRADICION a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Sancti_Spiritus,
+        ex:Trinidad ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "TRINIDAD: AROMA Y TRADICION" .
+
+ex:TROPICANA_OFERTA_ESTANDAR_CON_TRASLADOS_INCLUIDOS a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "TROPICANA OFERTA ESTANDAR CON TRASLADOS INCLUIDOS" .
+
+ex:TROPICANA_OFERTA_PLUS_CON_TRASLADOS_INCLUIDOS a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "TROPICANA OFERTA PLUS CON TRASLADOS INCLUIDOS" .
+
+ex:TROPICANA_OFERTA_PREMIUM_CON_TRASLADOS_INCLUIDOS a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "TROPICANA OFERTA PREMIUM CON TRASLADOS INCLUIDOS" .
+
+ex:TROPICANA__COLECTIVO_ a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "TROPICANA (COLECTIVO)" .
+
+ex:TRYP_Cayo_Coco a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Ciego_de__vila,
+        ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "TRYP Cayo Coco" .
+
+ex:TRYP_Habana_Libre a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "TRYP Habana Libre" .
+
+ex:T_PICO_CUBANO a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "TÍPICO CUBANO" .
+
+ex:Traslado_Colectivo_Hoteles_Habana___Hoteles_Varadero a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslado Colectivo Hoteles Habana - Hoteles Varadero" .
+
+ex:Traslados_Privados_Aeropuerto_Habana___Hoteles_Camag_ey a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Aeropuerto Habana - Hoteles Camagüey" .
+
+ex:Traslados_Privados_Aeropuerto_Habana___Hoteles_Cayo_Coco a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Aeropuerto Habana - Hoteles Cayo Coco" .
+
+ex:Traslados_Privados_Aeropuerto_Habana___Hoteles_Cayo_Guillermo a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Aeropuerto Habana - Hoteles Cayo Guillermo" .
+
+ex:Traslados_Privados_Aeropuerto_Habana___Hoteles_Cayo_Santa_Mar_a a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Aeropuerto Habana - Hoteles Cayo Santa María" .
+
+ex:Traslados_Privados_Aeropuerto_Habana___Hoteles_Ciego_de__vila a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Aeropuerto Habana - Hoteles Ciego de Ávila" .
+
+ex:Traslados_Privados_Aeropuerto_Habana___Hoteles_Cienfuegos a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Aeropuerto Habana - Hoteles Cienfuegos" .
+
+ex:Traslados_Privados_Aeropuerto_Habana___Hoteles_Guam_ a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Aeropuerto Habana - Hoteles Guamá" .
+
+ex:Traslados_Privados_Aeropuerto_Habana___Hoteles_Guanabo__Habana_ a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Aeropuerto Habana - Hoteles Guanabo (Habana)" .
+
+ex:Traslados_Privados_Aeropuerto_Habana___Hoteles_Guant_namo a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Aeropuerto Habana - Hoteles Guantánamo" .
+
+ex:Traslados_Privados_Aeropuerto_Habana___Hoteles_Guardalavaca a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Aeropuerto Habana - Hoteles Guardalavaca" .
+
+ex:Traslados_Privados_Aeropuerto_Habana___Hoteles_Habana a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Aeropuerto Habana - Hoteles Habana" .
+
+ex:Traslados_Privados_Aeropuerto_Habana___Hoteles_Holgu_n a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Aeropuerto Habana - Hoteles Holguín" .
+
+ex:Traslados_Privados_Aeropuerto_Habana___Hoteles_Jibacoa a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Aeropuerto Habana - Hoteles Jibacoa" .
+
+ex:Traslados_Privados_Aeropuerto_Habana___Hoteles_Las_Terrazas___Moka a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Aeropuerto Habana - Hoteles Las Terrazas / Moka" .
+
+ex:Traslados_Privados_Aeropuerto_Habana___Hoteles_Mor_n a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Aeropuerto Habana - Hoteles Morón" .
+
+ex:Traslados_Privados_Aeropuerto_Habana___Hoteles_Playa_Santa_Mar_a__Habana_ a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Aeropuerto Habana - Hoteles Playa Santa María (Habana)" .
+
+ex:Traslados_Privados_Aeropuerto_Habana___Hoteles_Varadero a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Aeropuerto Habana - Hoteles Varadero" .
+
+ex:Traslados_Privados_Hoteles_Habana___Hoteles_Camag_ey a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Hoteles Habana - Hoteles Camagüey" .
+
+ex:Traslados_Privados_Hoteles_Habana___Hoteles_Cayo_Coco a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Hoteles Habana - Hoteles Cayo Coco" .
+
+ex:Traslados_Privados_Hoteles_Habana___Hoteles_Cayo_Guillermo a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Hoteles Habana - Hoteles Cayo Guillermo" .
+
+ex:Traslados_Privados_Hoteles_Habana___Hoteles_Cayo_Santa_Mar_a a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Hoteles Habana - Hoteles Cayo Santa María" .
+
+ex:Traslados_Privados_Hoteles_Habana___Hoteles_Cienfuegos a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Hoteles Habana - Hoteles Cienfuegos" .
+
+ex:Traslados_Privados_Hoteles_Habana___Hoteles_Santa_Clara a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Hoteles Habana - Hoteles Santa Clara" .
+
+ex:Traslados_Privados_Hoteles_Habana___Hoteles_Varadero a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Hoteles Habana - Hoteles Varadero" .
+
+ex:Traslados_Privados_Hoteles_Varadero___Hoteles_Pinar_del_R_o a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Hoteles Varadero - Hoteles Pinar del Río" .
+
+ex:Traslados_Privados_Hoteles_Varadero___Hoteles_Playas_del_Este a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Hoteles Varadero - Hoteles Playas del Este" .
+
+ex:Traslados_Privados_Hoteles_Varadero___Hoteles_Rancho_Luna a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Hoteles Varadero - Hoteles Rancho Luna" .
+
+ex:Traslados_Privados_Hoteles_Varadero___Hoteles_Sancti_Sp_ritus a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Hoteles Varadero - Hoteles Sancti Spíritus" .
+
+ex:Traslados_Privados_Hoteles_Varadero___Hoteles_Santa_Clara a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Hoteles Varadero - Hoteles Santa Clara" .
+
+ex:Traslados_Privados_Hoteles_Varadero___Hoteles_Santa_Luc_a a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Hoteles Varadero - Hoteles Santa Lucía" .
+
+ex:Traslados_Privados_Hoteles_Varadero___Hoteles_Santiago_de_Cuba a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Hoteles Varadero - Hoteles Santiago de Cuba" .
+
+ex:Traslados_Privados_Hoteles_Varadero___Hoteles_Soroa a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Hoteles Varadero - Hoteles Soroa" .
+
+ex:Traslados_Privados_Hoteles_Varadero___Hoteles_Trinidad a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados Privados Hoteles Varadero - Hoteles Trinidad" .
+
+ex:Traslados_colectivos_Aeropuerto_Varadero___Hoteles_Varadero a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados colectivos Aeropuerto Varadero - Hoteles Varadero" .
+
+ex:Traslados_colectivos_Aeropuerto_de_La_Habana___Hoteles_Habana a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados colectivos Aeropuerto de La Habana - Hoteles Habana" .
+
+ex:Traslados_colectivos_Aeropuerto_de_La_habana___Hoteles_Varadero a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados colectivos Aeropuerto de La habana - Hoteles Varadero" .
+
+ex:Traslados_colectivos_Hoteles_Cayo_Santa_Mar_a___Hoteles_Habana a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Villa_Clara ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados colectivos Hoteles Cayo Santa María - Hoteles Habana" .
+
+ex:Traslados_colectivos_Hoteles_Varadero___Aeropuerto_Habana a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Varadero ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados colectivos Hoteles Varadero - Aeropuerto Habana" .
+
+ex:Traslados_colectivos_desde_Hoteles_Habana___Hoteles_Cayo_Santa_Mar_a a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "traslados" ;
+    ex:tieneNombre "Traslados colectivos desde Hoteles Habana - Hoteles Cayo Santa María" .
+
+ex:Trinidad_500 a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Trinidad 500" .
+
+ex:Tulip_n a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Tulipán" .
+
+ex:Tuxpan a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Matanzas,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Tuxpan" .
+
+ex:VARADERO_EXPERIENCE a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Matanzas,
+        ex:Playa_Gir_n,
+        ex:Varadero ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "VARADERO EXPERIENCE" .
+
+ex:VISITA_HABANA a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Matanzas,
+        ex:Playa_Gir_n,
+        ex:Varadero ;
+    ex:ofreceActividad "tours" ;
+    ex:tieneNombre "VISITA HABANA" .
+
+ex:Valencia a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Valencia" .
+
+ex:Villa_Bacuranao a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:La_Habana ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Villa Bacuranao" .
+
+ex:Villa_Balc_n_de_la_Sierra a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Granma ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Villa Balcón de la Sierra" .
+
+ex:Villa_Bayamo a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Granma ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Villa Bayamo" .
+
+ex:Villa_Cabo_San_Antonio a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Villa Cabo San Antonio" .
+
+ex:Villa_Caburn_ a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Villa Caburní" .
+
+ex:Villa_Cayo_Levisa a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Villa Cayo Levisa" .
+
+ex:Villa_Cuba a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Matanzas,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Villa Cuba" .
+
+ex:Villa_Don_Lino a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Villa Don Lino" .
+
+ex:Villa_El_Bosque a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Holgu_n ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Villa El Bosque" .
+
+ex:Villa_El_Salt_n a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Santiago ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Villa El Saltón" .
+
+ex:Villa_Gregorio a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Villa Gregorio" .
+
+ex:Villa_Iguana a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Villa Iguana" .
+
+ex:Villa_Internacional_Aguas_Claras a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Pinar_Del_R_o ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Villa Internacional Aguas Claras" .
+
+ex:Villa_Internacional_Guajimico a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cienfuegos ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Villa Internacional Guajimico" .
+
+ex:Villa_Isla_de_la_Juventud a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Villa Isla de la Juventud" .
+
+ex:Villa_La_Lupe a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Guantanamo ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Villa La Lupe" .
+
+ex:Villa_Laguna_Grande a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Pinar_Del_R_o ;
+    ex:ofreceActividad "campismo" ;
+    ex:tieneNombre "Villa Laguna Grande" .
+
+ex:Villa_Los_Laureles a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Sancti_Spiritus ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Villa Los Laureles" .
+
+ex:Villa_Mirador_de_Mayabe a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Holgu_n ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Villa Mirador de Mayabe" .
+
+ex:Villa_Pinares_de_Mayar_ a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Villa Pinares de Mayarí" .
+
+ex:Villa_Playa_Gir_n a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Villa Playa Girón" .
+
+ex:Villa_Punta_Blanca a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Villa Punta Blanca" .
+
+ex:Villa_Punta_Rasa a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Ciego_de__vila,
+        ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Villa Punta Rasa" .
+
+ex:Villa_Punta_de_Mais_ a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Guantanamo ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Villa Punta de Maisí" .
+
+ex:Villa_Rancho_Hatuey a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Sancti_Spiritus ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Villa Rancho Hatuey" .
+
+ex:Villa_San_Jos__del_Lago a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba,
+        ex:Sancti_Spiritus ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Villa San José del Lago" .
+
+ex:Villa_Santo_Domingo a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Villa Santo Domingo" .
+
+ex:Villa_Tr_pico a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Villa Trópico" .
+
+ex:Villa_Yaguanabo a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Villa Yaguanabo" .
+
+ex:_Servicio_Premium__Hotel_Playa_Pesquero a ex:LugarTuristico ;
+    ex:estaEnProvincia ex:Cuba ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre ">Servicio Premium. Hotel Playa Pesquero" .
+
+ex:Cayo_Coco a ex:Provincia ;
+    ex:tieneNombre "Cayo Coco" .
+
+ex:Trinidad a ex:Provincia ;
+    ex:tieneNombre "Trinidad" .
+
+ex:Playa_Gir_n a ex:LugarTuristico,
+        ex:Provincia ;
+    ex:estaEnProvincia ex:Matanzas,
+        ex:Varadero ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Playa Girón" .
+
+ex:Las_Tunas a ex:LugarTuristico,
+        ex:Provincia ;
+    ex:estaEnProvincia ex:Las_Tunas ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Las Tunas" .
+
+ex:Cienfuegos a ex:Provincia ;
+    ex:tieneNombre "Cienfuegos" .
+
+ex:Artemisa a ex:Provincia ;
+    ex:tieneNombre "Artemisa" .
+
+ex:Granma a ex:Provincia ;
+    ex:tieneNombre "Granma" .
+
+ex:Mayabeque a ex:Provincia ;
+    ex:tieneNombre "Mayabeque" .
+
+ex:Pinar_Del_R_o a ex:Provincia ;
+    ex:tieneNombre "Pinar Del Río" .
+
+ex:Guantanamo a ex:Provincia ;
+    ex:tieneNombre "Guantanamo" .
+
+ex:Santa_Maria a ex:Provincia ;
+    ex:tieneNombre "Santa Maria" .
+
+ex:Ciego_de__vila a ex:LugarTuristico,
+        ex:Provincia ;
+    ex:estaEnProvincia ex:Ciego_de__vila ;
+    ex:ofreceActividad "hoteles" ;
+    ex:tieneNombre "Ciego de Ávila" .
+
+ex:Holgu_n a ex:Provincia ;
+    ex:tieneNombre "Holguín" .
+
+ex:Sancti_Spiritus a ex:Provincia ;
+    ex:tieneNombre "Sancti Spiritus" .
+
+ex:Villa_Clara a ex:Provincia ;
+    ex:tieneNombre "Villa Clara" .
+
+ex:Camag_ey a ex:Provincia ;
+    ex:tieneNombre "Camagüey" .
+
+ex:Santiago a ex:Provincia ;
+    ex:tieneNombre "Santiago" .
+
+ex:Matanzas a ex:Provincia ;
+    ex:tieneNombre "Matanzas" .
+
+ex:Varadero a ex:Provincia ;
+    ex:tieneNombre "Varadero" .
+
+ex:La_Habana a ex:Provincia ;
+    ex:tieneNombre "La Habana" .
+
+ex:Cuba a ex:Provincia ;
+    ex:tieneNombre "Cuba" .
+

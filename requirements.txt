@@ -14,3 +14,4 @@ selenium
 fake-useragent
 duckduckgo-search
 scikit-learn
+rdflib
