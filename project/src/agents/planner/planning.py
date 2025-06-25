@@ -2,6 +2,8 @@ from rag import rag
 import json
 import re
 from .metaheuristicas import MetaheuristicasItinerario
+from .fuerza_bruta import fuerza_bruta
+from .viajante import mejor_itinerario
 
 
 """
@@ -77,7 +79,7 @@ class Planer:
             },
             "required": ["lugares"]
         }
-    def generate_itinerary(self, metaheuristic = "AG"):
+    def generate_itinerary(self, resolvedor = "AG"):
         
         utils = rag.ChatUtils()
         query = f"""
@@ -116,12 +118,17 @@ class Planer:
         )
         itinerario = None
         valor = 0
-        if metaheuristic == "AG":
+        if resolvedor == "AG":
             itinerario, valor = metaheuristica.algoritmo_genetico_itinerario()
-        elif metaheuristic == "PSO":
+        elif resolvedor == "PSO":
             itinerario, valor = metaheuristica.pso_itinerario()
-        elif metaheuristic == "TS":
+        elif resolvedor == "TS":
             itinerario, valor = metaheuristica.tabu_search_itinerario()
+        elif resolvedor == "FuerzaBruta":
+            itinerario, valor = fuerza_bruta(lugares, self.dias_vacaciones)
+        elif resolvedor == "Viajante":
+            itinerario, valor = mejor_itinerario(lugares, self.dias_vacaciones)
+        
         return itinerario, valor
     
 

@@ -109,6 +109,7 @@ promedio3 = 0
 contador_validos1 = 0
 contador_validos2 = 0
 contador_validos3 = 0
+
 for i in range(0, len(muestra)-1) :
     planificador = Planer(
         muestra[i],                # tipolugares (preferencias de actividades)
@@ -118,7 +119,7 @@ for i in range(0, len(muestra)-1) :
     )
 
     try:
-        _, valor1 = planificador.generate_itinerary(metaheuristic="AG")
+        _, valor1 = planificador.generate_itinerary(resolvedor="AG")
     except KeyError as e:
         print(f"[AG] Error: {e} - No se encontró un bloque JSON o la clave 'lugares'")
         valor1 = None
@@ -128,7 +129,7 @@ for i in range(0, len(muestra)-1) :
 
     # Ejecutar la metaheurística PSO y almacenar los valores
     try:
-        _, valor2 = planificador.generate_itinerary(metaheuristic="PSO")
+        _, valor2 = planificador.generate_itinerary(resolvedor="PSO")
     except KeyError as e:
         print(f"[PSO] Error: {e} - No se encontró un bloque JSON o la clave 'lugares'")
         valor2 = None
@@ -137,7 +138,7 @@ for i in range(0, len(muestra)-1) :
         valor2 = None
     
     try:
-        _, valor3 = planificador.generate_itinerary(metaheuristic="TS")
+        _, valor3 = planificador.generate_itinerary(resolvedor="TS")
     except KeyError as e:
         print(f"[AG] Error: {e} - No se encontró un bloque JSON o la clave 'lugares'")
         valor3 = None
