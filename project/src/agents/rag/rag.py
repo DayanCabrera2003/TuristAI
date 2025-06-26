@@ -2,6 +2,8 @@ import numpy as np
 from pathlib import Path
 import json
 import pickle
+import hashlib
+from datetime import datetime
 import os
 import shutil
 from sentence_transformers import SentenceTransformer
@@ -20,6 +22,7 @@ nlp = spacy.load("es_core_news_sm")
 EMBEDDINGS_DYNAMIC_FILE = "./project/src/agents/data_dynamic/embeddings.pkl"
 EMBEDDINGS_FORMULARIO_FILE = "./project/src/agents/data_formulario/embeddings.pkl"
 EMBEDDINGS_FILE = "./project/src/agents/data/embeddings.pkl"
+DYNAMIC_EMBEDDINGS_STORAGE = "./project/src/agents/dynamic_embeddings"
 DATA_DYNAMIC_DIR = "./project/src/agents/data_dynamic"
 GEMINI_API_KEY = "AIzaSyA4642FobnkJVq5GcMmYKZsT_t2v0a_FuY"#"AIzaSyDSWR4UwuJmxjvHrmw8t-V9PzUB5aV3QTU" 
 #GEMINI_API_KEY = "AIzaSyDxAqj0-PrXvI4vs4cedxQh1Wqf14OL29A"
@@ -38,6 +41,8 @@ class ChatUtils:
         
         self.ontology_manager = OntologyManager()
         self.ontology_manager.load_ontology()
+        
+        self.dynamic_embeddings = self.load_all_dynamic_embeddings()
     
 
     
@@ -53,6 +58,74 @@ class ChatUtils:
         """
         vector = local_model.encode(text)
         return vector.tolist()
+    
+    
+    def generate_query_hash(self, query):
+        """
+        Genera un hash único para una query para usar como identificador de archivo.
+        
+        Args:
+            query (str): La consulta del usuario
+            
+        Returns:
+            str: Hash MD5 de la consulta normalizada
+        """
+        normalized_query = self.normalize_text(query)
+        return hashlib.md5(normalized_query.encode('utf-8')).hexdigest()
+    
+    
+    def save_dynamic_embeddings(self, query, embeddings):
+        """
+        Guarda los embeddings dinámicos en un archivo específico para la consulta.
+        
+        Args:
+            query (str): La consulta original
+            embeddings (list): Lista de tuplas (embedding, text)
+        """
+        if not embeddings:
+            return
+            
+        query_hash = self.generate_query_hash(query)
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"dynamic_{query_hash}_{timestamp}.pkl"
+        filepath = Path(DYNAMIC_EMBEDDINGS_STORAGE) / filename
+        
+        # Metadatos del archivo
+        metadata = {
+            'original_query': query,
+            'embeddings': embeddings
+        }
+        
+        try:
+            with open(filepath, 'wb') as f:
+                pickle.dump(metadata, f)
+            print(f"✅ Embeddings dinámicos guardados: {filename} ({len(embeddings)} vectores)")
+        except Exception as e:
+            print(f"❌ Error guardando embeddings dinámicos: {e}")
+    
+    def load_all_dynamic_embeddings(self):
+        """
+        Carga todos los embeddings dinámicos existentes.
+        
+        Returns:
+            list: Lista combinada de todos los embeddings dinámicos
+        """
+        dynamic_embeddings = []
+        storage_path = Path(DYNAMIC_EMBEDDINGS_STORAGE)
+        
+        if not storage_path.exists():
+            return dynamic_embeddings
+            
+        for filepath in storage_path.glob("dynamic_*.pkl"):
+            try:
+                with open(filepath, 'rb') as f:
+                    metadata = pickle.load(f)
+                    if 'embeddings' in metadata:
+                        dynamic_embeddings.extend(metadata['embeddings'])
+            except Exception as e:
+                print(f"⚠️ Error cargando {filepath.name}: {e}")
+                
+        return dynamic_embeddings
     
     
     @staticmethod
@@ -338,10 +411,12 @@ class ChatUtils:
         if query_vector is None:
             return []
         query_vector = np.array(query_vector)
+        
+        all_embeddings = store_vectors + self.dynamic_embeddings
 
         # Calcular la distancia euclideana entre el embedding de la consulta y cada embedding almacenado
         distances = []
-        for emb, text in store_vectors:
+        for emb, text in all_embeddings:
             emb_np = np.array(emb)
             dist = np.linalg.norm(query_vector - emb_np)
             distances.append((dist,text))
@@ -391,6 +466,10 @@ class ChatUtils:
             texts = ChatUtils.load_all_texts(DATA_DYNAMIC_DIR)
             embeddings = self.update_knowledge_base(
                      texts, chunk_size=100, overlap_size=10)
+            self.save_dynamic_embeddings(query, embeddings)
+                    
+                    # Agregar a la memoria dinámica actual
+            self.dynamic_embeddings.extend(embeddings)
             retrieved = self.retrieve(query_norm, embeddings, top_k=top_k)
             ChatUtils.clear_data_directory(DATA_DYNAMIC_DIR)  # Limpia el directorio dinámico después de usarlo
             

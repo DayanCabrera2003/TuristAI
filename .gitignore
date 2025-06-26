@@ -4,6 +4,7 @@ __pycache__/
 data/
 data_dynamic/
 data_formulario/
+dynamic_embeddings/
 informe/
 
 *.pyc
