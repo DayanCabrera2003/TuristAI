@@ -134,13 +134,12 @@ def ejecutar_resolvedores(planificador: Planer, i):
     fila_tiempos = [i]
     resultados = []
     json_data = planificador.generar_dominio_itinerario()
-    for resolvedor in ['AG', 'PSO', 'TS', 'viajante']:
+    def resolver_en_hilo(resolvedor):
         valor = None
         tiempo = None
         try:
             inicio = time.time()
             result = planificador.generate_itinerary(json_data, resolvedor=resolvedor)
-            # Si el resultado es un solo valor, úsalo como valor; si es una tupla, toma el segundo elemento como valor
             if isinstance(result, tuple):
                 _, valor = result
             else:
@@ -150,11 +149,18 @@ def ejecutar_resolvedores(planificador: Planer, i):
             print(f"[{resolvedor}] Error: {e} - No se encontró un bloque JSON o la clave 'lugares'")
         except Exception as e:
             print(f"[{resolvedor}] Error inesperado: {e}")
-        
-        fila_valores.append(valor if isinstance(valor, (int, float)) else None)
-        fila_tiempos.append(tiempo if isinstance(tiempo, (int, float)) else None)
-        if valor is not None and valor != 0:
-            resultados.append((resolvedor, valor, tiempo))
+        return resolvedor, valor, tiempo
+
+    resolvedores = ['AG', 'PSO', 'TS', 'viajante']
+    resultados_hilos = []
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        futuros = {executor.submit(resolver_en_hilo, r): r for r in resolvedores}
+        for futuro in concurrent.futures.as_completed(futuros):
+            resolvedor, valor, tiempo = futuro.result()
+            fila_valores.append(valor if isinstance(valor, (int, float)) else None)
+            fila_tiempos.append(tiempo if isinstance(tiempo, (int, float)) else None)
+            if valor is not None and valor != 0:
+                resultados.append((resolvedor, valor, tiempo))
     return fila_valores, fila_tiempos, resultados
 
 # Inicializar variables para todos los algoritmos
