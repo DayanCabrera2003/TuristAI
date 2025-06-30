@@ -17,7 +17,7 @@ según los objetivos definidos por el usuario.
 """
 class Planer:
     def __init__(self, tipolugares, lugares, dias_vacaciones, presupuesto_disponible,
-                 max_cant_lugares=True, min_presupuesto=False):
+                 max_cant_lugares=False, min_presupuesto=False):
         self.max_cant_lugares = max_cant_lugares
         self.min_presupuesto = min_presupuesto
         self.lugares = lugares
@@ -135,7 +135,7 @@ class Planer:
         elif resolvedor == "fuerza_bruta":
             itinerario, valor = fuerza_bruta(lugares, self.dias_vacaciones, metaheuristica)
         elif resolvedor == "viajante":
-            itinerario, valor = mejor_itinerario(lugares, self.dias_vacaciones)
+            itinerario, valor = mejor_itinerario(lugares, self.dias_vacaciones, metaheuristica)
         
         return itinerario, valor
     
