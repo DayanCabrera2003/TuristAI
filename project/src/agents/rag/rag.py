@@ -19,8 +19,9 @@ EMBEDDINGS_DYNAMIC_FILE = "./project/src/agents/data_dynamic/embeddings.pkl"
 EMBEDDINGS_FORMULARIO_FILE = "./project/src/agents/data_formulario/embeddings.pkl"
 EMBEDDINGS_FILE = "./project/src/agents/data/embeddings.pkl"
 DATA_DYNAMIC_DIR = "./project/src/agents/data_dynamic"
-GEMINI_API_KEY = "AIzaSyA4642FobnkJVq5GcMmYKZsT_t2v0a_FuY"#"AIzaSyDSWR4UwuJmxjvHrmw8t-V9PzUB5aV3QTU" 
-#GEMINI_API_KEY = "AIzaSyDxAqj0-PrXvI4vs4cedxQh1Wqf14OL29A"
+# GEMINI_API_KEY = "AIzaSyDSWR4UwuJmxjvHrmw8t-V9PzUB5aV3QTU" #"AIzaSyA4642FobnkJVq5GcMmYKZsT_t2v0a_FuY"
+GEMINI_API_KEY = "AIzaSyB617RCeuaTmgmrL8V9rMYR-Q4DbpYO3nY"
+# "AIzaSyDxAqj0-PrXvI4vs4cedxQh1Wqf14OL29A"
 class ChatUtils:
     def __init__(self):
         

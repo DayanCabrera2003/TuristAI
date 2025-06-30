@@ -79,8 +79,7 @@ class Planer:
             },
             "required": ["lugares"]
         }
-    def generate_itinerary(self, resolvedor = "AG"):
-        
+    def generar_dominio_itinerario(self):
         utils = rag.ChatUtils()
         query = f"""
          {", ".join(self.lugares)} que estén en alguna de las siguientes provincias: {", ".join(self.tipolugares)} de Cuba.
@@ -101,8 +100,15 @@ class Planer:
         else:
             print("No se encontró un bloque JSON en la respuesta.")
             result_json = {}
+        return result_json
         
-        lugares = result_json["lugares"]
+    def generate_itinerary(self, json = None, resolvedor = "AG"):
+
+        if json is None:
+            json = self.generar_dominio_itinerario()
+            if json is None:
+                return [], 0
+        lugares = json["lugares"]
         if not lugares:
             print("No se encontraron lugares turísticos en la respuesta. No se puede generar itinerario.")
             return [], 0
@@ -126,9 +132,9 @@ class Planer:
             itinerario, valor = metaheuristica.pso_itinerario()
         elif resolvedor == "TS":
             itinerario, valor = metaheuristica.tabu_search_itinerario()
-        elif resolvedor == "FuerzaBruta":
-            itinerario, valor = fuerza_bruta(lugares, self.dias_vacaciones)
-        elif resolvedor == "Viajante":
+        elif resolvedor == "fuerza_bruta":
+            itinerario, valor = fuerza_bruta(lugares, self.dias_vacaciones, metaheuristica)
+        elif resolvedor == "viajante":
             itinerario, valor = mejor_itinerario(lugares, self.dias_vacaciones)
         
         return itinerario, valor
