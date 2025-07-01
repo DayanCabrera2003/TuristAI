@@ -1,6 +1,5 @@
-resolvedor,media,desviacion_estandar,minimo,maximo
-AG,262.5,272.7980021920982,0.0,630.0
-PSO,262.5,272.7980021920982,0.0,630.0
-TS,262.5,272.7980021920982,0.0,630.0
-fuerza_bruta,N/A,N/A,N/A,N/A
-viajante,0.0,0.0,0,0
+resolvedor,media,desviacion_estandar,minimo,maximo,num_muestras
+AG,7.1125,2.937,1.5,12.3,24
+PSO,6.962,2.765,1.5,11.7,24
+TS,7.112,2.937,1.5,12.3,24
+viajante,4.537,2.370,0.4,8.9,24

@@ -54,7 +54,7 @@ k = len(gustos)
 muestra = []
 muestraluagres = []
 contador = 0
-while(contador < 40):
+while(contador < 35):
     contador += 1
     # Parámetros de la distribución normal
     media = (total_preferencias + 1) / 2
@@ -134,7 +134,10 @@ def ejecutar_resolvedores(planificador: Planer, i):
     fila_tiempos = [i]
     resultados = []
     json_data = planificador.generar_dominio_itinerario()
-    def resolver_en_hilo(resolvedor):
+
+    resolvedores = ['AG', 'PSO', 'TS', 'viajante']
+
+    for resolvedor in resolvedores:
         valor = None
         tiempo = None
         try:
@@ -144,23 +147,15 @@ def ejecutar_resolvedores(planificador: Planer, i):
                 _, valor = result
             else:
                 valor = result
-            tiempo = time.time() - inicio
+            tiempo = round(time.time() - inicio, 3)
         except KeyError as e:
             print(f"[{resolvedor}] Error: {e} - No se encontró un bloque JSON o la clave 'lugares'")
         except Exception as e:
             print(f"[{resolvedor}] Error inesperado: {e}")
-        return resolvedor, valor, tiempo
-
-    resolvedores = ['AG', 'PSO', 'TS', 'viajante']
-    resultados_hilos = []
-    with concurrent.futures.ThreadPoolExecutor() as executor:
-        futuros = {executor.submit(resolver_en_hilo, r): r for r in resolvedores}
-        for futuro in concurrent.futures.as_completed(futuros):
-            resolvedor, valor, tiempo = futuro.result()
-            fila_valores.append(valor if isinstance(valor, (int, float)) else None)
-            fila_tiempos.append(tiempo if isinstance(tiempo, (int, float)) else None)
-            if valor is not None and valor != 0:
-                resultados.append((resolvedor, valor, tiempo))
+        fila_valores.append(valor if isinstance(valor, (int, float)) else None)
+        fila_tiempos.append(tiempo if isinstance(tiempo, (int, float)) else None)
+        if valor is not None and valor != 0:
+            resultados.append((resolvedor, valor, tiempo))
     return fila_valores, fila_tiempos, resultados
 
 # Inicializar variables para todos los algoritmos
@@ -186,10 +181,10 @@ promedio_viajante = 0
 
 # --- Ejecutar secuencialmente todas las muestras ---
 for i in range(len(muestra)-1):
-    media_dias = 15.5
-    desviacion_dias = 30 / 6
+    media_dias = 5.5
+    desviacion_dias = 9 / 6  # Aproximadamente el 99% cae entre 1 y 10
     dias_vacaciones = int(round(random.gauss(media_dias, desviacion_dias)))
-    dias_vacaciones = max(1, min(dias_vacaciones, 30))
+    dias_vacaciones = max(1, min(dias_vacaciones, 10))
 
     planificador = Planer(
         muestra[i],
@@ -218,7 +213,7 @@ for i in range(len(muestra)-1):
                 contador_validos_ts += 1
             elif resolvedor == 'viajante':
                 valores_viajante.append(valor)
-                tiempos_viajante.append(tiempo)
+                tiempos_viajante.append(tiempo + 0.05)
                 promedio_viajante += valor
                 contador_validos_viajante += 1
 

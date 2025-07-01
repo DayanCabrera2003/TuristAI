@@ -30,7 +30,7 @@ class MetaheuristicasItinerario:
         peso_lugares = 10
         peso_tipo_pref = 30
         peso_lugar_pref = 30
-        peso_distancia = 5
+        peso_distancia = 10
         peso_presupuesto = 1
 
         for actividad in actividades:
@@ -73,7 +73,7 @@ class MetaheuristicasItinerario:
         if self.min_presupuesto and self.presupuesto_max > 0 and total_costo <= self.presupuesto_max:
             evaluacion += peso_presupuesto * (self.presupuesto_max - total_costo) / self.presupuesto_max
 
-        return evaluacion + 1500
+        return evaluacion/100 + 15
 
     # Metaheurística: Algoritmo Genético
     def cruzar(self, padre1, padre2):

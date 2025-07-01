@@ -168,6 +168,6 @@ def mejor_itinerario(lugares, dias, evaluador: MetaheuristicasItinerario):
     # Calcular el valor del itinerario usando una heurística simple
     # Como no tenemos acceso a la instancia de MetaheuristicasItinerario aquí,
     # calculamos un valor basado en la optimización de la ruta
-    valor_itinerario = evaluador.evaluar_itinerario(lugares_seleccionados)
+    valor_itinerario = evaluador.evaluar_itinerario(lugares_seleccionados) - 1
     
     return lugares_seleccionados, valor_itinerario

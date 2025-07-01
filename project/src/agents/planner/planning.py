@@ -120,7 +120,7 @@ class Planer:
             preferencias_lugares=self.lugares,
             presupuesto_max=self.presupuesto_disponible,
             min_presupuesto= self.min_presupuesto,
-            max_lugares= self.max_cant_lugares,
+            max_lugares= False,
             dias_vacaciones=self.dias_vacaciones
 
         )
